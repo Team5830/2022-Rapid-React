@@ -15,6 +15,7 @@ public class DriveTrain extends SubsystemBase {
   WPI_VictorSPX m_leftlead = new WPI_VictorSPX(Constants.CANBusID.leftkMotor1);
   WPI_VictorSPX m_leftfollow = new WPI_VictorSPX(Constants.CANBusID.leftkMotor1);
   DifferentialDrive m_drive;
+  double MaxOutput = Constants.drive.MaxSpeed;
 
   public DriveTrain() {
     m_rightlead.setInverted(true);
@@ -34,7 +35,15 @@ public class DriveTrain extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
 
+  public void setMaxOutput(double maxvalue){
+    MaxOutput = maxvalue;
+  }
   public void TankDrive(double leftspeed, double rightspeed){
+    
+    leftspeed = MaxOutput < leftspeed ? MaxOutput : leftspeed ;
+    leftspeed = leftspeed < -MaxOutput ? -MaxOutput : leftspeed ;
+    rightspeed = MaxOutput < rightspeed ? MaxOutput : rightspeed ;
+    rightspeed = rightspeed < -MaxOutput ? -MaxOutput : rightspeed ;
     m_drive.tankDrive(leftspeed, rightspeed);
   }
 }
