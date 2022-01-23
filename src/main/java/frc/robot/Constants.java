@@ -19,5 +19,15 @@ public final class Constants {
         public static final int leftkMotor2 = 7;
         public static final int rightkMotor2 = 12;
     }
+    public static final class drive{
+        public static final double MaxSpeed = 1.0;
+        public static final double reducedMaxSpeed = 0.5; 
+    }
+    public static final class buttonsLeftjoy{
+        public static final int halfspeedButton = 1;
+    }
+    public static final class buttonsRightjoy{
+        public static final int button1 = 1;
+    }
 
 }
