@@ -37,6 +37,7 @@ public class DriveTrain extends SubsystemBase {
 
   public DriveTrain() {
     m_leftencoder.setDistancePerPulse(Constants.Drive.distancePerPulse);
+    m_rightencoder.setDistancePerPulse(Constants.Drive.distancePerPulse);
   }
 
   @Override
@@ -49,9 +50,11 @@ public class DriveTrain extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
 
+  public void TankDrive(double leftspeed, double rightspeed){  
+    m_drive.tankDrive(leftspeed, rightspeed, Constants.Drive.SquareInputs);
+  }
 
-  public void TankDrive(double leftspeed, double rightspeed){
-    
-    m_drive.tankDrive(leftspeed, rightspeed);
+  public void ArcadeDrive(double fowardspeed, double rotationsspeed){
+    m_drive.arcadeDrive(fowardspeed, rotationsspeed, Constants.Drive.SquareInputs);
   }
 }

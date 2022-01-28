@@ -27,6 +27,7 @@ public final class Constants {
 
     }
     public static final class Drive {
+        public static final boolean SquareInputs = true;
         public static final int kEncoderCPR = 20;
         public static final double kWheelCircInches = 18.5;
         public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR/10.71;//Gear Ratio = 1:10.71
