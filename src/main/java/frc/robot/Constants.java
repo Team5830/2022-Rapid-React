@@ -14,20 +14,21 @@ package frc.robot;
  */
 public final class Constants {
     public static final class CANBusID{
-        public static final int leftkMotor1 = 4;
-        public static final int rightkMotor1 = 11;
-        public static final int leftkMotor2 = 7;
-        public static final int rightkMotor2 = 12;
+        public static final int kLeftMotor1 = 4;
+        public static final int kRightMotor1 = 11;
+        public static final int kLeftMotor2 = 7;
+        public static final int kRightMotor2 = 12;
     }
-    public static final class drive{
-        public static final double MaxSpeed = 1.0;
-        public static final double reducedMaxSpeed = 0.5; 
-    }
-    public static final class buttonsLeftjoy{
-        public static final int halfspeedButton = 1;
-    }
-    public static final class buttonsRightjoy{
-        public static final int button1 = 1;
-    }
+    public static final class Ports {
+        public static final int LeftDriveEncoder1 = 1;
+        public static final int LeftDriveEncoder2 = 2;
+        public static final int RightDriveEncoder1 = 3;
+        public static final int RightDriveEncoder2 = 4;
 
+    }
+    public static final class Drive {
+        public static final int kEncoderCPR = 20;
+        public static final double kWheelCircInches = 18.5;
+        public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR/10.71;//Gear Ratio = 1:10.71
+    }
 }
