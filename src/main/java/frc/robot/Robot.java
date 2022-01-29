@@ -20,7 +20,7 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
 
-  private Command m_smartDashboardCommand = new SmartDashboardCmd(m_robotContainer.m_drivetrain);
+  private Command m_smartDashboardCommand;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
-    m_smartDashboardCommand.schedule();
+    m_smartDashboardCommand = new SmartDashboardCmd(m_robotContainer.m_drivetrain);
   }
 
   /**
@@ -50,7 +50,7 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
 
-    // smartDashboardCommand.start();
+    m_smartDashboardCommand.schedule();
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
