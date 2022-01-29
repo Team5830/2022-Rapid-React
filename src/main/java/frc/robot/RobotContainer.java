@@ -41,9 +41,9 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     // Lower max speed
-    //new JoystickButton(m_leftJoy, Constants.buttonsLeftjoy.halfspeedButton)
-    //    .whenPressed(() -> m_drivetrain.setMaxOutput(Constants.drive.reducedMaxSpeed))
-    //    .whenReleased(() -> m_drivetrain.setMaxOutput(Constants.drive.MaxSpeed));
+    new JoystickButton(m_leftJoy, Constants.buttonsLeftjoy.halfspeedButton)
+        .whenPressed(() -> m_drivetrain.setMaxOutput(Constants.Drive.reducedMaxSpeed))
+        .whenReleased(() -> m_drivetrain.setMaxOutput(Constants.Drive.MaxSpeed));
 
   }
 
