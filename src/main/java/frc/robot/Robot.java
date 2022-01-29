@@ -20,7 +20,7 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
 
-  private SmartDashboardCmd smartDashboardCommand;
+  private Command m_smartDashboardCommand = new SmartDashboardCmd(m_robotContainer.m_drivetrain);
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
-    smartDashboardCommand = new SmartDashboardCmd(m_robotContainer.m_drivetrain);
+    m_smartDashboardCommand.schedule();
   }
 
   /**
