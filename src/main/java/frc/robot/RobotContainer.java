@@ -20,7 +20,7 @@ import frc.robot.Constants;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final DriveTrain m_drivetrain = new DriveTrain();
+  public final DriveTrain m_drivetrain = new DriveTrain();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
 
@@ -30,7 +30,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     
-    m_drivetrain.setDefaultCommand( new Drive(m_drivetrain,() -> m_leftJoy.getY(), () -> m_rightJoy.getY() ));
+    m_drivetrain.setDefaultCommand(new Drive(m_drivetrain, () -> m_leftJoy.getY(), () -> m_rightJoy.getY()));
   }
 
   /**

@@ -19,21 +19,21 @@ public class DriveTrain extends SubsystemBase {
   WPI_VictorSPX m_rightfollow = new WPI_VictorSPX(Constants.CANBusID.kRightMotor2);
 
   double maxspeed=Constants.Drive.MaxSpeed;
+
   // Left Side Motor Controllers
   WPI_VictorSPX m_leftlead = new WPI_VictorSPX(Constants.CANBusID.kLeftMotor1);
   WPI_VictorSPX m_leftfollow = new WPI_VictorSPX(Constants.CANBusID.kLeftMotor2);
-  
 
-  
-  DifferentialDrive m_drive ;//= new DifferentialDrive(m_leftlead, m_rightlead);
+  DifferentialDrive m_drive;// = new DifferentialDrive(m_leftlead, m_rightlead);
 
-  public void initMotor(){
+  public void initMotor() {
+
     m_rightfollow.follow(m_rightlead);
     m_leftfollow.follow(m_leftlead);
     m_drive = new DifferentialDrive(m_leftlead, m_rightlead);
   }
 
-  public Encoder m_leftencoder = new Encoder(Constants.Ports.LeftDriveEncoder1,Constants.Ports.LeftDriveEncoder2);
+  public Encoder m_leftencoder = new Encoder(Constants.Ports.LeftDriveEncoder1, Constants.Ports.LeftDriveEncoder2);
   public Encoder m_rightencoder = new Encoder(Constants.Ports.RightDriveEncoder1, Constants.Ports.RightDriveEncoder2);
 
   public DriveTrain() {
@@ -76,11 +76,23 @@ public class DriveTrain extends SubsystemBase {
     }
     if (rightspeed<-maxspeed ){
       rightspeed=-maxspeed;
-    }
+    }   
     m_drive.tankDrive(leftspeed, rightspeed, Constants.Drive.SquareInputs);
   }
 
-  public void ArcadeDrive(double fowardspeed, double rotationsspeed){
+  public void ArcadeDrive(double fowardspeed, double rotationsspeed) {
     m_drive.arcadeDrive(fowardspeed, rotationsspeed, Constants.Drive.SquareInputs);
+  }
+
+  public double getAverageDistance() {
+    return (m_leftencoder.getDistance() + m_rightencoder.getDistance()) / 2;
+  }
+
+  public double getLeftDistance() {
+    return (m_leftencoder.getDistance());
+  }
+
+  public double getRightDistance() {
+    return (-m_rightencoder.getDistance());
   }
 }
