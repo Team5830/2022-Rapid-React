@@ -83,16 +83,5 @@ public class DriveTrain extends SubsystemBase {
   public void ArcadeDrive(double fowardspeed, double rotationsspeed) {
     m_drive.arcadeDrive(fowardspeed, rotationsspeed, Constants.Drive.SquareInputs);
   }
-
-  public double getAverageDistance() {
-    return (m_leftencoder.getDistance() + m_rightencoder.getDistance()) / 2;
-  }
-
-  public double getLeftDistance() {
-    return (m_leftencoder.getDistance());
-  }
-
-  public double getRightDistance() {
-    return (-m_rightencoder.getDistance());
-  }
+  
 }
