@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -16,6 +17,8 @@ public class DriveTrain extends SubsystemBase {
   // Right Side Motor Controllers
   WPI_VictorSPX m_rightlead = new WPI_VictorSPX(Constants.CANBusID.kRightMotor1);
   WPI_VictorSPX m_rightfollow = new WPI_VictorSPX(Constants.CANBusID.kRightMotor2);
+
+  double maxspeed=Constants.Drive.MaxSpeed;
 
   // Left Side Motor Controllers
   WPI_VictorSPX m_leftlead = new WPI_VictorSPX(Constants.CANBusID.kLeftMotor1);
@@ -37,18 +40,43 @@ public class DriveTrain extends SubsystemBase {
     m_leftencoder.setDistancePerPulse(Constants.Drive.distancePerPulse);
     m_rightencoder.setDistancePerPulse(Constants.Drive.distancePerPulse);
   }
-
+  public double getAverageDistance(){
+    return (m_leftencoder.getDistance()-m_rightencoder.getDistance())/2;
+    }
+    public double getLeftDistance(){
+      return (m_leftencoder.getDistance());
+    }
+    public double getRightDistance(){
+      return (-m_rightencoder.getDistance());
+    }
   @Override
   public void periodic() {
+    SmartDashboard.putNumber("Encoder Distance", getAverageDistance());
+    SmartDashboard.putNumber("Right Encoder Distance",getRightDistance());
+    SmartDashboard.putNumber("Left Encoder Distance",getLeftDistance());
     // This method will be called once per scheduler run
   }
-
+  public void setMaxOutput(double newMax) {
+    maxspeed=newMax;
+  }
   @Override
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
 
-  public void TankDrive(double leftspeed, double rightspeed) {
+  public void TankDrive(double leftspeed, double rightspeed){  
+    if (leftspeed>maxspeed ){
+    leftspeed=maxspeed;
+    }
+    if (rightspeed>maxspeed ){
+      rightspeed=maxspeed;
+    }
+    if (leftspeed<-maxspeed ){
+      leftspeed=-maxspeed;
+    }
+    if (rightspeed<-maxspeed ){
+      rightspeed=-maxspeed;
+    }   
     m_drive.tankDrive(leftspeed, rightspeed, Constants.Drive.SquareInputs);
   }
 
