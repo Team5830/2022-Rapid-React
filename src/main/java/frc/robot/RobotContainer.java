@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.*;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
-import frc.robot.Constants;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -23,6 +22,7 @@ public class RobotContainer {
   public final DriveTrain m_drivetrain = new DriveTrain();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
+  private final FirstIntake m_firstintake = new FirstIntake();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

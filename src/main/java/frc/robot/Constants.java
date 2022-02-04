@@ -37,4 +37,9 @@ public final class Constants {
     public static final class buttonsLeftjoy {
         public static final int halfspeedButton =5;
     }
+    public static final class firstIntake {
+        public static final double firstIntakespeed =0.5;
+                public static void set(double d) {
+        }
+    }
 }
