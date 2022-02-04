@@ -17,7 +17,7 @@ public class FirstIntake extends SubsystemBase {
     private boolean firstIntakeON =false;
     private boolean FirstIntakeReversed =false;
 public void startFirstIntake(){
-  FirstIntake.firstIntakespeed=(Constants.firstIntakespeed);
+  FirstIntake.firstIntakespeed=(Constants.firstIntake.firstIntakespeed);
   firstIntakeON = true;
   SmartDashboard.putBoolean("FirstIntakeOn", firstIntakeON);
 }
