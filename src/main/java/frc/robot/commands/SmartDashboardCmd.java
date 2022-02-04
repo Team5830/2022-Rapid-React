@@ -28,6 +28,7 @@ public class SmartDashboardCmd extends CommandBase {
     SmartDashboard.putNumber("Encoder Distance", m_subsystemDriveTrain.getAverageDistance());
     SmartDashboard.putNumber("Right Encoder Distance", m_subsystemDriveTrain.getRightDistance());
     SmartDashboard.putNumber("Left Encoder Distance", m_subsystemDriveTrain.getLeftDistance());
+    SmartDashboard.putNumber("Gyro Angle", m_subsystemDriveTrain.getHeading());
   }
 
   // Called once the command ends or is interrupted.
