@@ -40,6 +40,7 @@ public class SmartDashboardCmd extends CommandBase {
     SmartDashboard.putNumber("Encoder Distance", m_subsystemDriveTrain.getAverageDistance());
     SmartDashboard.putNumber("Right Encoder Distance", m_subsystemDriveTrain.getRightDistance());
     SmartDashboard.putNumber("Left Encoder Distance", m_subsystemDriveTrain.getLeftDistance());
+    SmartDashboard.putNumber("Gyro Angle", m_subsystemDriveTrain.getHeading());
 
     this.m_subsystemFlywheel.pidVals.kP = SmartDashboard.getNumber("P Gain", 0);
     this.m_subsystemFlywheel.pidVals.kI = SmartDashboard.getNumber("I Gain", 0);
