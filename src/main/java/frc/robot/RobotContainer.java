@@ -44,7 +44,7 @@ public class RobotContainer {
     new JoystickButton(m_leftJoy, Constants.buttonsLeftjoy.halfspeedButton)
         .whenPressed(() -> m_drivetrain.setMaxOutput(Constants.Drive.reducedMaxSpeed))
         .whenReleased(() -> m_drivetrain.setMaxOutput(Constants.Drive.MaxSpeed));
-
+    //may be changed to toggle later
   }
 
   /**
@@ -57,3 +57,4 @@ public class RobotContainer {
     return new InstantCommand();
   }
 }
+                                                                                                                                                                

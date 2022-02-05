@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import java.io.*;
 
 public class DriveTrain extends SubsystemBase {
   // Right Side Motor Controllers
@@ -40,6 +41,7 @@ public class DriveTrain extends SubsystemBase {
   public Encoder m_rightencoder = new Encoder(Constants.Ports.RightDriveEncoder1, Constants.Ports.RightDriveEncoder2);
 
   public DriveTrain() {
+    initMotor();
     m_leftencoder.setDistancePerPulse(Constants.Drive.distancePerPulse);
     m_rightencoder.setDistancePerPulse(Constants.Drive.distancePerPulse);
 
@@ -52,7 +54,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public double getAverageDistance() {
-    return (m_leftencoder.getDistance() - m_rightencoder.getDistance()) / 2;
+    return (m_leftencoder.getDistance() -m_rightencoder.getDistance()) / 2;
   }
 
   public double getLeftDistance() {
@@ -74,7 +76,7 @@ public class DriveTrain extends SubsystemBase {
 
   public void TankDrive(double leftspeed, double rightspeed) {
     if (leftspeed > maxspeed) {
-      leftspeed = maxspeed;
+    leftspeed = maxspeed;
     }
     if (rightspeed > maxspeed) {
       rightspeed = maxspeed;
@@ -85,7 +87,8 @@ public class DriveTrain extends SubsystemBase {
     if (rightspeed < -maxspeed) {
       rightspeed = -maxspeed;
     }
-    m_drive.tankDrive(leftspeed, rightspeed, Constants.Drive.SquareInputs);
+    System.out.printf("leftspeed %f rightspeed %f",leftspeed, rightspeed);
+    m_drive.tankDrive(leftspeed, -rightspeed);
   }
 
   public void ArcadeDrive(double fowardspeed, double rotationsspeed) {
