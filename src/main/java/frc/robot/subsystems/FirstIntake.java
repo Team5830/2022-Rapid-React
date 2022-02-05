@@ -11,13 +11,14 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.Constants.firstIntake.*;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 public class FirstIntake extends SubsystemBase {
-    private boolean firstIntakeON =false;
-    private boolean FirstIntakeReversed =false;
+    public boolean firstIntakeON = false;
+    public boolean FirstIntakeReversed = false;
+    WPI_VictorSPX m_intakemotor = new WPI_VictorSPX(Constants.CANBusID.dintakemotor);
 public void startFirstIntake(){
-  firstIntakespeed =(Constants.firstIntake.firstIntakespeed);
+ m_intakemotor.set(frc.robot.Constants.firstIntake.firstIntakespeed);
   firstIntakeON = true;
   SmartDashboard.putBoolean("FirstIntakeOn", firstIntakeON);
 }

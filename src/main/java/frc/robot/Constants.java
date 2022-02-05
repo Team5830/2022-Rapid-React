@@ -18,6 +18,7 @@ public final class Constants {
         public static final int kRightMotor1 = 11;
         public static final int kLeftMotor2 = 7;
         public static final int kRightMotor2 = 12;
+        public static final int dintakemotor =10;
     }
     public static final class Ports {
         public static final int LeftDriveEncoder1 = 0;

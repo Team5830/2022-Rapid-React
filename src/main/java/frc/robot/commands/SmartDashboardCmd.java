@@ -7,14 +7,16 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 // import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.*;
 
 public class SmartDashboardCmd extends CommandBase {
   private final DriveTrain m_subsystemDriveTrain;
+  private final FirstIntake m_subsystemIntake;
 
   /** Creates a new SmartDashboard. */
-  public SmartDashboardCmd(DriveTrain m_subsystemDriveTrain) {
+  public SmartDashboardCmd(DriveTrain m_subsystemDriveTrain, FirstIntake m_subsytemintake) {
     this.m_subsystemDriveTrain = m_subsystemDriveTrain;
+    this.m_subsystemIntake = m_subsytemintake;
   }
 
   // Called when the command is initially scheduled.
@@ -28,6 +30,7 @@ public class SmartDashboardCmd extends CommandBase {
     SmartDashboard.putNumber("Encoder Distance", m_subsystemDriveTrain.getAverageDistance());
     SmartDashboard.putNumber("Right Encoder Distance", m_subsystemDriveTrain.getRightDistance());
     SmartDashboard.putNumber("Left Encoder Distance", m_subsystemDriveTrain.getLeftDistance());
+    SmartDashboard.putBoolean("FirstIntakeOn", m_subsystemIntake.firstIntakeON);
   }
 
   // Called once the command ends or is interrupted.
