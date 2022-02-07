@@ -20,6 +20,7 @@ public final class Constants {
         public static final int kRightMotor2 = 11;
         public static final int kLeftFlywheel = 2;
         public static final int kRightFlywheel = 1;
+        public static final int dintakemotor = 10;
     }
     public static final class Ports {
         public static final int LeftDriveEncoder1 = 0;
@@ -29,8 +30,8 @@ public final class Constants {
 
     }
     public static final class Drive {    
-        public static final double reducedMaxSpeed =0.5;
-        public static final double MaxSpeed =1.0;
+        public static final double reducedMaxSpeed = 0.5;
+        public static final double MaxSpeed = 1.0;
         public static final boolean SquareInputs = true;
         public static final int kEncoderCPR = 20;
         public static final double kWheelCircInches = 18.5;
@@ -42,7 +43,11 @@ public final class Constants {
         public static final double shootermotorspeed = 2000;
     
     }
+    public static final class firstIntake {
+        public static final double firstIntakespeed = 0.5;
+    }
     public static final class buttonsLeftjoy {
-        public static final int halfspeedButton =5;
+        public static final int halfspeedButton = 5;
+        public static final int FirstIntakeButton = 4;
     }
 }
