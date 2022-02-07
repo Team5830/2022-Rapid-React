@@ -36,7 +36,8 @@ public final class Constants {
         public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR/10.71;//Gear Ratio = 1:10.71
     }
     public static final class buttonsLeftjoy {
-        public static final int halfspeedButton =5;
+        public static final int halfspeedButton = 5;
+        public static final int FirstIntakeButton = 4;
     }
     public static final class firstIntake {
         public static final double firstIntakespeed =0.5;

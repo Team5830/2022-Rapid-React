@@ -56,9 +56,19 @@ public class DriveTrain extends SubsystemBase {
     SmartDashboard.putNumber("Left Encoder Distance",getLeftDistance());
     // This method will be called once per scheduler run
   }
+
   public void setMaxOutput(double newMax) {
-    maxspeed=newMax;
+    maxspeed = newMax;
   }
+
+  public void toggleMaxSpeed(){
+    if (maxspeed == Constants.Drive.MaxSpeed){
+      maxspeed = Constants.Drive.reducedMaxSpeed;
+    }else{
+      maxspeed = Constants.Drive.MaxSpeed;
+    }
+  }
+
   @Override
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
