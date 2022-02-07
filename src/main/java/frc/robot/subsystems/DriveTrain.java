@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -72,7 +73,7 @@ public class DriveTrain extends SubsystemBase {
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
-
+  
   public void TankDrive(double leftspeed, double rightspeed) {
     if (leftspeed > maxspeed) {
     leftspeed = maxspeed;
@@ -120,5 +121,12 @@ public class DriveTrain extends SubsystemBase {
    */
   public double getTurnRate() {
     return ahrs.getRate();
+  }
+  @Override
+  public void periodic() {
+    SmartDashboard.putNumber("Encoder Distance", getAverageDistance());
+    SmartDashboard.putNumber("Right Encoder Distance",getRightDistance());
+    SmartDashboard.putNumber("Left Encoder Distance",getLeftDistance());
+    // This method will be called once per scheduler run
   }
 }
