@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
-    m_smartDashboardCommand = new SmartDashboardCmd(m_robotContainer.m_drivetrain);
+    m_smartDashboardCommand = new SmartDashboardCmd(m_robotContainer.m_drivetrain, m_robotContainer.m_flywheel);
   }
 
   /**
