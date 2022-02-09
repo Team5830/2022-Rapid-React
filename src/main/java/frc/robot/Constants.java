@@ -14,22 +14,52 @@ package frc.robot;
  */
 public final class Constants {
     public static final class CANBusID{
-        public static final int kLeftMotor1 = 4;
-        public static final int kRightMotor1 = 11;
-        public static final int kLeftMotor2 = 7;
-        public static final int kRightMotor2 = 12;
+        public static final int kLeftMotor1 = 7;
+        public static final int kRightMotor1 = 12;
+        public static final int kLeftMotor2 = 4;
+        public static final int kRightMotor2 = 11;
+        public static final int kLeftFlywheel = 2;
+        public static final int kRightFlywheel = 1;
+        public static final int dintakemotor = 10;
     }
     public static final class Ports {
-        public static final int LeftDriveEncoder1 = 1;
-        public static final int LeftDriveEncoder2 = 2;
-        public static final int RightDriveEncoder1 = 3;
-        public static final int RightDriveEncoder2 = 4;
+        public static final int LeftDriveEncoder1 = 0;
+        public static final int LeftDriveEncoder2 = 1;
+        public static final int RightDriveEncoder1 = 2;
+        public static final int RightDriveEncoder2 = 3;
 
     }
-    public static final class Drive {
+
+    public static final class MovePID{    
+        public static final double P = 0.1;
+        public static final double I = 0.0;
+        public static final double D = 0.0;
+        public static final double f = 0.0;
+        public static final double MaxAlignSpeed = 24; //Inches per second
+        public static final double AlignTolerance = 12; //Inches
+  }
+
+    public static final class Drive {    
+        public static final double reducedMaxSpeed = 0.5;
+        public static final double MaxSpeed = 1.0;
         public static final boolean SquareInputs = true;
         public static final int kEncoderCPR = 20;
         public static final double kWheelCircInches = 18.5;
         public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR/10.71;//Gear Ratio = 1:10.71
+    }
+
+    public static final class Flywheel {
+        public static final int waitforshootersecs = 10;
+        public static final double feedmotorspeed = 0.5;
+        public static final double shootermotorspeed = 2000;
+    
+    }
+    public static final class firstIntake {
+        public static final double firstIntakespeed = 0.5;
+    }
+    public static final class buttonsLeftjoy {
+        public static final int halfspeedButton = 5;
+        public static final int FirstIntakeButton = 4;
+        public static final int move_test_button = 6;
     }
 }
