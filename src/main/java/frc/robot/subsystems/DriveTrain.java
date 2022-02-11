@@ -87,7 +87,7 @@ public class DriveTrain extends SubsystemBase {
     if (rightspeed < -maxspeed) {
       rightspeed = -maxspeed;
     }
-    System.out.printf("leftspeed %f rightspeed %f",leftspeed, rightspeed);
+    //System.out.printf("leftspeed %f rightspeed %f",leftspeed, rightspeed);
     m_drive.tankDrive(leftspeed, -rightspeed);
   }
 

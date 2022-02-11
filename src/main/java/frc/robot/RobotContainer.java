@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.*;
 import frc.robot.Constants.MovePID;
@@ -23,7 +24,7 @@ import frc.robot.commands.Move;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public final DriveTrain m_drivetrain = new DriveTrain();
-  public final Flywheel m_flywheel = new Flywheel();
+  //public final Flywheel m_flywheel = new Flywheel();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
 
@@ -44,12 +45,14 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     // Lower max speed
-    new JoystickButton(m_leftJoy, Constants.buttonsLeftjoy.halfspeedButton)
+    Button maxspeedB = new JoystickButton(m_leftJoy, Constants.buttonsLeftjoy.halfspeedButton)
         .whenPressed(() -> m_drivetrain.setMaxOutput(Constants.Drive.reducedMaxSpeed))
         .whenReleased(() -> m_drivetrain.setMaxOutput(Constants.Drive.MaxSpeed));
     //may be changed to toggle later
-    new JoystickButton(m_leftJoy, Constants.buttonsLeftjoy.move_test_button)
+    Button moveB = new JoystickButton(m_leftJoy, Constants.buttonsLeftjoy.move_test_button)
         .whenPressed(() -> new Move(100.0,m_drivetrain,MovePID.P,MovePID.I,MovePID.D));
+    
+    Button facerightB = new JoystickButton(m_leftJoy,3).whenPressed(new Turn(90, m_drivetrain).withTimeout(5));
   }
 
   /**

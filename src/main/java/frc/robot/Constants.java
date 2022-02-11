@@ -31,14 +31,22 @@ public final class Constants {
     }
 
     public static final class MovePID{    
-        public static final double P = 0.1;
+        public static final double P = 0.01;
         public static final double I = 0.0;
         public static final double D = 0.0;
         public static final double f = 0.0;
         public static final double MaxAlignSpeed = 24; //Inches per second
         public static final double AlignTolerance = 12; //Inches
   }
+    public static final class TurnPID{
+        public static final double kTurnP = 0.025;
+        public static final double kTurnI = 0.0; 
+        public static final double kTurnD = 0.0; 
+        public static final double kTurnF = 0.0;
+        public static final double kTurnToleranceDeg = 5.0;
+        public static final double kTurnRateToleranceDegPerS = 100.0;
 
+    }
     public static final class Drive {    
         public static final double reducedMaxSpeed = 0.5;
         public static final double MaxSpeed = 1.0;
