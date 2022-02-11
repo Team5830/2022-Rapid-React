@@ -10,8 +10,10 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.*;
+import frc.robot.Constants.MovePID;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
+import frc.robot.commands.Move;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -46,6 +48,8 @@ public class RobotContainer {
         .whenPressed(() -> m_drivetrain.setMaxOutput(Constants.Drive.reducedMaxSpeed))
         .whenReleased(() -> m_drivetrain.setMaxOutput(Constants.Drive.MaxSpeed));
     //may be changed to toggle later
+    new JoystickButton(m_leftJoy, Constants.buttonsLeftjoy.move_test_button)
+        .whenPressed(() -> new Move(100.0,m_drivetrain,MovePID.P,MovePID.I,MovePID.D));
   }
 
   /**
