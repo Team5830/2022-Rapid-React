@@ -21,6 +21,8 @@ public final class Constants {
         public static final int kLeftFlywheel = 2;
         public static final int kRightFlywheel = 1;
         public static final int dintakemotor = 10;
+        public static final int conveyor1 = 20;
+        public static final int conveyor2 = 21;
         public static final int dexotor = 9;
     }
     public static final class Ports {
@@ -28,7 +30,10 @@ public final class Constants {
         public static final int LeftDriveEncoder2 = 1;
         public static final int RightDriveEncoder1 = 2;
         public static final int RightDriveEncoder2 = 3;
+    }
 
+    public static final class ConveyorC{
+        public static final double speed=0.3;
     }
 
     public static final class MovePID{    
@@ -80,7 +85,7 @@ public final class Constants {
     }
     public static final class buttonsLeftjoy {
         public static final int halfspeedButton = 5;
-        //public static final int FirstIntakeButton = 6;
+        public static final int toggleIntakeExtend = 6;
         public static final int moveButton = 7;
         public static final int turnleftButton = 3;
         public static final int turnrightButton = 4;
