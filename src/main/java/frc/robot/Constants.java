@@ -31,7 +31,7 @@ public final class Constants {
     }
 
     public static final class MovePID{    
-        public static final double P = 0.01;
+        public static final double P = 0.001;
         public static final double I = 0.0;
         public static final double D = 0.0;
         public static final double f = 0.0;
@@ -47,7 +47,7 @@ public final class Constants {
         public static final double kTurnRateToleranceDegPerS = 100.0;
 
     }
-    public static final class Drive {    
+    public static final class DriveC {    
         public static final double reducedMaxSpeed = 0.5;
         public static final double MaxSpeed = 1.0;
         public static final boolean SquareInputs = true;
@@ -68,6 +68,11 @@ public final class Constants {
     public static final class buttonsLeftjoy {
         public static final int halfspeedButton = 5;
         public static final int FirstIntakeButton = 4;
-        public static final int move_test_button = 6;
+        public static final int moveButton = 6;
+        public static final int turnrightButton = 3;
+    }
+
+    public static final class buttonsRightjoy {
+        public static final int Button = 1;
     }
 }

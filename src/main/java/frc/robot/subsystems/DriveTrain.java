@@ -13,18 +13,18 @@ import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
+import frc.robot.Constants.*;
 
 public class DriveTrain extends SubsystemBase {
   // Right Side Motor Controllers
-  WPI_VictorSPX m_rightlead = new WPI_VictorSPX(Constants.CANBusID.kRightMotor1);
-  WPI_VictorSPX m_rightfollow = new WPI_VictorSPX(Constants.CANBusID.kRightMotor2);
+  WPI_VictorSPX m_rightlead = new WPI_VictorSPX(CANBusID.kRightMotor1);
+  WPI_VictorSPX m_rightfollow = new WPI_VictorSPX(CANBusID.kRightMotor2);
 
-  double maxspeed = Constants.Drive.MaxSpeed;
+  double maxspeed = DriveC.MaxSpeed;
 
   // Left Side Motor Controllers
-  WPI_VictorSPX m_leftlead = new WPI_VictorSPX(Constants.CANBusID.kLeftMotor1);
-  WPI_VictorSPX m_leftfollow = new WPI_VictorSPX(Constants.CANBusID.kLeftMotor2);
+  WPI_VictorSPX m_leftlead = new WPI_VictorSPX(CANBusID.kLeftMotor1);
+  WPI_VictorSPX m_leftfollow = new WPI_VictorSPX(CANBusID.kLeftMotor2);
 
   DifferentialDrive m_drive;
 
@@ -35,22 +35,26 @@ public class DriveTrain extends SubsystemBase {
     m_rightfollow.follow(m_rightlead);
     m_leftfollow.follow(m_leftlead);
     m_drive = new DifferentialDrive(m_leftlead, m_rightlead);
+    
   }
 
-  public Encoder m_leftencoder = new Encoder(Constants.Ports.LeftDriveEncoder1, Constants.Ports.LeftDriveEncoder2);
-  public Encoder m_rightencoder = new Encoder(Constants.Ports.RightDriveEncoder1, Constants.Ports.RightDriveEncoder2);
+  public Encoder m_leftencoder = new Encoder(Ports.LeftDriveEncoder1, Ports.LeftDriveEncoder2);
+  public Encoder m_rightencoder = new Encoder(Ports.RightDriveEncoder1, Ports.RightDriveEncoder2);
 
   public DriveTrain() {
     initMotor();
-    m_leftencoder.setDistancePerPulse(Constants.Drive.distancePerPulse);
-    m_rightencoder.setDistancePerPulse(Constants.Drive.distancePerPulse);
-
+    m_leftencoder.setDistancePerPulse(DriveC.distancePerPulse);
+    m_rightencoder.setDistancePerPulse(DriveC.distancePerPulse);
+    addChild("Right Encoder", m_rightencoder);
+    addChild("Leftt Encoder", m_leftencoder);
     try {
       ahrs = new AHRS(SerialPort.Port.kUSB1);
       ahrs.enableLogging(true);
+      addChild("Gyro", ahrs);
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error instantiating navX MXP: " + ex.getMessage(), true);
     }
+
   }
 
   public double getAverageDistance() {
@@ -91,8 +95,9 @@ public class DriveTrain extends SubsystemBase {
     m_drive.tankDrive(leftspeed, -rightspeed);
   }
 
-  public void ArcadeDrive(double fowardspeed, double rotationsspeed) {
-    m_drive.arcadeDrive(fowardspeed, rotationsspeed, Constants.Drive.SquareInputs);
+  public void ArcadeDrive(double fowardspeed, double rotationspeed) {
+    System.out.println("Drive: " + fowardspeed + ", "+rotationspeed);
+    m_drive.arcadeDrive(fowardspeed, rotationspeed, DriveC.SquareInputs);
   }
 
   /** Zeroes the heading of the robot. */
