@@ -103,9 +103,21 @@ public class DriveTrain extends SubsystemBase {
     m_drive.tankDrive(leftspeed, -rightspeed);
   }
 
-  public void ArcadeDrive(double fowardspeed, double rotationspeed) {
-    System.out.println("Drive: " + fowardspeed + ", "+rotationspeed);
-    m_drive.arcadeDrive(fowardspeed, rotationspeed, DriveC.SquareInputs);
+  public void ArcadeDrive(double forwardspeed, double rotationspeed) {
+    if (forwardspeed > maxspeed) {
+      forwardspeed = maxspeed;
+    }
+    if (forwardspeed > maxspeed) {
+      forwardspeed = maxspeed;
+    }
+    if (rotationspeed > maxspeed) {
+      rotationspeed = maxspeed;
+    }
+    if (rotationspeed > maxspeed) { 
+      rotationspeed = maxspeed;
+    }
+    System.out.println("Drive: " + forwardspeed + ", "+rotationspeed);
+    m_drive.arcadeDrive(forwardspeed, rotationspeed, DriveC.SquareInputs);
   }
 
   /** Zeroes the heading of the robot. */
