@@ -13,6 +13,7 @@ public class FirstIntake extends SubsystemBase {
     public boolean firstIntakeON = false;
     public boolean firstIntakeReversed = false;
     WPI_VictorSPX m_intakemotor = new WPI_VictorSPX(Constants.CANBusID.dintakemotor);
+    WPI_VictorSPX m_dexotor = new WPI_VictorSPX(Constants.CANBusID.dexotor);
 
   public void startFirstIntake(){
     m_intakemotor.set(frc.robot.Constants.firstIntake.firstIntakespeed);
