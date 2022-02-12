@@ -70,6 +70,7 @@ public final class Constants {
         public static final int FirstIntakeButton = 4;
         public static final int moveButton = 6;
         public static final int turnrightButton = 3;
+        public static final int toggleIntake = 2;
     }
 
     public static final class buttonsRightjoy {

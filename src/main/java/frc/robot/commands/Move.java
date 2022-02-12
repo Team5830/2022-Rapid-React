@@ -4,8 +4,6 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.PIDCommand;
 import frc.robot.Constants.MovePID;
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.Constants.MovePID;
-
 /**
  * A command that will turn the robot to the specified angle.
  */

@@ -7,11 +7,8 @@ package frc.robot.commands;
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
-
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.PIDCommand;
-import frc.robot.Constants;
 import frc.robot.Constants.TurnPID;
 import frc.robot.subsystems.DriveTrain;
 
@@ -43,41 +40,3 @@ public class Turn extends PIDCommand {
     return getController().atSetpoint();
   }
 }
-
-
-
-
-//public class Rotate90 extends CommandBase {
-  /**
-   * Creates a new Rotate90.
-   */
-  /*
-   private final Rotate m_drivetrain;
-  private double startangle;
-  public Rotate90(Rotate drivetrain) {
-    // Use addRequirements() here to declare subsystem dependencies.
-    m_drivetrain = drivetrain;
-    addRequirements(m_drivetrain);
-  }
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
-    startangle = m_drivetrain.getMeasurement();
-    m_drivetrain.setTarget(startangle+90);
-  }
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
-    m_drivetrain.enable();
-  }
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {
-  }
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return(m_drivetrain.finished());
-  }
-}
-*/

@@ -9,7 +9,7 @@ import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj2.command.button.Button;
+//import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.*;
 import frc.robot.Constants.*;
@@ -24,6 +24,7 @@ import frc.robot.subsystems.*;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public final DriveTrain m_drivetrain = new DriveTrain();
+  private final FirstIntake m_intake = new FirstIntake();
   //public final Flywheel m_flywheel = new Flywheel();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
@@ -48,14 +49,11 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     // Lower max speed
-    Button maxspeedB = new JoystickButton(m_leftJoy, buttonsLeftjoy.halfspeedButton)
-        .whenPressed(() -> m_drivetrain.setMaxOutput(DriveC.reducedMaxSpeed))
-        .whenReleased(() -> m_drivetrain.setMaxOutput(DriveC.MaxSpeed));
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.halfspeedButton).whenPressed(()-> m_drivetrain.toggleMaxSpeed());
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()-> m_intake.toggleFirstIntake());
     //may be changed to toggle later
-    Button moveB = new JoystickButton(m_leftJoy, buttonsLeftjoy.moveButton)
-        .whenPressed( new Move(100.0,m_drivetrain).withTimeout(5));
-    
-    Button facerightB = new JoystickButton(m_leftJoy,buttonsLeftjoy.turnrightButton).whenPressed(new Turn(90, m_drivetrain).withTimeout(5));
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.moveButton).whenPressed( new Move(100.0,m_drivetrain).withTimeout(5));
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.turnrightButton).whenPressed(new Turn(90, m_drivetrain).withTimeout(5));
   }
 
   /**
