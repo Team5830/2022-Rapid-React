@@ -18,14 +18,13 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class FirstIntake extends SubsystemBase {
-    public boolean firstIntakeON = false;
-    public boolean firstIntakeReversed = false;
-    WPI_VictorSPX m_intakemotor = new WPI_VictorSPX(Constants.CANBusID.dintakemotor);
-    CANSparkMax m_exotor = new CANSparkMax(Constants.CANBusID.dexotor, MotorType.kBrushless);
-    SparkMaxPIDController m_pidController = m_exotor.getPIDController();
-    RelativeEncoder m_encoder = m_exotor.getEncoder();
-    boolean isExtended = false;
-    
+  public boolean firstIntakeON = false;
+  public boolean firstIntakeReversed = false;
+  WPI_VictorSPX m_intakemotor = new WPI_VictorSPX(Constants.CANBusID.dintakemotor);
+  CANSparkMax m_exotor = new CANSparkMax(Constants.CANBusID.dexotor, MotorType.kBrushless);
+  SparkMaxPIDController m_pidController = m_exotor.getPIDController();
+  RelativeEncoder m_encoder = m_exotor.getEncoder();
+  boolean isExtended = false;
   public FirstIntake(){
     try{
       m_exotor.restoreFactoryDefaults();
@@ -93,6 +92,34 @@ public class FirstIntake extends SubsystemBase {
     SmartDashboard.putBoolean("FirstIntakeReversed", firstIntakeReversed);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
