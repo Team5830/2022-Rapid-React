@@ -16,4 +16,5 @@ public class Conveyor extends SubsystemBase {
   public void startFirstIntake(){
     m_intakemotor.set(frc.robot.Constants.firstIntake.firstIntakespeed);
     firstIntakeON = true;
-
+    }
+  }
