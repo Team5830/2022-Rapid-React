@@ -21,7 +21,7 @@ public final class Constants {
         public static final int kLeftFlywheel = 2;
         public static final int kRightFlywheel = 1;
         public static final int dintakemotor = 10;
-        public static final int dexotor = 9;
+        
     }
     public static final class Ports {
         public static final int LeftDriveEncoder1 = 0;
