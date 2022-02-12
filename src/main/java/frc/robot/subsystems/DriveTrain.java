@@ -11,30 +11,36 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
 
 public class DriveTrain extends SubsystemBase {
   // Right Side Motor Controllers
+
   WPI_VictorSPX m_rightlead = new WPI_VictorSPX(CANBusID.kRightMotor1);
   WPI_VictorSPX m_rightfollow = new WPI_VictorSPX(CANBusID.kRightMotor2);
+  MotorControllerGroup m_right = new MotorControllerGroup(m_rightlead,m_rightfollow);
 
   double maxspeed = DriveC.MaxSpeed;
 
   // Left Side Motor Controllers
   WPI_VictorSPX m_leftlead = new WPI_VictorSPX(CANBusID.kLeftMotor1);
   WPI_VictorSPX m_leftfollow = new WPI_VictorSPX(CANBusID.kLeftMotor2);
-
+  MotorControllerGroup m_left = new MotorControllerGroup(m_leftlead,m_leftfollow);
+  
   DifferentialDrive m_drive;
 
   AHRS ahrs;
 
   public void initMotor() {
 
-    m_rightfollow.follow(m_rightlead);
-    m_leftfollow.follow(m_leftlead);
-    m_drive = new DifferentialDrive(m_leftlead, m_rightlead);
+    //m_rightfollow.follow(m_rightlead);
+    //m_leftfollow.follow(m_leftlead);
+    m_right.setInverted(true);
+    //m_rightfollow.setInverted(true);
+    m_drive = new DifferentialDrive(m_left, m_right);
     
   }
 
@@ -100,21 +106,21 @@ public class DriveTrain extends SubsystemBase {
       rightspeed = -maxspeed;
     }
     //System.out.printf("leftspeed %f rightspeed %f",leftspeed, rightspeed);
-    m_drive.tankDrive(leftspeed, -rightspeed);
+    m_drive.tankDrive(leftspeed, rightspeed);
   }
 
   public void ArcadeDrive(double forwardspeed, double rotationspeed) {
     if (forwardspeed > maxspeed) {
       forwardspeed = maxspeed;
     }
-    if (forwardspeed > maxspeed) {
-      forwardspeed = maxspeed;
+    if (forwardspeed < -maxspeed) {
+      forwardspeed = -maxspeed;
     }
     if (rotationspeed > maxspeed) {
       rotationspeed = maxspeed;
     }
-    if (rotationspeed > maxspeed) { 
-      rotationspeed = maxspeed;
+    if (rotationspeed < -maxspeed) { 
+      rotationspeed = -maxspeed;
     }
     System.out.println("Drive: " + forwardspeed + ", "+rotationspeed);
     m_drive.arcadeDrive(forwardspeed, rotationspeed, DriveC.SquareInputs);
