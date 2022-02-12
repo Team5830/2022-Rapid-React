@@ -31,7 +31,7 @@ public final class Constants {
     }
 
     public static final class MovePID{    
-        public static final double P = 0.001;
+        public static final double P = 0.1;
         public static final double I = 0.0;
         public static final double D = 0.0;
         public static final double f = 0.0;
@@ -39,11 +39,11 @@ public final class Constants {
         public static final double AlignTolerance = 12; //Inches
   }
     public static final class TurnPID{
-        public static final double kTurnP = 0.025;
-        public static final double kTurnI = 0.0; 
-        public static final double kTurnD = 0.0; 
-        public static final double kTurnF = 0.0;
-        public static final double kTurnToleranceDeg = 5.0;
+        public static final double kTurnP = 2e-2;
+        public static final double kTurnI = 1e-3; 
+        public static final double kTurnD = 0.0001; 
+        public static final double kTurnF = 0.4;
+        public static final double kTurnToleranceDeg = 2.0;
         public static final double kTurnRateToleranceDegPerS = 100.0;
 
     }
@@ -67,9 +67,10 @@ public final class Constants {
     }
     public static final class buttonsLeftjoy {
         public static final int halfspeedButton = 5;
-        public static final int FirstIntakeButton = 4;
-        public static final int moveButton = 6;
-        public static final int turnrightButton = 3;
+        //public static final int FirstIntakeButton = 6;
+        public static final int moveButton = 7;
+        public static final int turnleftButton = 3;
+        public static final int turnrightButton = 4;
         public static final int toggleIntake = 2;
     }
 

@@ -54,6 +54,7 @@ public class RobotContainer {
     //may be changed to toggle later
     new JoystickButton(m_leftJoy, buttonsLeftjoy.moveButton).whenPressed( new Move(100.0,m_drivetrain).withTimeout(5));
     new JoystickButton(m_leftJoy, buttonsLeftjoy.turnrightButton).whenPressed(new Turn(90, m_drivetrain).withTimeout(5));
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.turnleftButton).whenPressed(new Turn(-90, m_drivetrain).withTimeout(5));
   }
 
   /**
