@@ -29,7 +29,25 @@ public final class Constants {
         public static final int RightDriveEncoder2 = 3;
 
     }
-    public static final class Drive {    
+
+    public static final class MovePID{    
+        public static final double P = 0.1;
+        public static final double I = 0.0;
+        public static final double D = 0.0;
+        public static final double f = 0.0;
+        public static final double MaxAlignSpeed = 24; //Inches per second
+        public static final double AlignTolerance = 12; //Inches
+  }
+    public static final class TurnPID{
+        public static final double kTurnP = 2e-2;
+        public static final double kTurnI = 1e-3; 
+        public static final double kTurnD = 0.0001; 
+        public static final double kTurnF = 0.4;
+        public static final double kTurnToleranceDeg = 2.0;
+        public static final double kTurnRateToleranceDegPerS = 100.0;
+
+    }
+    public static final class DriveC {    
         public static final double reducedMaxSpeed = 0.5;
         public static final double MaxSpeed = 1.0;
         public static final boolean SquareInputs = true;
@@ -37,6 +55,7 @@ public final class Constants {
         public static final double kWheelCircInches = 18.5;
         public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR/10.71;//Gear Ratio = 1:10.71
     }
+
     public static final class Flywheel {
         public static final int waitforshootersecs = 10;
         public static final double feedmotorspeed = 0.5;
@@ -48,6 +67,14 @@ public final class Constants {
     }
     public static final class buttonsLeftjoy {
         public static final int halfspeedButton = 5;
-        public static final int FirstIntakeButton = 4;
+        //public static final int FirstIntakeButton = 6;
+        public static final int moveButton = 7;
+        public static final int turnleftButton = 3;
+        public static final int turnrightButton = 4;
+        public static final int toggleIntake = 2;
+    }
+
+    public static final class buttonsRightjoy {
+        public static final int Button = 1;
     }
 }

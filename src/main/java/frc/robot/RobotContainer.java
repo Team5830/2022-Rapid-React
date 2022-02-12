@@ -5,11 +5,14 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.Joystick;
+//import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.*;
+import frc.robot.Constants.*;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 /**
@@ -21,7 +24,8 @@ import frc.robot.subsystems.*;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public final DriveTrain m_drivetrain = new DriveTrain();
-  public final Flywheel m_flywheel = new Flywheel();
+  private final FirstIntake m_intake = new FirstIntake();
+  //public final Flywheel m_flywheel = new Flywheel();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
 
@@ -30,7 +34,10 @@ public class RobotContainer {
     
     // Configure the button bindings
     configureButtonBindings();
-    
+    SendableRegistry.setName(m_drivetrain, "DriveTrain", "DriveTrain");
+    SendableRegistry.setName(new Turn(90, m_drivetrain), "Turn Right command");
+    SendableRegistry.setName(new Turn(-90, m_drivetrain), "Turn Left command");
+    //SendableRegistry.setName(m_flywheel, "Flywheel", "Flywheel");    
     m_drivetrain.setDefaultCommand(new Drive(m_drivetrain, () -> m_leftJoy.getY(), () -> m_rightJoy.getY()));
   }
 
@@ -42,10 +49,12 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     // Lower max speed
-    new JoystickButton(m_leftJoy, Constants.buttonsLeftjoy.halfspeedButton)
-        .whenPressed(() -> m_drivetrain.setMaxOutput(Constants.Drive.reducedMaxSpeed))
-        .whenReleased(() -> m_drivetrain.setMaxOutput(Constants.Drive.MaxSpeed));
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.halfspeedButton).whenPressed(()-> m_drivetrain.toggleMaxSpeed());
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()-> m_intake.toggleFirstIntake());
     //may be changed to toggle later
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.moveButton).whenPressed( new Move(100.0,m_drivetrain).withTimeout(5));
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.turnrightButton).whenPressed(new Turn(90, m_drivetrain).withTimeout(5));
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.turnleftButton).whenPressed(new Turn(-90, m_drivetrain).withTimeout(5));
   }
 
   /**
@@ -57,5 +66,6 @@ public class RobotContainer {
     // An ExampleCommand will run in autonomous
     return new InstantCommand();
   }
+
 }
                                                                                                                                                                 
