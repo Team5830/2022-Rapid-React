@@ -8,18 +8,19 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
+import frc.robot.Constants.*;
 
 public class FirstIntake extends SubsystemBase {
   public boolean firstIntakeON = false;
   public boolean firstIntakeReversed = false;
-  WPI_VictorSPX m_intakemotor = new WPI_VictorSPX(Constants.CANBusID.dintakemotor);
-  CANSparkMax m_exotor = new CANSparkMax(Constants.CANBusID.dexotor, MotorType.kBrushless);
+  WPI_VictorSPX m_intakemotor = new WPI_VictorSPX(CANBusID.dintakemotor);
+  CANSparkMax m_exotor = new CANSparkMax(CANBusID.dexotor, MotorType.kBrushless);
   SparkMaxPIDController m_pidController = m_exotor.getPIDController();
   RelativeEncoder m_encoder = m_exotor.getEncoder();
   boolean isExtended = false;
@@ -30,17 +31,17 @@ public class FirstIntake extends SubsystemBase {
       DriverStation.reportError("error loading failed" + ex.getMessage(), true);
     }
     // set PID coefficients
-    m_pidController.setP(Constants.firstIntake.P);
-    m_pidController.setI(Constants.firstIntake.I);
-    m_pidController.setD(Constants.firstIntake.D);
-    m_pidController.setIZone(Constants.firstIntake.zI);
-    m_pidController.setFF(Constants.firstIntake.F);
-    m_pidController.setOutputRange(Constants.firstIntake.kMinOutput, Constants.firstIntake.kMaxOutput);
+    m_pidController.setP(firstIntake.P);
+    m_pidController.setI(firstIntake.I);
+    m_pidController.setD(firstIntake.D);
+    m_pidController.setIZone(firstIntake.zI);
+    m_pidController.setFF(firstIntake.F);
+    m_pidController.setOutputRange(firstIntake.kMinOutput, firstIntake.kMaxOutput);
     }
     
   public void extendIntake(){
    if (!isExtended){
-    m_pidController.setReference(Constants.firstIntake.ExtendDistance, ControlType.kPosition);
+    m_pidController.setReference(firstIntake.ExtendDistance, ControlType.kPosition);
     isExtended = true;
    }
   }
@@ -62,12 +63,12 @@ public class FirstIntake extends SubsystemBase {
   }
 
   public void startFirstIntake(){
-    m_intakemotor.set(frc.robot.Constants.firstIntake.firstIntakespeed);
+    m_intakemotor.set(firstIntake.firstIntakespeed);
     firstIntakeON = true;
   }
 
   public void reverseFirstIntake(){
-    m_intakemotor.set(-frc.robot.Constants.firstIntake.firstIntakespeed);
+    m_intakemotor.set(-firstIntake.firstIntakespeed);
     firstIntakeON = true;
     firstIntakeReversed = true;
   }

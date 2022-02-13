@@ -70,6 +70,16 @@ public final class Constants {
     }
     public static final class firstIntake {
         public static final double firstIntakespeed = 0.5;
+        public static final double ExtendSpeed = 0.3;
+        public static final double ExtendDistance = 10;//how far to turn motor to extend arm
+        public static final double P = 0.1;
+        public static final double I = 0.0;
+        public static final double D = 0.0;
+        public static final double F = 0.0;
+        public static final double zI = 0;
+        public static final double kMaxOutput = 0.4;
+        public static final double kMinOutput = 0.1;
+
     }
     public static final class buttonsLeftjoy {
         public static final int halfspeedButton = 5;
