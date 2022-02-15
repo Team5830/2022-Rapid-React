@@ -3,8 +3,6 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
-
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
@@ -19,7 +17,8 @@ import frc.robot.Constants.*;
 public class FirstIntake extends SubsystemBase {
   public boolean firstIntakeON = false;
   public boolean firstIntakeReversed = false;
-  WPI_VictorSPX m_intakemotor = new WPI_VictorSPX(CANBusID.dintakemotor);
+  //WPI_VictorSPX m_intakemotor = new WPI_VictorSPX(CANBusID.dintakemotor);
+  CANSparkMax m_intakemotor = new CANSparkMax(CANBusID.dintakemotor, MotorType.kBrushless);
   CANSparkMax m_exotor = new CANSparkMax(CANBusID.dexotor, MotorType.kBrushless);
   SparkMaxPIDController m_pidController = m_exotor.getPIDController();
   RelativeEncoder m_encoder = m_exotor.getEncoder();
@@ -59,7 +58,6 @@ public class FirstIntake extends SubsystemBase {
     }else{
       extendIntake();
     }
-    
   }
 
   public void startFirstIntake(){
@@ -86,7 +84,6 @@ public class FirstIntake extends SubsystemBase {
       startFirstIntake();
     }
   }
-
 
   @Override
   public void periodic() {

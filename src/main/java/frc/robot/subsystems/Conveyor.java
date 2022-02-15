@@ -7,6 +7,7 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
 public class Conveyor extends SubsystemBase {
@@ -45,4 +46,21 @@ public class Conveyor extends SubsystemBase {
       m_conv2motor.set(0.0);
       conveyor2ON = false;
     }
+
+    public void toggleconveyor(){
+      if (conveyor1ON && conveyor2ON){
+        conveyor1OFF();
+        conveyor2OFF();
+      }else{
+        conveyor1ON();
+        conveyor2ON();
+      }
+    }
+
+    @Override
+    public void periodic() {
+      // This method will be called once per scheduler run
+      SmartDashboard.putBoolean("Conveyor On", conveyor1ON);
+    }
+  
   }

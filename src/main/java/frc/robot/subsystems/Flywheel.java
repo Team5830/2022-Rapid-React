@@ -12,6 +12,7 @@ import com.revrobotics.CANSparkMax.ExternalFollower;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -83,6 +84,8 @@ public class Flywheel extends SubsystemBase {
    DriverStation.reportError("Shooter: Not able to get velocity " + ex.getMessage(),true);
    velocity_out = 0;
   }
+
+  SmartDashboard.putNumber("Flywheel Speed", velocity_out);
  }
 
  public boolean getShooterState() {
@@ -102,4 +105,5 @@ public class Flywheel extends SubsystemBase {
  public boolean readyToShoot() {
   return (motorspeed - velocity_out < 1000);
  }
+
 }
