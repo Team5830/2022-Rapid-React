@@ -7,7 +7,7 @@ import frc.robot.subsystems.*;
 
 public class Conv1 {
   
-    public Conv1(double targetDistanceInches, Conveyor drive) {
+    public Conv1(Conveyor SprivA) {
     }
   
     @Override
