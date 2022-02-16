@@ -28,6 +28,7 @@ public class RobotContainer {
   //public final Flywheel m_flywheel = new Flywheel();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
+  private final Climber m_climber = new Climber();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -37,6 +38,7 @@ public class RobotContainer {
     SendableRegistry.setName(m_drivetrain, "DriveTrain", "DriveTrain");
     SendableRegistry.setName(new Turn(90, m_drivetrain), "Turn Right command");
     SendableRegistry.setName(new Turn(-90, m_drivetrain), "Turn Left command");
+    //SendableRegistry.setName(new m_climber, "Toggle Climber1 direction");
     //SendableRegistry.setName(m_flywheel, "Flywheel", "Flywheel");    
     m_drivetrain.setDefaultCommand(new Drive(m_drivetrain, () -> m_leftJoy.getY(), () -> m_rightJoy.getY()));
   }
@@ -55,6 +57,7 @@ public class RobotContainer {
     new JoystickButton(m_leftJoy, buttonsLeftjoy.moveButton).whenPressed( new Move(100.0,m_drivetrain).withTimeout(5));
     new JoystickButton(m_leftJoy, buttonsLeftjoy.turnrightButton).whenPressed(new Turn(90, m_drivetrain).withTimeout(5));
     new JoystickButton(m_leftJoy, buttonsLeftjoy.turnleftButton).whenPressed(new Turn(-90, m_drivetrain).withTimeout(5));
+    //new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()-> m_intake.toggleFirstIntake());
   }
 
   /**

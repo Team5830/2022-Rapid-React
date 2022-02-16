@@ -22,6 +22,8 @@ public final class Constants {
         public static final int kRightFlywheel = 1;
         public static final int dintakemotor = 10;
         public static final int dexotor = 9;
+        public static final int climberMotor1 = 3;
+        public static final int climberMotor2 = 5;
     }
     public static final class Ports {
         public static final int LeftDriveEncoder1 = 0;
@@ -63,6 +65,11 @@ public final class Constants {
         public static final double shootermotorspeed = 2000;
     
     }
+    
+    public static final class ClimberC{
+        public static final double climberSpeed=0.3;
+    }
+
     public static final class firstIntake {
         public static final double firstIntakespeed = 0.5;
     }
