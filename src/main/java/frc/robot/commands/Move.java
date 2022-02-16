@@ -23,7 +23,9 @@ public class Move extends PIDCommand {
   public Move(double targetDistanceInches, DriveTrain drive) {
     super(new PIDController(MovePID.P, MovePID.I, MovePID.D), 
     drive::getAverageDistance, targetDistanceInches, output -> drive.ArcadeDrive(output, 0), drive);
-        
+
+    drive.resetDisplacement();
+
     // Set the controller tolerance - the delta tolerance ensures the robot is stationary at the
     // setpoint before it is considered as having reached the reference
     getController()

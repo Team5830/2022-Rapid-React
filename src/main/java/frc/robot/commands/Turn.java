@@ -25,7 +25,9 @@ public class Turn extends PIDCommand {
   public Turn(double targetAngleDegrees, DriveTrain drive) {
     super(new PIDController(TurnPID.kTurnP, TurnPID.kTurnI, TurnPID.kTurnD), 
     drive::getHeading, targetAngleDegrees, output -> drive.ArcadeDrive(0, output), drive);
-        
+
+    drive.resetHeading();
+
     // Set the controller to be continuous (because it is an angle controller)
     getController().enableContinuousInput(-180, 180);
     // Set the controller tolerance - the delta tolerance ensures the robot is stationary at the
