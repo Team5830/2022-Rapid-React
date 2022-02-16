@@ -84,13 +84,18 @@ public final class Constants {
     public static final class buttonsLeftjoy {
         public static final int halfspeedButton = 5;
         public static final int toggleIntakeExtend = 6;
-        public static final int moveButton = 7;
-        public static final int turnleftButton = 3;
-        public static final int turnrightButton = 4;
         public static final int toggleIntake = 2;
+        public static final int toggleconveyor1 = 3;
+        public static final int toggleconveyor2 = 1;
     }
 
     public static final class buttonsRightjoy {
-        public static final int Button = 1;
+        public static final int moveButton = 1;
+        public static final int turnleftButton = 3;
+        public static final int turnrightButton = 4;
+    }
+    public static final class Conveyspeed {
+        public static final double conveyorspeed1 = 0.3;
+        public static final double conveyorspeed2 = 1;   
     }
 }

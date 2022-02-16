@@ -5,11 +5,12 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
+
 public class Conveyor extends SubsystemBase {
     public boolean conveyor1ON = false;
     public boolean conveyor1Reversed = false;
@@ -47,20 +48,34 @@ public class Conveyor extends SubsystemBase {
       conveyor2ON = false;
     }
 
-    public void toggleconveyor(){
-      if (conveyor1ON && conveyor2ON){
+    public void toggleconveyor1(){
+      if (conveyor1ON){
         conveyor1OFF();
-        conveyor2OFF();
       }else{
         conveyor1ON();
+      }
+    }
+    public void toggleconveyor2(){
+      if (conveyor2ON){
+        conveyor2OFF();
+      }else{
         conveyor2ON();
       }
     }
-
     @Override
     public void periodic() {
       // This method will be called once per scheduler run
       SmartDashboard.putBoolean("Conveyor On", conveyor1ON);
-    }
+    } 
   
+  
+  DigitalInput ballsensor1 = new DigitalInput(8);
+
+    public void DigiConvey1(){
+      if (ballsensor1.get()) {
+        toggleconveyor1();
+      } else {
+        conveyor1OFF();
+      }
   }
+}

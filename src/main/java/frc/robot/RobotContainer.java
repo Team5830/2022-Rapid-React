@@ -28,6 +28,7 @@ public class RobotContainer {
   //public final Flywheel m_flywheel = new Flywheel();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
+  private final Conveyor m_conveyor = new Conveyor();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -52,10 +53,12 @@ public class RobotContainer {
     new JoystickButton(m_leftJoy, buttonsLeftjoy.halfspeedButton).whenPressed(()-> m_drivetrain.toggleMaxSpeed());
     new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()-> m_intake.toggleFirstIntake());
     //may be changed to toggle later
-    new JoystickButton(m_leftJoy, buttonsLeftjoy.moveButton).whenPressed( new Move(100.0,m_drivetrain).withTimeout(5));
-    new JoystickButton(m_leftJoy, buttonsLeftjoy.turnrightButton).whenPressed(new Turn(90, m_drivetrain).withTimeout(5));
-    new JoystickButton(m_leftJoy, buttonsLeftjoy.turnleftButton).whenPressed(new Turn(-90, m_drivetrain).withTimeout(5));
+    new JoystickButton(m_rightJoy, buttonsRightjoy.moveButton).whenPressed( new Move(100.0,m_drivetrain).withTimeout(5));
+    new JoystickButton(m_rightJoy, buttonsRightjoy.turnrightButton).whenPressed(new Turn(90, m_drivetrain).withTimeout(5));
+    new JoystickButton(m_rightJoy, buttonsRightjoy.turnleftButton).whenPressed(new Turn(-90, m_drivetrain).withTimeout(5));
     new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntakeExtend).whenPressed(()-> m_intake.toggleExtension());
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleconveyor1).whenPressed(()-> m_conveyor.toggleconveyor1());
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleconveyor2).whenPressed(()-> m_conveyor.toggleconveyor2());
   }
 
   /**
