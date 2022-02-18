@@ -4,25 +4,26 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class Conveyor extends SubsystemBase {
     public boolean conveyor1ON = false;
     public boolean conveyor1Reversed = false;
     public boolean conveyor2ON = false;
     public boolean conveyor2Reversed = false;
-    WPI_VictorSPX m_conv1motor;
-    WPI_VictorSPX m_conv2motor;
+    CANSparkMax m_conv1motor;
+    CANSparkMax m_conv2motor;
 
   public Conveyor(){
     try{
-      m_conv1motor = new WPI_VictorSPX(CANBusID.conveyor1);
-      m_conv2motor = new WPI_VictorSPX(CANBusID.conveyor2);
+      m_conv1motor = new CANSparkMax(CANBusID.conveyor1, MotorType.kBrushless);
+      m_conv2motor = new CANSparkMax(CANBusID.conveyor2, MotorType.kBrushless);
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error instantiating conveyor motors " + ex.getMessage(), true);
     }
@@ -78,4 +79,13 @@ public class Conveyor extends SubsystemBase {
         conveyor1OFF();
       }
   }
+  DigitalInput ballsensor2 = new DigitalInput(9);
+
+  public void DigiConvey2(){
+    if (ballsensor2.get()) {
+      toggleconveyor2();
+    } else {
+      conveyor2OFF();
+    }
+}
 }

@@ -21,7 +21,7 @@ public class Robot extends TimedRobot {
   private RobotContainer m_robotContainer;
 
   /**
-  * This function is run when the robot is first started up and should be used for any
+   * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
   @Override
@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
   }
 
   /**
- * This function is called every robot packet, no matter the mode. Use this for items like
+   * This function is called every robot packet, no matter the mode. Use this for items like
    * diagnostics that you want ran during disabled, autonomous, teleoperated and test.
    *
    * <p>This runs after the mode specific periodic functions, but before LiveWindow and

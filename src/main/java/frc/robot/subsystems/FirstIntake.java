@@ -17,7 +17,7 @@ import frc.robot.Constants.*;
 public class FirstIntake extends SubsystemBase {
   public boolean firstIntakeON = false;
   public boolean firstIntakeReversed = false;
-  //WPI_VictorSPX m_intakemotor = new WPI_VictorSPX(CANBusID.dintakemotor);
+  //CanSparkMax m_intakemotor = new CanSparkMax(CANBusID.dintakemotor);
   CANSparkMax m_intakemotor = new CANSparkMax(CANBusID.dintakemotor, MotorType.kBrushless);
   CANSparkMax m_exotor = new CANSparkMax(CANBusID.dexotor, MotorType.kBrushless);
   SparkMaxPIDController m_pidController = m_exotor.getPIDController();
