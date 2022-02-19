@@ -162,8 +162,9 @@ public class DriveTrain extends SubsystemBase {
   @Override
   public void periodic() {
     SmartDashboard.putNumber("Encoder Distance", getAverageDistance());
-    SmartDashboard.putNumber("Right Encoder Distance", getRightDistance());
-    SmartDashboard.putNumber("Left Encoder Distance", getLeftDistance());
+    SmartDashboard.putNumber("Right Encoder Distance",getRightDistance());
+    SmartDashboard.putNumber("Left Encoder Distance",getLeftDistance());
+    SmartDashboard.putNumber("Gyro",getHeading());
     // This method will be called once per scheduler run
   }
 }

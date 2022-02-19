@@ -21,6 +21,8 @@ public final class Constants {
         public static final int kLeftFlywheel = 2;
         public static final int kRightFlywheel = 1;
         public static final int dintakemotor = 10;
+        public static final int conveyor1 = 20;
+        public static final int conveyor2 = 21;
         public static final int dexotor = 9;
     }
     public static final class Ports {
@@ -28,7 +30,10 @@ public final class Constants {
         public static final int LeftDriveEncoder2 = 1;
         public static final int RightDriveEncoder1 = 2;
         public static final int RightDriveEncoder2 = 3;
+    }
 
+    public static final class ConveyorC{
+        public static final double speed=0.3;
     }
 
     public static final class MovePID{    
@@ -65,17 +70,32 @@ public final class Constants {
     }
     public static final class firstIntake {
         public static final double firstIntakespeed = 0.5;
+        public static final double ExtendSpeed = 0.3;
+        public static final double ExtendDistance = 10;//how far to turn motor to extend arm
+        public static final double P = 0.1;
+        public static final double I = 0.0;
+        public static final double D = 0.0;
+        public static final double F = 0.0;
+        public static final double zI = 0;
+        public static final double kMaxOutput = 0.4;
+        public static final double kMinOutput = 0.1;
+
     }
     public static final class buttonsLeftjoy {
         public static final int halfspeedButton = 5;
-        //public static final int FirstIntakeButton = 6;
-        public static final int moveButton = 7;
-        public static final int turnleftButton = 3;
-        public static final int turnrightButton = 4;
+        public static final int toggleIntakeExtend = 6;
         public static final int toggleIntake = 2;
+        public static final int toggleconveyor1 = 3;
+        public static final int toggleconveyor2 = 1;
     }
 
     public static final class buttonsRightjoy {
-        public static final int Button = 1;
+        public static final int moveButton = 1;
+        public static final int turnleftButton = 3;
+        public static final int turnrightButton = 4;
+    }
+    public static final class Conveyspeed {
+        public static final double conveyorspeed1 = 0.3;
+        public static final double conveyorspeed2 = 1;   
     }
 }
