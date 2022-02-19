@@ -5,7 +5,7 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMax.ExternalFollower;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;   
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -29,7 +29,7 @@ public class Climber extends SubsystemBase {
       DriverStation.reportError("error loading failed" + ex.getMessage(), true);
     }
   }
-  
+
   @Override
   public void periodic() {
     
@@ -39,6 +39,24 @@ public class Climber extends SubsystemBase {
     return isclimberon;
   }
 */
+  public void reverse_Motor1(){
+    if (isclimberMotor1reversed){ 
+      isclimberMotor1reversed = false;
+    } else{
+      isclimberMotor1reversed = true;
+    }
+    climberMoter1on();
+  }
+
+  public void reverse_Motor2(){
+    if (isclimberMotor2reversed){ 
+      isclimberMotor2reversed = false;
+    } else {
+      isclimberMotor2reversed = true; 
+    }
+    climberMoter2on();
+  }
+
   public void climberMoter1on() {
     if (isclimberMotor1reversed){
         climberMotor1.set(-Constants.ClimberC.climberSpeed);
