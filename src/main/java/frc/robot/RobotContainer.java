@@ -51,7 +51,9 @@ public class RobotContainer {
     SendableRegistry.setName(new InstantCommand(m_intake::startFirstIntake), "Intake", "On");
     SendableRegistry.setName(new InstantCommand(m_intake::stopFirstIntake), "Intake", "Off"); 
     SendableRegistry.setName(new InstantCommand(m_intake::toggleFirstIntake), "Intake", "Toggle"); 
-    SendableRegistry.setName(new InstantCommand(m_intake::reverseFirstIntake), "Intake", "Reverse"); 
+    SendableRegistry.setName(new InstantCommand(m_intake::reverseFirstIntake), "Intake", "Reverse");
+    SendableRegistry.setName(new InstantCommand(m_drivetrain::resetHeading), "DriveTrain", "Reset Gyro"); 
+    SendableRegistry.setName(new InstantCommand(m_drivetrain::resetEncoders), "DriveTrain", "Reset Encoders"); 
     m_drivetrain.setDefaultCommand(new Drive(m_drivetrain, () -> m_leftJoy.getY(), () -> m_rightJoy.getY()));
   }
 
