@@ -38,8 +38,11 @@ public class RobotContainer {
     SendableRegistry.setName(m_drivetrain, "DriveTrain", "DriveTrain");
     SendableRegistry.setName(new Turn(90, m_drivetrain), "Turn Right command");
     SendableRegistry.setName(new Turn(-90, m_drivetrain), "Turn Left command");
-    //SendableRegistry.setName(new m_climber, "Toggle Climber1 direction");
-    //SendableRegistry.setName(m_flywheel, "Flywheel", "Flywheel");    
+    SendableRegistry.setName(new InstantCommand(m_climber::climberMoter1on), "Turn Climber1 on");
+    SendableRegistry.setName(new InstantCommand(m_climber::climberMoter2on), "Turn Climber2 on");
+    SendableRegistry.setName(new InstantCommand(m_climber::reverse_Motor1), "Reverse Climber1");
+    SendableRegistry.setName(new InstantCommand(m_climber::reverse_Motor2), "Reverse Climber2");
+    //SendableRegistry.setName(new InstantCommand(m_flywheel::setpoint?, "Flywheel", "Flywheel");    
     m_drivetrain.setDefaultCommand(new Drive(m_drivetrain, () -> m_leftJoy.getY(), () -> m_rightJoy.getY()));
   }
 
