@@ -21,27 +21,27 @@ public class DriveTrain extends SubsystemBase {
 
   WPI_VictorSPX m_rightlead = new WPI_VictorSPX(CANBusID.kRightMotor1);
   WPI_VictorSPX m_rightfollow = new WPI_VictorSPX(CANBusID.kRightMotor2);
-  MotorControllerGroup m_right = new MotorControllerGroup(m_rightlead,m_rightfollow);
+  MotorControllerGroup m_right = new MotorControllerGroup(m_rightlead, m_rightfollow);
 
   double maxspeed = DriveC.MaxSpeed;
 
   // Left Side Motor Controllers
   WPI_VictorSPX m_leftlead = new WPI_VictorSPX(CANBusID.kLeftMotor1);
   WPI_VictorSPX m_leftfollow = new WPI_VictorSPX(CANBusID.kLeftMotor2);
-  MotorControllerGroup m_left = new MotorControllerGroup(m_leftlead,m_leftfollow);
-  
+  MotorControllerGroup m_left = new MotorControllerGroup(m_leftlead, m_leftfollow);
+
   DifferentialDrive m_drive;
 
   AHRS ahrs;
 
   public void initMotor() {
 
-    //m_rightfollow.follow(m_rightlead);
-    //m_leftfollow.follow(m_leftlead);
+    // m_rightfollow.follow(m_rightlead);
+    // m_leftfollow.follow(m_leftlead);
     m_right.setInverted(true);
-    //m_rightfollow.setInverted(true);
+    // m_rightfollow.setInverted(true);
     m_drive = new DifferentialDrive(m_left, m_right);
-    
+
   }
 
   public Encoder m_leftencoder = new Encoder(Ports.LeftDriveEncoder1, Ports.LeftDriveEncoder2);
@@ -64,7 +64,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public double getAverageDistance() {
-    return (m_leftencoder.getDistance() -m_rightencoder.getDistance()) / 2;
+    return (m_leftencoder.getDistance() - m_rightencoder.getDistance()) / 2;
   }
 
   public double getLeftDistance() {
@@ -79,10 +79,10 @@ public class DriveTrain extends SubsystemBase {
     maxspeed = newMax;
   }
 
-  public void toggleMaxSpeed(){
-    if (maxspeed == DriveC.MaxSpeed){
+  public void toggleMaxSpeed() {
+    if (maxspeed == DriveC.MaxSpeed) {
       maxspeed = DriveC.reducedMaxSpeed;
-    }else{
+    } else {
       maxspeed = DriveC.MaxSpeed;
     }
   }
@@ -91,10 +91,10 @@ public class DriveTrain extends SubsystemBase {
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
-  
+
   public void TankDrive(double leftspeed, double rightspeed) {
     if (leftspeed > maxspeed) {
-    leftspeed = maxspeed;
+      leftspeed = maxspeed;
     }
     if (rightspeed > maxspeed) {
       rightspeed = maxspeed;
@@ -105,7 +105,7 @@ public class DriveTrain extends SubsystemBase {
     if (rightspeed < -maxspeed) {
       rightspeed = -maxspeed;
     }
-    //System.out.printf("leftspeed %f rightspeed %f",leftspeed, rightspeed);
+    // System.out.printf("leftspeed %f rightspeed %f",leftspeed, rightspeed);
     m_drive.tankDrive(leftspeed, rightspeed);
   }
 
@@ -119,16 +119,21 @@ public class DriveTrain extends SubsystemBase {
     if (rotationspeed > maxspeed) {
       rotationspeed = maxspeed;
     }
-    if (rotationspeed < -maxspeed) { 
+    if (rotationspeed < -maxspeed) {
       rotationspeed = -maxspeed;
     }
-    System.out.println("Drive: " + forwardspeed + ", "+rotationspeed);
+    System.out.println("Drive: " + forwardspeed + ", " + rotationspeed);
     m_drive.arcadeDrive(forwardspeed, rotationspeed, DriveC.SquareInputs);
   }
 
   /** Zeroes the heading of the robot. */
-  public void reset() {
+  public void resetHeading() {
     ahrs.reset();
+  }
+
+  /** Zeroes the displacement of the robot. */
+  public void resetDisplacement() {
+    ahrs.resetDisplacement();
   }
 
   /**
@@ -153,6 +158,7 @@ public class DriveTrain extends SubsystemBase {
   public double getTurnRate() {
     return ahrs.getRate();
   }
+
   @Override
   public void periodic() {
     SmartDashboard.putNumber("Encoder Distance", getAverageDistance());
