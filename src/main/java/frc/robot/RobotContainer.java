@@ -54,6 +54,11 @@ public class RobotContainer {
     SendableRegistry.setName(new InstantCommand(m_intake::reverseFirstIntake), "Intake", "Reverse");
     SendableRegistry.setName(new InstantCommand(m_drivetrain::resetHeading), "DriveTrain", "Reset Gyro"); 
     SendableRegistry.setName(new InstantCommand(m_drivetrain::resetEncoders), "DriveTrain", "Reset Encoders"); 
+    SendableRegistry.setName(new InstantCommand(m_intake::reverseFirstIntake), "Intake", "Reverse"); 
+    SendableRegistry.setName(new Conv1(m_conveyor), "Conveyor1On");
+    SendableRegistry.setName(new Conv2(m_conveyor), "Conveyor2On");
+    SendableRegistry.setName(new InstantCommand(m_conveyor::conveyor1Reversed), "Reverse Conveyor1");
+    SendableRegistry.setName(new InstantCommand(m_conveyor::conveyor2Reversed), "Reverse Conveyor2");
     m_drivetrain.setDefaultCommand(new Drive(m_drivetrain, () -> m_leftJoy.getY(), () -> m_rightJoy.getY()));
   }
 
