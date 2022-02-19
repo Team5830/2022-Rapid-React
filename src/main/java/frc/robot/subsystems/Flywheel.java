@@ -17,10 +17,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
 
 public class Flywheel extends SubsystemBase {
- CANSparkMax m_leftlead = new CANSparkMax(CANBusID.kLeftFlywheel, MotorType.kBrushless);
- CANSparkMax m_rightfollow = new CANSparkMax(CANBusID.kRightFlywheel, MotorType.kBrushless);
- SparkMaxPIDController m_pidController = m_leftlead.getPIDController();
- RelativeEncoder m_encoder = m_leftlead.getEncoder();
+ CANSparkMax m_leftlead;
+ CANSparkMax m_rightfollow;
+ SparkMaxPIDController m_pidController;
+ RelativeEncoder m_encoder;
  boolean isshooteron = false;
 
  public class PidVals {
@@ -42,10 +42,15 @@ public class Flywheel extends SubsystemBase {
 
  public Flywheel() {
   try {
+   m_rightfollow = new CANSparkMax(CANBusID.kRightFlywheel, MotorType.kBrushless);
+   m_leftlead    = new CANSparkMax(CANBusID.kLeftFlywheel, MotorType.kBrushless);
    m_leftlead.restoreFactoryDefaults();
    m_rightfollow.restoreFactoryDefaults();
    m_leftlead.follow(ExternalFollower.kFollowerDisabled, 0);
    m_rightfollow.follow(m_leftlead, true);
+
+   m_pidController = m_leftlead.getPIDController();
+   m_encoder = m_leftlead.getEncoder();
   } catch (RuntimeException ex) {
    DriverStation.reportError("error loading failed" + ex.getMessage(), true);
   }
