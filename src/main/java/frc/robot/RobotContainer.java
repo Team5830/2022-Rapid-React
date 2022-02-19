@@ -25,7 +25,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public final DriveTrain m_drivetrain = new DriveTrain();
   private final FirstIntake m_intake = new FirstIntake();
-  //public final Flywheel m_flywheel = new Flywheel();
+  public final Flywheel m_flywheel = new Flywheel();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
   private final Climber m_climber = new Climber();
@@ -36,14 +36,22 @@ public class RobotContainer {
     
     // Configure the button bindings
     configureButtonBindings();
-    SendableRegistry.setName(m_drivetrain, "DriveTrain", "DriveTrain");
-    SendableRegistry.setName(new Turn(90, m_drivetrain), "Turn Right command");
-    SendableRegistry.setName(new Turn(-90, m_drivetrain), "Turn Left command");
-    SendableRegistry.setName(new InstantCommand(m_climber::climberMoter1on), "Turn Climber1 on");
-    SendableRegistry.setName(new InstantCommand(m_climber::climberMoter2on), "Turn Climber2 on");
-    SendableRegistry.setName(new InstantCommand(m_climber::reverse_Motor1), "Reverse Climber1");
-    SendableRegistry.setName(new InstantCommand(m_climber::reverse_Motor2), "Reverse Climber2");
-    //SendableRegistry.setName(new InstantCommand(m_flywheel::setpoint?, "Flywheel", "Flywheel");    
+    SendableRegistry.setName(new Move(24,m_drivetrain), "DriveTrain", "Move 2'"); //for testing
+    SendableRegistry.setName(new Turn(90, m_drivetrain), "Turn Right command"); //for testing
+    SendableRegistry.setName(new Turn(-90, m_drivetrain), "Turn Left command"); //for testing
+    SendableRegistry.setName(new InstantCommand(m_climber::climberMoter1on),"Climber", "Climber1 On");
+    SendableRegistry.setName(new InstantCommand(m_climber::climberMoter2on),"Climber", "Climber2 On");
+    SendableRegistry.setName(new InstantCommand(m_climber::reverse_Motor1), "Climber","Reverse Climber1");
+    SendableRegistry.setName(new InstantCommand(m_climber::reverse_Motor2), "Climber","Reverse Climber2");
+    SendableRegistry.setName(new InstantCommand(m_flywheel::shooteron),"Flywheel", "On");
+    SendableRegistry.setName(new InstantCommand(m_flywheel::shooteroff),"Flywheel", "Off");  
+    SendableRegistry.setName(new InstantCommand(m_intake::extendIntake), "Intake","Extend Intake"); 
+    SendableRegistry.setName(new InstantCommand(m_intake::retractIntake), "Intake","Retract Intake"); 
+    SendableRegistry.setName(new InstantCommand(m_intake::toggleExtension), "Intake","Toggle extend");
+    SendableRegistry.setName(new InstantCommand(m_intake::startFirstIntake), "Intake", "On");
+    SendableRegistry.setName(new InstantCommand(m_intake::stopFirstIntake), "Intake", "Off"); 
+    SendableRegistry.setName(new InstantCommand(m_intake::toggleFirstIntake), "Intake", "Toggle"); 
+    SendableRegistry.setName(new InstantCommand(m_intake::reverseFirstIntake), "Intake", "Reverse"); 
     m_drivetrain.setDefaultCommand(new Drive(m_drivetrain, () -> m_leftJoy.getY(), () -> m_rightJoy.getY()));
   }
 

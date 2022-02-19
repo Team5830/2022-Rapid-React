@@ -64,7 +64,7 @@ public final class Constants {
         public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR/10.71;//Gear Ratio = 1:10.71
     }
 
-    public static final class Flywheel {
+    public static final class FlywheelC {
         public static final int waitforshootersecs = 10;
         public static final double feedmotorspeed = 0.5;
         public static final double shootermotorspeed = 2000;

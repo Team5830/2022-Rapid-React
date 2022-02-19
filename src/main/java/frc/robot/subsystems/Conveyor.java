@@ -74,7 +74,7 @@ public class Conveyor extends SubsystemBase {
 
     public void DigiConvey1(){
       if (ballsensor1.get()) {
-        toggleconveyor1();
+        conveyor1ON();
       } else {
         conveyor1OFF();
       }
@@ -83,7 +83,7 @@ public class Conveyor extends SubsystemBase {
 
   public void DigiConvey2(){
     if (ballsensor2.get()) {
-      toggleconveyor2();
+      conveyor2ON();
     } else {
       conveyor2OFF();
     }
