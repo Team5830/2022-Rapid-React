@@ -19,6 +19,8 @@ public class Conveyor extends SubsystemBase {
     public boolean conveyor2Reversed = false;
     CANSparkMax m_conv1motor;
     CANSparkMax m_conv2motor;
+    public DigitalInput ballsensor1;
+    public DigitalInput ballsensor2;
 
   public Conveyor(){
     try{
@@ -26,6 +28,12 @@ public class Conveyor extends SubsystemBase {
       m_conv2motor = new CANSparkMax(CANBusID.conveyor2, MotorType.kBrushed);
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error instantiating conveyor motors " + ex.getMessage(), true);
+    }
+    try{
+      ballsensor1 = new DigitalInput(Ports.Conveyor1ballsensor);
+      ballsensor2 = new DigitalInput(Ports.Conveyor2ballsensor);
+    } catch (RuntimeException ex){
+      DriverStation.reportError("Error instantiating ballsensors " + ex.getMessage(), true);
     }
   }
 
@@ -76,9 +84,7 @@ public class Conveyor extends SubsystemBase {
       // This method will be called once per scheduler run
       SmartDashboard.putBoolean("Conveyor On", conveyor1ON);
     } 
-  
-  
-  DigitalInput ballsensor1 = new DigitalInput(8);
+
 
     public void DigiConvey1(){
       if (ballsensor1.get()) {
@@ -87,7 +93,6 @@ public class Conveyor extends SubsystemBase {
         conveyor1OFF();
       }
   }
-  DigitalInput ballsensor2 = new DigitalInput(9);
 
   public void DigiConvey2(){
     if (ballsensor2.get()) {

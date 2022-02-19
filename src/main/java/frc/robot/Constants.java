@@ -32,6 +32,8 @@ public final class Constants {
         public static final int LeftDriveEncoder2 = 1;
         public static final int RightDriveEncoder1 = 2;
         public static final int RightDriveEncoder2 = 3;
+        public static final int Conveyor1ballsensor = 8;
+        public static final int Conveyor2ballsensor = 9;
     }
 
     public static final class ConveyorC{

@@ -103,7 +103,7 @@ public class Flywheel extends SubsystemBase {
  }
 
  public boolean readyToShoot() {
-  return (motorspeed - velocity_out < 1000);
+  return ( Math.abs(motorspeed - m_encoder.getVelocity()) < 200);
  }
 
 }
