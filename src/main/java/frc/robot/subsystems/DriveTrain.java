@@ -60,7 +60,6 @@ public class DriveTrain extends SubsystemBase {
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error instantiating navX MXP: " + ex.getMessage(), true);
     }
-
   }
 
   public double getAverageDistance() {
@@ -73,6 +72,11 @@ public class DriveTrain extends SubsystemBase {
 
   public double getRightDistance() {
     return (-m_rightencoder.getDistance());
+  }
+
+  public void resetEncoders(){
+    m_leftencoder.reset();
+    m_rightencoder.reset();
   }
 
   public void setMaxOutput(double newMax) {

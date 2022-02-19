@@ -14,11 +14,11 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
+import frc.robot.Constants.*;
 
 public class Flywheel extends SubsystemBase {
- CANSparkMax m_leftlead = new CANSparkMax(Constants.CANBusID.kLeftFlywheel, MotorType.kBrushless);
- CANSparkMax m_rightfollow = new CANSparkMax(Constants.CANBusID.kRightFlywheel, MotorType.kBrushless);
+ CANSparkMax m_leftlead = new CANSparkMax(CANBusID.kLeftFlywheel, MotorType.kBrushless);
+ CANSparkMax m_rightfollow = new CANSparkMax(CANBusID.kRightFlywheel, MotorType.kBrushless);
  SparkMaxPIDController m_pidController = m_leftlead.getPIDController();
  RelativeEncoder m_encoder = m_leftlead.getEncoder();
  boolean isshooteron = false;
@@ -31,7 +31,7 @@ public class Flywheel extends SubsystemBase {
   public double kFF = 0;
   public double kMaxOutput = 0.7;
   public double kMinOutput = -0.7;
-  public double motorspeed = Constants.Flywheel.shootermotorspeed;
+  public double motorspeed = FlywheelC.shootermotorspeed;
  }
 
  PidVals oldPidVals = new PidVals();
@@ -68,7 +68,7 @@ public class Flywheel extends SubsystemBase {
   if((oldPidVals.kIz != pidVals.kIz)) { m_pidController.setIZone(pidVals.kIz); oldPidVals.kIz = pidVals.kIz; }
   if((oldPidVals.kFF != pidVals.kFF)) { m_pidController.setFF(pidVals.kFF); oldPidVals.kFF = pidVals.kFF; }
   if (isshooteron){
-   if((motorspeed==0)){motorspeed = Constants.Flywheel.shootermotorspeed;}
+   if((motorspeed==0)){motorspeed = FlywheelC.shootermotorspeed;}
    m_pidController.setReference(motorspeed, ControlType.kVelocity);
   }else{
    shooteroff();
@@ -103,7 +103,7 @@ public class Flywheel extends SubsystemBase {
  }
 
  public boolean readyToShoot() {
-  return (motorspeed - velocity_out < 1000);
+  return ( Math.abs(motorspeed - m_encoder.getVelocity()) < 200);
  }
 
 }
