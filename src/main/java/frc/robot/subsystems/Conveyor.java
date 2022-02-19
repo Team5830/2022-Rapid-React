@@ -33,6 +33,10 @@ public class Conveyor extends SubsystemBase {
       m_conv1motor.set(ConveyorC.speed);
       conveyor1ON = true;
     }
+    public void conveyor1Reversed(){
+      m_conv1motor.set(-ConveyorC.speed);
+      conveyor1Reversed = true;
+    }
 
     public void conveyor1OFF(){
       m_conv1motor.set(0.0);
@@ -42,6 +46,10 @@ public class Conveyor extends SubsystemBase {
     public void conveyor2ON(){
       m_conv2motor.set(ConveyorC.speed);
       conveyor2ON = true;
+    }
+    public void conveyor2Reversed(){
+      m_conv2motor.set(-ConveyorC.speed);
+      conveyor2Reversed = true;
     }
 
     public void conveyor2OFF(){
