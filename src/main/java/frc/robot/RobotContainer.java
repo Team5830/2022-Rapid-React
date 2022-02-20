@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.util.sendable.SendableRegistry;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.Joystick;
@@ -81,7 +82,31 @@ public class RobotContainer {
     new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleconveyor1).whenPressed(()-> m_conveyor.toggleconveyor1());
     new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleconveyor2).whenPressed(()-> m_conveyor.toggleconveyor2());
   
+    SmartDashboard.putData("Move Command", new Move(100.0, m_drivetrain));
+    SmartDashboard.putData("Turn Right Command", new Turn(90.0, m_drivetrain));
+    SmartDashboard.putData("Turn Left Command", new Turn(-90.0, m_drivetrain));
+    SmartDashboard.putData("Climber1 On", new InstantCommand(m_climber::climberMoter1on));
+    SmartDashboard.putData("Climber2 On", new InstantCommand(m_climber::climberMoter2on));
+    SmartDashboard.putData("Reverse Climber1", new InstantCommand(m_climber::reverse_Motor1));
+    SmartDashboard.putData("Reverse Climber2", new InstantCommand(m_climber::reverse_Motor2));
+    SmartDashboard.putData("Flywheel On",new InstantCommand(m_flywheel::shooteron));
+    SmartDashboard.putData("Flywheel Off", new InstantCommand(m_flywheel::shooteroff));  
+    SmartDashboard.putData("Extend Intake",new InstantCommand(m_intake::extendIntake)); 
+    SmartDashboard.putData("Retract Intake", new InstantCommand(m_intake::retractIntake)); 
+    SmartDashboard.putData("Toggle extend", new InstantCommand(m_intake::toggleExtension));
+    SmartDashboard.putData("Intake On", new InstantCommand(m_intake::startFirstIntake));
+    SmartDashboard.putData("Intake Off", new InstantCommand(m_intake::stopFirstIntake)); 
+    SmartDashboard.putData("Intake Toggle", new InstantCommand(m_intake::toggleFirstIntake)); 
+    SmartDashboard.putData("Intake Reverse", new InstantCommand(m_intake::reverseFirstIntake));
+    SmartDashboard.putData("Reset Gyro", new InstantCommand(m_drivetrain::resetHeading)); 
+    SmartDashboard.putData("Reset DT Encoders", new InstantCommand(m_drivetrain::resetEncoders)); 
+    SmartDashboard.putData("Intake Reverse", new InstantCommand(m_intake::reverseFirstIntake)); 
+    SmartDashboard.putData("Conveyor1On", new Conv1(m_conveyor));
+    SmartDashboard.putData("Conveyor2On", new Conv2(m_conveyor));
+    SmartDashboard.putData("Reverse Conveyor1", new InstantCommand(m_conveyor::conveyor1Reversed));
+    SmartDashboard.putData("Reverse Conveyor2", new InstantCommand(m_conveyor::conveyor2Reversed));
   }
+
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
