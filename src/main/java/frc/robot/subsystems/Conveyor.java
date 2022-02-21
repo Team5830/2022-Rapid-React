@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.math.filter.Debouncer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -26,6 +27,10 @@ public class Conveyor extends SubsystemBase {
     WPI_VictorSPX m_conv2motor;
     public DigitalInput ballsensor1;
     public DigitalInput ballsensor2;
+    public boolean ballaway1 = false;
+    public boolean ballaway2 = false;
+    public boolean ballsensed1 = false;
+    public boolean ballsensed2 = false;
 
   public Conveyor(){
     try{
@@ -94,24 +99,28 @@ public class Conveyor extends SubsystemBase {
 
 
     public void DigiConvey1(){
-      //Might want to add a debouncer to smooth transition
-      // Debouncer m_debouncer = new Debouncer(0.1, Debouncer.DebounceType.kBoth);
-      // So if currently false the signal must go true for at least .1 seconds before being read as a True signal.
-      //if (m_debouncer.calculate(input.get())) {
-        // Do something now that the DI is True.
-      //}
-      if (ballsensor1.get()) {
+      Debouncer m_debouncer = new Debouncer(0.1, Debouncer.DebounceType.kBoth);
+      if (m_debouncer.calculate(ballsensor1.get())) {
         conveyor1ON();
       } else {
         conveyor1OFF();
+        ballsensed1 = true;
+      }
+      if (ballsensed1 == true && !m_debouncer.calculate(ballsensor1.get())) {
+        ballaway1 = true;
       }
   }
 
   public void DigiConvey2(){
-    if (ballsensor2.get()) {
+    Debouncer m_debouncer = new Debouncer(0.1, Debouncer.DebounceType.kBoth);
+    if (m_debouncer.calculate(ballsensor2.get())) {
       conveyor2ON();
     } else {
       conveyor2OFF();
+      ballsensed2 = true;
     }
-}
+    if (ballsensed2 == true && !m_debouncer.calculate(ballsensor2.get())) {
+      ballaway2 = true;
+    }
+  }
 }
