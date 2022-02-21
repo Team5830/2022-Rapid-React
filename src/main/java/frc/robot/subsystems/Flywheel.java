@@ -22,6 +22,7 @@ public class Flywheel extends SubsystemBase {
  public SparkMaxPIDController m_pidController;
  RelativeEncoder m_encoder;
  boolean isshooteron = false;
+
  public double maxRPM, maxVel, minVel, maxAcc, allowedErr;
  public double motorspeed;
  public class PidVals {
@@ -108,5 +109,4 @@ public class Flywheel extends SubsystemBase {
  public boolean readyToShoot() {
   return ( Math.abs(motorspeed - m_encoder.getVelocity()) < pidVals.speedTolerance);
  }
-
 }
