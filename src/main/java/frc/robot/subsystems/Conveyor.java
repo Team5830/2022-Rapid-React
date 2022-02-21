@@ -4,28 +4,35 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+//import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+//import com.revrobotics.CANSparkMax;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 public class Conveyor extends SubsystemBase {
     public boolean conveyor1ON = false;
     public boolean conveyor1Reversed = false;
     public boolean conveyor2ON = false;
     public boolean conveyor2Reversed = false;
+    /*
     CANSparkMax m_conv1motor;
     CANSparkMax m_conv2motor;
+    */
+    WPI_VictorSPX m_conv1motor;
+    WPI_VictorSPX m_conv2motor;
     public DigitalInput ballsensor1;
     public DigitalInput ballsensor2;
 
   public Conveyor(){
     try{
-      m_conv1motor = new CANSparkMax(CANBusID.conveyor1, MotorType.kBrushed);
-      m_conv2motor = new CANSparkMax(CANBusID.conveyor2, MotorType.kBrushed);
+      //m_conv1motor = new CANSparkMax(CANBusID.conveyor1, MotorType.kBrushed);
+      //m_conv2motor = new CANSparkMax(CANBusID.conveyor2, MotorType.kBrushed);
+      m_conv1motor = new WPI_VictorSPX(CANBusID.conveyor1);
+      m_conv2motor = new WPI_VictorSPX(CANBusID.conveyor2);
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error instantiating conveyor motors " + ex.getMessage(), true);
     }
