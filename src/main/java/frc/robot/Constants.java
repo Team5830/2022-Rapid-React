@@ -24,7 +24,7 @@ public final class Constants {
         public static final int conveyor1 = 3; //20
         public static final int conveyor2 = 21;
         public static final int dexotor = 9;
-        public static final int climberMotor1 = 3;
+        public static final int climberMotor1 = 21;//need to be switched with conveyor 2 later
         public static final int climberMotor2 = 5;
     }
     public static final class Ports {
