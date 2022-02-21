@@ -87,6 +87,12 @@ public class Conveyor extends SubsystemBase {
 
 
     public void DigiConvey1(){
+      //Might want to add a debouncer to smooth transition
+      // Debouncer m_debouncer = new Debouncer(0.1, Debouncer.DebounceType.kBoth);
+      // So if currently false the signal must go true for at least .1 seconds before being read as a True signal.
+      //if (m_debouncer.calculate(input.get())) {
+        // Do something now that the DI is True.
+      //}
       if (ballsensor1.get()) {
         conveyor1ON();
       } else {

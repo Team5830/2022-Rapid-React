@@ -19,26 +19,25 @@ import frc.robot.Constants.*;
 public class Flywheel extends SubsystemBase {
  CANSparkMax m_leftlead;
  CANSparkMax m_rightfollow;
- SparkMaxPIDController m_pidController;
+ public SparkMaxPIDController m_pidController;
  RelativeEncoder m_encoder;
  boolean isshooteron = false;
-
- public class PidVals {
-  public double kP = 0.0012;
-  public double kI = 0.000006;
-  public double kD = 0.001;
-  public double kIz = 0;
-  public double kFF = 0;
-  public double kMaxOutput = 0.7;
-  public double kMinOutput = -0.7;
-  public double motorspeed = FlywheelC.shootermotorspeed;
- }
-
- PidVals oldPidVals = new PidVals();
- public PidVals pidVals = new PidVals();
-
  public double maxRPM, maxVel, minVel, maxAcc, allowedErr;
- public double motorspeed, velocity_out;
+ public double motorspeed;
+ public class PidVals {
+    public double kP = FlywheelC.kP;
+    public double kI = FlywheelC.kI;
+    public double kD = FlywheelC.kD;
+    public double kIz = FlywheelC.kIz;
+    public double kFF = FlywheelC.kFF;
+    public double kMaxOutput = FlywheelC.kMaxOutput;
+    public double kMinOutput = FlywheelC.kMinOutput;
+    public double motorspeed = FlywheelC.shootermotorspeed;
+    public double speedTolerance = FlywheelC.speedTolerance;
+   }
+  
+   PidVals oldPidVals = new PidVals();
+   public PidVals pidVals = new PidVals();
 
  public Flywheel() {
   try {
@@ -54,43 +53,42 @@ public class Flywheel extends SubsystemBase {
   } catch (RuntimeException ex) {
    DriverStation.reportError("error loading failed" + ex.getMessage(), true);
   }
-
-  // set PID coefficients
-  m_pidController.setP(pidVals.kP);
-  m_pidController.setI(pidVals.kI);
-  m_pidController.setD(pidVals.kD);
-  m_pidController.setIZone(pidVals.kIz);
-  m_pidController.setFF(pidVals.kFF);
-  m_pidController.setOutputRange(pidVals.kMinOutput, pidVals.kMaxOutput);
+  // Put PID coefficients on Dashboard
+  SmartDashboard.putNumber("Flywheel P", pidVals.kP);
+  SmartDashboard.putNumber("Flywheel I", pidVals.kI);
+  SmartDashboard.putNumber("Flywheel D", pidVals.kD);
+  SmartDashboard.putNumber("Flywheel kIz", pidVals.kIz);
+  SmartDashboard.putNumber("Flywheel F", pidVals.kFF);
+  SmartDashboard.putNumber("Flywheel MaxOutput", pidVals.kMaxOutput);
+  SmartDashboard.putNumber("Flywheel MinOutput", pidVals.kMinOutput);
+  SmartDashboard.putNumber("Flywheel motorspeed", pidVals.motorspeed);  
+  updatePIDValues();
+}
+@Override
+ public void periodic() {
+    try {
+        SmartDashboard.putNumber("Flywheel Speed", m_encoder.getVelocity());
+    } catch (RuntimeException ex){
+        DriverStation.reportError("Shooter: Not able to get velocity " + ex.getMessage(),true);
+    }
  }
 
- @Override
- public void periodic() {
-  // if PID coefficients have changed, write new values to controller
-  if((oldPidVals.kP != pidVals.kP)) { m_pidController.setP(pidVals.kP); oldPidVals.kP = pidVals.kP; }
-  if((oldPidVals.kI != pidVals.kI)) { m_pidController.setI(pidVals.kI); oldPidVals.kI = pidVals.kI; }
-  if((oldPidVals.kD != pidVals.kD)) { m_pidController.setD(pidVals.kD); oldPidVals.kD = pidVals.kD; }
-  if((oldPidVals.kIz != pidVals.kIz)) { m_pidController.setIZone(pidVals.kIz); oldPidVals.kIz = pidVals.kIz; }
-  if((oldPidVals.kFF != pidVals.kFF)) { m_pidController.setFF(pidVals.kFF); oldPidVals.kFF = pidVals.kFF; }
-  if (isshooteron){
-   if((motorspeed==0)){motorspeed = FlywheelC.shootermotorspeed;}
-   m_pidController.setReference(motorspeed, ControlType.kVelocity);
-  }else{
-   shooteroff();
-   //m_pidController.setReference(0, ControlType.kVelocity);
-  }
-  if((oldPidVals.kMaxOutput != pidVals.kMaxOutput) || (oldPidVals.kMinOutput != pidVals.kMinOutput)) { 
-   m_pidController.setOutputRange(pidVals.kMinOutput, pidVals.kMaxOutput); 
-   oldPidVals.kMaxOutput = pidVals.kMaxOutput; oldPidVals.kMinOutput = pidVals.kMinOutput; 
-  }
-  try {
-   velocity_out = m_encoder.getVelocity();
-  } catch (RuntimeException ex){
-   DriverStation.reportError("Shooter: Not able to get velocity " + ex.getMessage(),true);
-   velocity_out = 0;
-  }
-
-  SmartDashboard.putNumber("Flywheel Speed", velocity_out);
+ // Load PID coefficients from Dashboard
+ public void updatePIDValues(){
+    pidVals.kP =  SmartDashboard.getNumber("Flywheel P", FlywheelC.kP);
+    pidVals.kI =  SmartDashboard.getNumber("Flywheel I", FlywheelC.kI);
+    pidVals.kD =  SmartDashboard.getNumber("Flywheel D", FlywheelC.kD);
+    pidVals.kIz = SmartDashboard.getNumber("Flywheel kIz",FlywheelC.kIz);
+    pidVals.kFF = SmartDashboard.getNumber("Flywheel F", FlywheelC.kFF);
+    pidVals.kMaxOutput = SmartDashboard.getNumber("Flywheel MaxOutput", FlywheelC.kMaxOutput);
+    pidVals.kMinOutput = SmartDashboard.getNumber("Flywheel MinOutput", FlywheelC.kMinOutput);
+    motorspeed = SmartDashboard.getNumber("Flywheel motorspeed", pidVals.motorspeed); 
+    m_pidController.setP(pidVals.kP);
+    m_pidController.setI(pidVals.kI);
+    m_pidController.setD(pidVals.kD);
+    m_pidController.setIZone(pidVals.kIz);
+    m_pidController.setFF(pidVals.kFF);
+    m_pidController.setOutputRange(pidVals.kMinOutput, pidVals.kMaxOutput);
  }
 
  public boolean getShooterState() {
@@ -108,7 +106,7 @@ public class Flywheel extends SubsystemBase {
  }
 
  public boolean readyToShoot() {
-  return ( Math.abs(motorspeed - m_encoder.getVelocity()) < 200);
+  return ( Math.abs(motorspeed - m_encoder.getVelocity()) < pidVals.speedTolerance);
  }
 
 }
