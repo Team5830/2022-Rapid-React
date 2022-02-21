@@ -106,10 +106,12 @@ public class RobotContainer {
     SmartDashboard.putData("Reset Gyro", new InstantCommand(m_drivetrain::resetHeading)); 
     SmartDashboard.putData("Reset DT Encoders", new InstantCommand(m_drivetrain::resetEncoders)); 
     SmartDashboard.putData("Intake Reverse", new InstantCommand(m_intake::reverseFirstIntake)); 
-    SmartDashboard.putData("Conveyor1On", new Conv1(m_conveyor));
-    SmartDashboard.putData("Conveyor2On", new Conv2(m_conveyor));
-    SmartDashboard.putData("Reverse Conveyor1", new InstantCommand(m_conveyor::conveyor1Reversed));
-    SmartDashboard.putData("Reverse Conveyor2", new InstantCommand(m_conveyor::conveyor2Reversed));
+    SmartDashboard.putData("Conveyor1 OnTill", new Conv1(m_conveyor));
+    SmartDashboard.putData("Conveyor2 OnTill", new Conv2(m_conveyor));
+    SmartDashboard.putData("Conveyor1 Reverse", new InstantCommand(m_conveyor::conveyor1Reversed));
+    SmartDashboard.putData("Conveyor2 Reverse", new InstantCommand(m_conveyor::conveyor2Reversed));
+    SmartDashboard.putData("Conveyor1 Toggle", new InstantCommand(m_conveyor::toggleconveyor1));
+    SmartDashboard.putData("Conveyor2 Toggle", new InstantCommand(m_conveyor::toggleconveyor2));
   }
 
 
