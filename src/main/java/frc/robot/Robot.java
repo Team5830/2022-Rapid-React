@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -29,11 +28,17 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+<<<<<<< HEAD
     SmartDashboard.putData("Move Command", new Move(100.0,m_robotContainer.m_drivetrain));
     SmartDashboard.putData("Turn Right Command", new Turn(90.0,m_robotContainer.m_drivetrain));
     SmartDashboard.putData("Turn Left Command", new Turn(-90.0,m_robotContainer.m_drivetrain));
     
   }   /**
+=======
+  }
+
+  /**
+>>>>>>> 60bb04e35a55c0fad7fd46c2dfced449436e4013
    * This function is called every robot packet, no matter the mode. Use this for items like
    * diagnostics that you want ran during disabled, autonomous, teleoperated and test.
    *
@@ -84,9 +89,7 @@ public class Robot extends TimedRobot {
     // Cancels all running commands at the start of test mode.
     CommandScheduler.getInstance().cancelAll();
     SmartDashboard.putData(CommandScheduler.getInstance());
-    SmartDashboard.putData("Move Command", new Move(100.0,m_robotContainer.m_drivetrain));
-    SmartDashboard.putData("Turn Right Command", new Turn(90.0,m_robotContainer.m_drivetrain));
-    SmartDashboard.putData("Turn Left Command", new Turn(-90.0,m_robotContainer.m_drivetrain));
+
     //SmartDashboard.putData("Autonomous", new m_robotContainer.getAutonomousCommand());
   }   /** This function is called periodically during test mode. */
   @Override
