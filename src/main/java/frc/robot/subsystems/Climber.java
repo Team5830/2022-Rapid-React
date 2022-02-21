@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Climber extends SubsystemBase {
- CANSparkMax climberMotor1 = new CANSparkMax(Constants.CANBusID.climberMotor1, MotorType.kBrushless);
- CANSparkMax climberMotor2 = new CANSparkMax(Constants.CANBusID.climberMotor2,MotorType.kBrushless);
+ CANSparkMax climberMotor1;
+ CANSparkMax climberMotor2;
   RelativeEncoder m_encoder1 = climberMotor1.getEncoder();
   RelativeEncoder m_encoder2 = climberMotor2.getEncoder();
   boolean isclimberMotor1on = false;
@@ -23,6 +23,8 @@ public class Climber extends SubsystemBase {
 
   public Climber() {
     try {
+      climberMotor1 = new CANSparkMax(Constants.CANBusID.climberMotor1, MotorType.kBrushless);
+      climberMotor2 = new CANSparkMax(Constants.CANBusID.climberMotor2,MotorType.kBrushless);
       climberMotor1.restoreFactoryDefaults();
       climberMotor2.restoreFactoryDefaults();
     } catch (RuntimeException ex) {
