@@ -9,10 +9,22 @@ public class Conv1 extends CommandBase {
         spriva =SprivA;
         addRequirements(spriva);
     }
-  
+    @Override
+    public void initialize() {
+      spriva.ballaway1 = false;
+      spriva.ballsensed1 = false;
+    }
     @Override
     public void execute() {
       spriva.DigiConvey1();
+    }
+    @Override
+    public void end(boolean interrupted) {
+      spriva.conveyor1OFF();
+    }
+    @Override
+    public boolean isFinished() {
+      return spriva.ballaway1;
     }
   }
   
