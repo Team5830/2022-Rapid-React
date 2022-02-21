@@ -48,5 +48,5 @@ public class Shoot extends CommandBase {
   @Override
   public boolean isFinished() {
     return turnedON && m_conveyor.ballsensor2.get();
-  }
+
 }
