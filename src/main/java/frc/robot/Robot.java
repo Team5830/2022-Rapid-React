@@ -33,9 +33,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Turn Right Command", new Turn(90.0,m_robotContainer.m_drivetrain));
     SmartDashboard.putData("Turn Left Command", new Turn(-90.0,m_robotContainer.m_drivetrain));
     
-  }
-
-  /**
+  }   /**
    * This function is called every robot packet, no matter the mode. Use this for items like
    * diagnostics that you want ran during disabled, autonomous, teleoperated and test.
    *
@@ -49,9 +47,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-  }
-
-  /** This function is called once each time the robot enters Disabled mode. */
+  }   /** This function is called once each time the robot enters Disabled mode. */
   @Override
   public void disabledInit() {}
 
@@ -61,16 +57,12 @@ public class Robot extends TimedRobot {
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
   public void autonomousInit() {
-    
-    m_autonomousCommand = m_robotContainer.getAutonomousCommand();
-
+        m_autonomousCommand = m_robotContainer.getAutonomousCommand();
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
     }
-  }
-
-  /** This function is called periodically during autonomous. */
+  }   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {}
 
@@ -83,9 +75,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
-  }
-
-  /** This function is called periodically during operator control. */
+  }   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {}
 
@@ -98,24 +88,9 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Turn Right Command", new Turn(90.0,m_robotContainer.m_drivetrain));
     SmartDashboard.putData("Turn Left Command", new Turn(-90.0,m_robotContainer.m_drivetrain));
     //SmartDashboard.putData("Autonomous", new m_robotContainer.getAutonomousCommand());
-  }
-
-  /** This function is called periodically during test mode. */
+  }   /** This function is called periodically during test mode. */
   @Override
   public void testPeriodic() {}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //I NEED CAKE AND BACON BECAUSE THEY ARE YUMMY!!!!!
