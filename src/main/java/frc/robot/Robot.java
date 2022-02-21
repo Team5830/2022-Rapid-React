@@ -33,6 +33,10 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Turn Right Command", new Turn(90.0,m_robotContainer.m_drivetrain));
     SmartDashboard.putData("Turn Left Command", new Turn(-90.0,m_robotContainer.m_drivetrain));
     
+<<<<<<< HEAD
+=======
+  }   /**
+>>>>>>> 5cc257ddcb89b9e8743ccd7fb0507a150d58e869
   }
 
   /**
