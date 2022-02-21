@@ -1,4 +1,4 @@
-// Copyright (c) FIRST and other WPILib contributors.
+/* Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
@@ -9,29 +9,23 @@ import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
 
 public class FirstIntake extends SubsystemBase {
   public boolean firstIntakeON = false;
-  //public boolean firstIntakeReversed = false;
+  public boolean firstIntakeReversed = false;
   //CanSparkMax m_intakemotor = new CanSparkMax(CANBusID.dintakemotor);
-  //CANSparkMax m_intakemotor = new CANSparkMax(CANBusID.dintakemotor, MotorType.kBrushless);
-  // CANSparkMax m_exotor = new CANSparkMax(CANBusID.dexotor, MotorType.kBrushless);'
-  m_dintkemotor = new WPI_VictorSPX(CANBusID.dintakemotor);
-  m_exotor = new WPI_VictorSPX(CANBusID.dexotor);
-  //SparkMaxPIDController m_pidController = m_exotor.getPIDController();
-  //RelativeEncoder m_encoder = m_exotor.getEncoder();
-  public Encoder m_encoder = new Encoder(5,4);
-  PIDController m_pidController = new PIDController(firstIntake.P, firstIntake.I, firstIntake.D);
-  //boolean isExtended = false;
+  CANSparkMax m_intakemotor = new CANSparkMax(CANBusID.dintakemotor, MotorType.kBrushless);
+  CANSparkMax m_exotor = new CANSparkMax(CANBusID.dexotor, MotorType.kBrushless);
+  SparkMaxPIDController m_pidController = m_exotor.getPIDController();
+  RelativeEncoder m_encoder = m_exotor.getEncoder();
+  boolean isExtended = false;
   public FirstIntake(){
     try{
-      //m_exotor.restoreFactoryDefaults();
+      m_exotor.restoreFactoryDefaults();
     } catch (RuntimeException ex) {
       DriverStation.reportError("error loading failed" + ex.getMessage(), true);
     }
@@ -39,21 +33,21 @@ public class FirstIntake extends SubsystemBase {
     m_pidController.setP(firstIntake.P);
     m_pidController.setI(firstIntake.I);
     m_pidController.setD(firstIntake.D);
-    //m_pidController.setIZone(firstIntake.zI);
-    //m_pidController.setFF(firstIntake.F);
-    //m_pidController.setOutputRange(firstIntake.kMinOutput, firstIntake.kMaxOutput);
+    m_pidController.setIZone(firstIntake.zI);
+    m_pidController.setFF(firstIntake.F);
+    m_pidController.setOutputRange(firstIntake.kMinOutput, firstIntake.kMaxOutput);
     }
     
   public void extendIntake(){
    if (!isExtended){
-    //m_pidController.setReference(firstIntake.ExtendDistance, ControlType.kPosition);
+    m_pidController.setReference(firstIntake.ExtendDistance, ControlType.kPosition);
     isExtended = true;
    }
   }
   
   public void retractIntake(){
     if (isExtended){
-      //m_pidController.setReference(0.0, ControlType.kPosition);
+      m_pidController.setReference(0.0, ControlType.kPosition);
       isExtended = false;
     }
   }
@@ -65,9 +59,8 @@ public class FirstIntake extends SubsystemBase {
       extendIntake();
     }
   }
-}
 
-  /*public void startFirstIntake(){
+  public void startFirstIntake(){
     m_intakemotor.set(firstIntake.firstIntakespeed);
     firstIntakeON = true;
   }
@@ -99,3 +92,4 @@ public class FirstIntake extends SubsystemBase {
     SmartDashboard.putBoolean("FirstIntakeReversed", firstIntakeReversed);
   }
 }
+*/

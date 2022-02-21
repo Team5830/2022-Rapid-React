@@ -18,13 +18,13 @@ import frc.robot.subsystems.*;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
+ * pleriodic methods (other than the scheduler calls). Instead, the structure of the robot (including
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public final DriveTrain m_drivetrain = new DriveTrain();
-  private final FirstIntake m_intake = new FirstIntake();
+  //private final FirstIntake m_intake = new FirstIntake();
   //public final Flywheel m_flywheel = new Flywheel();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
@@ -60,13 +60,13 @@ public class RobotContainer {
   private void configureButtonBindings() {
     // Lower max speed
     new JoystickButton(m_leftJoy, buttonsLeftjoy.halfspeedButton).whenPressed(()-> m_drivetrain.toggleMaxSpeed());
-    new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()-> m_intake.toggleFirstIntake());
+    //new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()-> m_intake.toggleFirstIntake());
     /*
     new JoystickButton(m_rightJoy, buttonsRightjoy.moveButton).whenPressed( new Move(100.0,m_drivetrain).withTimeout(5));
     new JoystickButton(m_rightJoy, buttonsRightjoy.turnrightButton).whenPressed(new Turn(90, m_drivetrain).withTimeout(5));
     new JoystickButton(m_rightJoy, buttonsRightjoy.turnleftButton).whenPressed(new Turn(-90, m_drivetrain).withTimeout(5));
     */
-    new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntakeExtend).whenPressed(()-> m_intake.toggleExtension());
+    //new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntakeExtend).whenPressed(()-> m_intake.toggleExtension());
     new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleconveyor1).whenPressed(()-> m_conveyor.toggleconveyor1());
     new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleconveyor2).whenPressed(()-> m_conveyor.toggleconveyor2());
   
