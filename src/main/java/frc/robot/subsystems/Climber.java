@@ -2,14 +2,10 @@
 package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
-<<<<<<< HEAD
-/*import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMax.ExternalFollower;
-*/import com.revrobotics.CANSparkMaxLowLevel.MotorType;   
-=======
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;   
->>>>>>> 3f6680fadc684cd198c05c89d7fe490b866a7121
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;

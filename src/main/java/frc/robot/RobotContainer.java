@@ -31,6 +31,7 @@ public class RobotContainer {
   private final Joystick m_rightJoy = new Joystick(1);
   private final Climber m_climber = new Climber();
   private final Conveyor m_conveyor = new Conveyor();
+  private final Flywheel m_flywheel = new Flywheel();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

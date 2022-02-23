@@ -21,11 +21,7 @@ public final class Constants {
         public static final int kLeftFlywheel = 2;
         public static final int kRightFlywheel = 1;
         public static final int dintakemotor = 10;
-<<<<<<< HEAD
         public static final int conveyor1 = 20;
-=======
-        public static final int conveyor1 = 3; //20
->>>>>>> 3f6680fadc684cd198c05c89d7fe490b866a7121
         public static final int conveyor2 = 21;
         public static final int dexotor = 9;
         public static final int climberMotor1 = 3;
