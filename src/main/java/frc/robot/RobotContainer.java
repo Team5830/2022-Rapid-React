@@ -26,7 +26,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public final DriveTrain m_drivetrain = new DriveTrain();
   private final FirstIntake m_intake = new FirstIntake();
-  //public final Flywheel m_flywheel = new Flywheel();
+  public final Flywheel m_flywheel = new Flywheel();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
   private final Climber m_climber = new Climber();
