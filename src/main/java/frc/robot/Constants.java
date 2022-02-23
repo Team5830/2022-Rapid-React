@@ -21,7 +21,11 @@ public final class Constants {
         public static final int kLeftFlywheel = 2;
         public static final int kRightFlywheel = 1;
         public static final int dintakemotor = 10;
+<<<<<<< HEAD
         public static final int conveyor1 = 20;
+=======
+        public static final int conveyor1 = 3; //20
+>>>>>>> 3f6680fadc684cd198c05c89d7fe490b866a7121
         public static final int conveyor2 = 21;
         public static final int dexotor = 9;
         public static final int climberMotor1 = 3;
@@ -70,7 +74,14 @@ public final class Constants {
         public static final int waitforshootersecs = 10;
         public static final double feedmotorspeed = 0.5;
         public static final double shootermotorspeed = 2000;
-    
+        public static final double kP = 0.0012;
+        public static final double kI = 0.000006;
+        public static final double kD = 0.001;
+        public static final double kIz = 0;
+        public static final double kFF = 0;
+        public static final double kMaxOutput = 0.7;
+        public static final double kMinOutput = -0.7;
+        public static final double speedTolerance = 200.0;
     }
     
     public static final class ClimberC{
@@ -88,7 +99,6 @@ public final class Constants {
         public static final double zI = 0;
         public static final double kMaxOutput = 0.4;
         public static final double kMinOutput = 0.1;
-
     }
     public static final class buttonsLeftjoy {
         public static final int halfspeedButton = 5;
