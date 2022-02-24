@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Climber extends SubsystemBase {
- CANSparkMax climberMotor1;
- CANSparkMax climberMotor2;
+  CANSparkMax climberMotor1;
+  CANSparkMax climberMotor2;
   RelativeEncoder m_encoder1;
   RelativeEncoder m_encoder2; 
   boolean isclimberMotor1on = false;
