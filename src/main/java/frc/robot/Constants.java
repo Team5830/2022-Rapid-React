@@ -14,13 +14,13 @@ package frc.robot;
  */
 public final class Constants {
     public static final class CANBusID{
-        public static final int kLeftMotor1 = 7;
+        public static final int kLeftMotor1 = 10;
         public static final int kRightMotor1 = 12;
-        public static final int kLeftMotor2 = 4;
+        public static final int kLeftMotor2 = 13;
         public static final int kRightMotor2 = 11;
         public static final int kLeftFlywheel = 2;
         public static final int kRightFlywheel = 1;
-        public static final int dintakemotor = 10;
+        public static final int dintakemotor = 7;
         public static final int conveyor1 = 20;
         public static final int conveyor2 = 3;
         public static final int dexotor = 9;
