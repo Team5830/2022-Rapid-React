@@ -3,8 +3,9 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
-import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
+
+import com.revrobotics.CANSparkMax;
 import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -17,15 +18,21 @@ import frc.robot.Constants.*;
 public class FirstIntake extends SubsystemBase {
   public boolean firstIntakeON = false;
   public boolean firstIntakeReversed = false;
-  //CanSparkMax m_intakemotor = new CanSparkMax(CANBusID.dintakemotor);
-  CANSparkMax m_intakemotor = new CANSparkMax(CANBusID.dintakemotor, MotorType.kBrushless);
-  CANSparkMax m_exotor = new CANSparkMax(CANBusID.dexotor, MotorType.kBrushless);
-  SparkMaxPIDController m_pidController = m_exotor.getPIDController();
-  RelativeEncoder m_encoder = m_exotor.getEncoder();
+  
+  CANSparkMax m_intakemotor;
+  CANSparkMax m_exotor;
+  SparkMaxPIDController m_pidController;
+  RelativeEncoder m_encoder;
   boolean isExtended = false;
   public FirstIntake(){
     try{
+      m_intakemotor = new CANSparkMax(CANBusID.dintakemotor, MotorType.kBrushless);
+      m_exotor  = new CANSparkMax(CANBusID.dexotor, MotorType.kBrushless);
       m_exotor.restoreFactoryDefaults();
+      m_intakemotor.restoreFactoryDefaults();
+      m_pidController= m_exotor.getPIDController();
+      m_encoder = m_exotor.getEncoder();
+      
     } catch (RuntimeException ex) {
       DriverStation.reportError("error loading failed" + ex.getMessage(), true);
     }
