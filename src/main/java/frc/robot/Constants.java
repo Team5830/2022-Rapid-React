@@ -18,14 +18,14 @@ public final class Constants {
         public static final int kRightMotor1 = 12;
         public static final int kLeftMotor2 = 13;
         public static final int kRightMotor2 = 11;
-        public static final int kLeftFlywheel = 2;
-        public static final int kRightFlywheel = 1;
-        public static final int dintakemotor = 7;
-        public static final int conveyor1 = 20;
-        public static final int conveyor2 = 21;
-        public static final int dexotor = 9;
-        public static final int climberMotor1 = 3;
-        public static final int climberMotor2 = 5;
+        public static final int kLeftFlywheel = 2;// left flywheel motor
+        public static final int kRightFlywheel = 1;// right flywheel motor
+        public static final int dintakemotor = 7;// intake
+        public static final int conveyor1 = 20;// conveyor 1
+        public static final int conveyor2 = 21;// shooter conveyor
+        public static final int dexotor = 9;// extend intake
+        public static final int climberMotor1 = 3;// climber motor 1
+        public static final int climberMotor2 = 5;// climber motor 2
     }
     public static final class Ports {
         public static final int LeftDriveEncoder1 = 0;
