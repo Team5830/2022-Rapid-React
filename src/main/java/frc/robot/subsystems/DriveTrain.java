@@ -110,7 +110,7 @@ public class DriveTrain extends SubsystemBase {
       rightspeed = -maxspeed;
     }
     // System.out.printf("leftspeed %f rightspeed %f",leftspeed, rightspeed);
-    m_drive.tankDrive(leftspeed, rightspeed);
+    m_drive.tankDrive(leftspeed, rightspeed, true);
   }
 
   public void ArcadeDrive(double forwardspeed, double rotationspeed) {
