@@ -11,207 +11,7 @@
         "vgap": 16.0,
         "titleType": 0,
         "tiles": {
-          "0,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/FirstIntakeOn",
-              "_title": "FirstIntakeOn",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "1,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Flywheel D",
-              "_title": "Flywheel D"
-            }
-          },
-          "2,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Flywheel F",
-              "_title": "Flywheel F"
-            }
-          },
-          "3,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Toggle extend",
-              "_title": "Toggle extend"
-            }
-          },
-          "4,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Flywheel I",
-              "_title": "Flywheel I"
-            }
-          },
-          "5,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Climber1 On",
-              "_title": "Climber1 On"
-            }
-          },
-          "6,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Flywheel kIz",
-              "_title": "Flywheel kIz"
-            }
-          },
-          "7,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Retract Intake",
-              "_title": "Retract Intake"
-            }
-          },
-          "8,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Flywheel P",
-              "_title": "Flywheel P"
-            }
-          },
-          "9,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Turn Left Command",
-              "_title": "Turn Left Command"
-            }
-          },
-          "10,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Flywheel Off",
-              "_title": "Flywheel Off"
-            }
-          },
-          "0,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Reverse Conveyor1",
-              "_title": "Reverse Conveyor1"
-            }
-          },
-          "1,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Conveyor2On",
-              "_title": "Conveyor2On"
-            }
-          },
-          "2,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Turn Right Command",
-              "_title": "Turn Right Command"
-            }
-          },
-          "3,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Extend Intake",
-              "_title": "Extend Intake"
-            }
-          },
-          "4,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Intake Reverse",
-              "_title": "Intake Reverse"
-            }
-          },
-          "5,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Test Flywheel",
-              "_title": "Test Flywheel"
-            }
-          },
-          "6,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Climber2 On",
-              "_title": "Climber2 On"
-            }
-          },
-          "7,1": {
+          "5,3": {
             "size": [
               1,
               1
@@ -222,275 +22,7 @@
               "_title": "Reset DT Encoders"
             }
           },
-          "8,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Intake On",
-              "_title": "Intake On"
-            }
-          },
-          "9,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Conveyor1On",
-              "_title": "Conveyor1On"
-            }
-          },
-          "10,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Reverse Conveyor2",
-              "_title": "Reverse Conveyor2"
-            }
-          },
-          "0,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Reverse Climber1",
-              "_title": "Reverse Climber1"
-            }
-          },
-          "1,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Move Command",
-              "_title": "Move Command"
-            }
-          },
-          "2,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/navX Updates Per Sec",
-              "_title": "navX Updates Per Sec"
-            }
-          },
-          "3,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Flywheel On",
-              "_title": "Flywheel On"
-            }
-          },
-          "4,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/DB/Slider 0",
-              "_title": "DB/Slider 0"
-            }
-          },
-          "5,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/DB/Slider 1",
-              "_title": "DB/Slider 1"
-            }
-          },
-          "6,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/DB/Slider 3",
-              "_title": "DB/Slider 3"
-            }
-          },
-          "7,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/DB/Slider 2",
-              "_title": "DB/Slider 2"
-            }
-          },
-          "8,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Gyro",
-              "_title": "Gyro"
-            }
-          },
-          "9,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Reset Gyro",
-              "_title": "Reset Gyro"
-            }
-          },
-          "10,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Intake Off",
-              "_title": "Intake Off"
-            }
-          },
-          "0,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/FirstIntakeReversed",
-              "_title": "FirstIntakeReversed",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "1,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Conveyor On",
-              "_title": "Conveyor On",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "2,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Flywheel Speed",
-              "_title": "Flywheel Speed"
-            }
-          },
-          "3,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Flywheel motorspeed",
-              "_title": "Flywheel motorspeed"
-            }
-          },
           "4,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Reverse Climber2",
-              "_title": "Reverse Climber2"
-            }
-          },
-          "5,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Intake Toggle",
-              "_title": "Intake Toggle"
-            }
-          },
-          "6,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Flywheel MinOutput",
-              "_title": "Flywheel MinOutput"
-            }
-          },
-          "7,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Right Encoder Distance",
-              "_title": "Right Encoder Distance"
-            }
-          },
-          "8,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Flywheel MaxOutput",
-              "_title": "Flywheel MaxOutput"
-            }
-          },
-          "9,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/navX Port Resets",
-              "_title": "navX Port Resets"
-            }
-          },
-          "10,3": {
             "size": [
               1,
               1
@@ -501,133 +33,426 @@
               "_title": "Auto Selector"
             }
           },
-          "0,4": {
+          "7,0": {
             "size": [
-              1,
-              1
+              2,
+              3
             ],
             "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/DB/Button 0",
-              "_title": "DB/Button 0",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
+              "_type": "List Layout",
+              "_title": "Flywheel Vars",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Flywheel Speed",
+                  "_title": "Flywheel Speed"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Flywheel motorspeed",
+                  "_title": "Flywheel motorspeed"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Flywheel P",
+                  "_title": "Flywheel P"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Flywheel I",
+                  "_title": "Flywheel I"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Flywheel D",
+                  "_title": "Flywheel D"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Flywheel kIz",
+                  "_title": "Flywheel kIz"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Flywheel F",
+                  "_title": "Flywheel F"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Flywheel MinOutput",
+                  "_title": "Flywheel MinOutput"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Flywheel MaxOutput",
+                  "_title": "Flywheel MaxOutput"
+                }
+              ]
             }
           },
-          "1,4": {
+          "5,0": {
             "size": [
               1,
-              1
+              3
             ],
             "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/DB/Button 1",
-              "_title": "DB/Button 1",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
+              "_type": "List Layout",
+              "_title": "DB Sliders",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/DB/Slider 0",
+                  "_title": "DB/Slider 0"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/DB/Slider 1",
+                  "_title": "DB/Slider 1"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/DB/Slider 2",
+                  "_title": "DB/Slider 2"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/DB/Slider 3",
+                  "_title": "DB/Slider 3"
+                }
+              ]
             }
           },
-          "2,4": {
+          "6,0": {
             "size": [
               1,
-              1
+              3
             ],
             "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/DB/Button 2",
-              "_title": "DB/Button 2",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
+              "_type": "List Layout",
+              "_title": "DB Buttons",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/DB/Button 0",
+                  "_title": "DB/Button 0",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/DB/Button 1",
+                  "_title": "DB/Button 1",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/DB/Button 2",
+                  "_title": "DB/Button 2",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/DB/Button 3",
+                  "_title": "DB/Button 3",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                }
+              ]
             }
           },
-          "3,4": {
+          "4,0": {
             "size": [
               1,
-              1
+              3
             ],
             "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/DB/Button 3",
-              "_title": "DB/Button 3",
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
+              "_type": "List Layout",
+              "_title": "DB Strings",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/DB/String 0",
+                  "_title": "DB/String 0"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/DB/String 1",
+                  "_title": "DB/String 1"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/DB/String 2",
+                  "_title": "DB/String 2"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/DB/String 3",
+                  "_title": "DB/String 3"
+                }
+              ]
             }
           },
-          "4,4": {
+          "2,0": {
             "size": [
               1,
-              1
+              3
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Left Encoder Distance",
-              "_title": "Left Encoder Distance"
+              "_type": "List Layout",
+              "_title": "Conveyer Cmds",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/Conveyor On",
+                  "_title": "Conveyor On",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Conveyor1On",
+                  "_title": "Conveyor1On"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Reverse Conveyor1",
+                  "_title": "Reverse Conveyor1"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Conveyor2On",
+                  "_title": "Conveyor2On"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Reverse Conveyor2",
+                  "_title": "Reverse Conveyor2"
+                }
+              ]
             }
           },
-          "5,4": {
+          "1,0": {
             "size": [
               1,
-              1
+              3
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Encoder Distance",
-              "_title": "Encoder Distance"
+              "_type": "List Layout",
+              "_title": "Climber Cmds",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Climber1 On",
+                  "_title": "Climber1 On"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Reverse Climber1",
+                  "_title": "Reverse Climber1"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Climber2 On",
+                  "_title": "Climber2 On"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Reverse Climber2",
+                  "_title": "Reverse Climber2"
+                }
+              ]
             }
           },
-          "6,4": {
+          "1,3": {
             "size": [
               1,
-              1
+              2
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/navX Stream Responses",
-              "_title": "navX Stream Responses"
+              "_type": "List Layout",
+              "_title": "Movement Cmds",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Move Command",
+                  "_title": "Move Command"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Turn Left Command",
+                  "_title": "Turn Left Command"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Turn Right Command",
+                  "_title": "Turn Right Command"
+                }
+              ]
             }
           },
-          "7,4": {
+          "0,0": {
             "size": [
               1,
-              1
+              5
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/DB/String 0",
-              "_title": "DB/String 0"
+              "_type": "List Layout",
+              "_title": "Intake Cmds",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/FirstIntakeOn",
+                  "_title": "FirstIntakeOn",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/FirstIntakeReversed",
+                  "_title": "FirstIntakeReversed",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake On",
+                  "_title": "Intake On"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Off",
+                  "_title": "Intake Off"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Toggle",
+                  "_title": "Intake Toggle"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Extend Intake",
+                  "_title": "Extend Intake"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Retract Intake",
+                  "_title": "Retract Intake"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Toggle extend",
+                  "_title": "Toggle extend"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Reverse",
+                  "_title": "Intake Reverse"
+                }
+              ]
             }
           },
-          "8,4": {
+          "3,3": {
             "size": [
               1,
-              1
+              2
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/DB/String 1",
-              "_title": "DB/String 1"
+              "_type": "List Layout",
+              "_title": "Encoder Vars",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Encoder Distance",
+                  "_title": "Encoder Distance"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Left Encoder Distance",
+                  "_title": "Left Encoder Distance"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Right Encoder Distance",
+                  "_title": "Right Encoder Distance"
+                }
+              ]
             }
           },
-          "9,4": {
+          "3,0": {
             "size": [
               1,
-              1
+              3
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/DB/String 2",
-              "_title": "DB/String 2"
+              "_type": "List Layout",
+              "_title": "Gyro Vars",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Gyro",
+                  "_title": "Gyro"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Reset Gyro",
+                  "_title": "Reset Gyro"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/navX Stream Responses",
+                  "_title": "navX Stream Responses"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/navX Port Resets",
+                  "_title": "navX Port Resets"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/navX Updates Per Sec",
+                  "_title": "navX Updates Per Sec"
+                }
+              ]
             }
           },
-          "10,4": {
+          "2,3": {
             "size": [
               1,
-              1
+              2
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/DB/String 3",
-              "_title": "DB/String 3"
+              "_type": "List Layout",
+              "_title": "Flywheel Cmds",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Test Flywheel",
+                  "_title": "Test Flywheel"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Flywheel On",
+                  "_title": "Flywheel On"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Flywheel Off",
+                  "_title": "Flywheel Off"
+                }
+              ]
             }
           }
         }
@@ -840,7 +665,7 @@
   "windowGeometry": {
     "x": 0.0,
     "y": 0.0,
-    "width": 1707.3333740234375,
-    "height": 920.0
+    "width": 1920.0,
+    "height": 1040.0
   }
 }
