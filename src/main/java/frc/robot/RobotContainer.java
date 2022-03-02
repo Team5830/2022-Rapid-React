@@ -4,7 +4,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.GenericHID;
@@ -26,12 +25,11 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public final DriveTrain m_drivetrain = new DriveTrain();
   private final FirstIntake m_intake = new FirstIntake();
-  //public final Flywheel m_flywheel = new Flywheel();
+  public final Flywheel m_flywheel = new Flywheel();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
   private final Climber m_climber = new Climber();
   private final Conveyor m_conveyor = new Conveyor();
-  private final Flywheel m_flywheel = new Flywheel();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -42,9 +40,7 @@ public class RobotContainer {
     SendableRegistry.setName(new Turn(90, m_drivetrain), "Turn Right command");
     SendableRegistry.setName(new Turn(-90, m_drivetrain), "Turn Left command");
     SendableRegistry.setName(new InstantCommand(m_climber::climberMoter1on), "Turn Climber1 on");
-    SendableRegistry.setName(new InstantCommand(m_climber::climberMoter2on), "Turn Climber2 on");
     SendableRegistry.setName(new InstantCommand(m_climber::reverse_Motor1), "Reverse Climber1");
-    SendableRegistry.setName(new InstantCommand(m_climber::reverse_Motor2), "Reverse Climber2");
     SendableRegistry.setName(new Conv1(m_conveyor), "Conveyor1On");
     SendableRegistry.setName(new Conv2(m_conveyor), "Conveyor2On");
     SendableRegistry.setName(new InstantCommand(m_conveyor::conveyor1Reversed), "Reverse Conveyor1");
@@ -65,24 +61,23 @@ public class RobotContainer {
   private void configureButtonBindings() {
     // Lower max speed
     new JoystickButton(m_leftJoy, buttonsLeftjoy.halfspeedButton).whenPressed(()-> m_drivetrain.toggleMaxSpeed());
-    new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()-> m_intake.toggleFirstIntake());
+    new JoystickButton(m_leftJoy, buttonsRightjoy.pickupButton).whenPressed(new Pickup(m_intake, m_conveyor));
+    new JoystickButton(m_leftJoy, buttonsRightjoy.shootButton).whenPressed(new Shoot(m_flywheel, m_conveyor));
     /*
+    new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()-> m_intake.toggleFirstIntake());
     new JoystickButton(m_rightJoy, buttonsRightjoy.moveButton).whenPressed( new Move(100.0,m_drivetrain).withTimeout(5));
     new JoystickButton(m_rightJoy, buttonsRightjoy.turnrightButton).whenPressed(new Turn(90, m_drivetrain).withTimeout(5));
     new JoystickButton(m_rightJoy, buttonsRightjoy.turnleftButton).whenPressed(new Turn(-90, m_drivetrain).withTimeout(5));
-    */
     new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntakeExtend).whenPressed(()-> m_intake.toggleExtension());
     new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleconveyor1).whenPressed(()-> m_conveyor.toggleconveyor1());
     new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleconveyor2).whenPressed(()-> m_conveyor.toggleconveyor2());
-  
+  */
     SmartDashboard.putData("Move Command", new Move(100.0, m_drivetrain));
     SmartDashboard.putData("Turn Right Command", new Turn(90.0, m_drivetrain));
     SmartDashboard.putData("Turn Left Command", new Turn(-90.0, m_drivetrain));
     SmartDashboard.putData("Test Flywheel", new Flywheel_test(m_flywheel));
     SmartDashboard.putData("Climber1 On", new InstantCommand(m_climber::climberMoter1on));
-    SmartDashboard.putData("Climber2 On", new InstantCommand(m_climber::climberMoter2on));
     SmartDashboard.putData("Reverse Climber1", new InstantCommand(m_climber::reverse_Motor1));
-    SmartDashboard.putData("Reverse Climber2", new InstantCommand(m_climber::reverse_Motor2));
     SmartDashboard.putData("Flywheel On",new InstantCommand(m_flywheel::shooteron));
     SmartDashboard.putData("Flywheel Off", new InstantCommand(m_flywheel::shooteroff));  
     SmartDashboard.putData("Extend Intake",new InstantCommand(m_intake::extendIntake)); 
@@ -101,6 +96,7 @@ public class RobotContainer {
     SmartDashboard.putData("Conveyor2 Reverse", new InstantCommand(m_conveyor::conveyor2Reversed));
     SmartDashboard.putData("Conveyor1 Toggle", new InstantCommand(m_conveyor::toggleconveyor1));
     SmartDashboard.putData("Conveyor2 Toggle", new InstantCommand(m_conveyor::toggleconveyor2));
+    SmartDashboard.putData("Pickup", new Pickup(m_intake, m_conveyor));
   }
 
 
@@ -110,8 +106,10 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
    public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    return new InstantCommand();
+    return new SequentialCommandGroup(
+      new Shoot(m_flywheel, m_conveyor),
+      new Move(-60, m_drivetrain)
+    );
   }
 
 }
