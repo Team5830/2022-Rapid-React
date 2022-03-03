@@ -40,6 +40,7 @@ public class RobotContainer {
     SendableRegistry.setName(m_drivetrain, "DriveTrain", "DriveTrain");
     SendableRegistry.setName(new Turn(90, m_drivetrain), "Turn Right command");
     SendableRegistry.setName(new Turn(-90, m_drivetrain), "Turn Left command");
+    
     SendableRegistry.setName(new InstantCommand(m_climber::climberMoter1on), "Turn Climber1 on");
     SendableRegistry.setName(new InstantCommand(m_climber::climberMoter2on), "Turn Climber2 on");
     SendableRegistry.setName(new InstantCommand(m_climber::reverse_Motor1), "Reverse Climber1");
@@ -52,6 +53,7 @@ public class RobotContainer {
     SendableRegistry.setName(m_conveyor,"Conveyor");
     SendableRegistry.setName(m_intake,"Intake");
     SendableRegistry.setName(m_climber,"Climber");
+    
     m_drivetrain.setDefaultCommand(new Drive(m_drivetrain, () -> m_leftJoy.getY(), () -> m_rightJoy.getY()));
   }
 
@@ -78,6 +80,7 @@ public class RobotContainer {
     SmartDashboard.putData("Move Command", new Move(100.0, m_drivetrain));
     SmartDashboard.putData("Turn Right Command", new Turn(90.0, m_drivetrain));
     SmartDashboard.putData("Turn Left Command", new Turn(-90.0, m_drivetrain));
+    
     SmartDashboard.putData("Test Flywheel", new Flywheel_test(m_flywheel));
     SmartDashboard.putData("Climber1 On", new InstantCommand(m_climber::climberMoter1on));
     SmartDashboard.putData("Climber2 On", new InstantCommand(m_climber::climberMoter2on));
