@@ -30,6 +30,16 @@ public class FirstIntake extends SubsystemBase {
     try {
       m_intakemotor = new CANSparkMax(CANBusID.dintakemotor, MotorType.kBrushless);
       m_exotor = new CANSparkMax(CANBusID.dexotor, MotorType.kBrushless);
+      m_intakemotor.restoreFactoryDefaults();
+      m_exotor.restoreFactoryDefaults();
+      m_exotor.enableSoftLimit(CANSparkMax.SoftLimitDirection.kReverse, true);
+      m_exotor.enableSoftLimit(CANSparkMax.SoftLimitDirection.kForward, true);
+      m_exotor.setSoftLimit(CANSparkMax.SoftLimitDirection.kForward,
+          (float) firstIntake.ExtendDistance);
+      m_exotor.setSoftLimit(CANSparkMax.SoftLimitDirection.kReverse,
+          (float) firstIntake.ExtendminDistance);
+      SmartDashboard.putNumber("Intake Reverse Soft Limit", firstIntake.ExtendminDistance);
+      SmartDashboard.putNumber("Intake Forward Soft Limit", firstIntake.ExtendDistance);
       m_exotor.restoreFactoryDefaults();
       m_exotor.setInverted(true);
       m_intakemotor.restoreFactoryDefaults();
@@ -114,6 +124,9 @@ public class FirstIntake extends SubsystemBase {
 
   @Override
   public void periodic() {
+    SmartDashboard.getNumber("Intake Reverse Soft Limit", firstIntake.ExtendminDistance);
+    SmartDashboard.getNumber("Intake Forward Soft Limit", firstIntake.ExtendDistance);
+
     // This method will be called once per scheduler run
     SmartDashboard.putBoolean("FirstIntakeOn", firstIntakeON);
     SmartDashboard.putBoolean("FirstIntakeReversed", firstIntakeReversed);

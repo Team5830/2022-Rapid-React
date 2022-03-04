@@ -1,10 +1,19 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="Easy Shooter" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="490" y="80"/>
+	</widget>
+	<widget field="Intake Up" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="547" y="419"/>
+	</widget>
+	<widget field="Intake Down" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="535" y="337"/>
+	</widget>
 	<widget field="Intake Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="560" y="573"/>
 	</widget>
 	<widget field="IntakeRetractOFf" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="279" y="238"/>
+		<location x="513" y="383"/>
 	</widget>
 	<widget field="Climber Off" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="195" y="408"/>
@@ -19,13 +28,13 @@
 		<location x="297" y="306"/>
 	</widget>
 	<widget field="Intake On" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="170" y="306"/>
+		<location x="228" y="582"/>
 	</widget>
 	<widget field="Reset DT Encoders" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="321" y="272"/>
 	</widget>
 	<widget field="Intake Off" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="192" y="272"/>
+		<location x="739" y="437"/>
 	</widget>
 	<widget field="Climber Down" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="588" y="174"/>
@@ -34,7 +43,7 @@
 		<location x="279" y="204"/>
 	</widget>
 	<widget field="Conveyor1 Toggle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="279" y="170"/>
+		<location x="675" y="12"/>
 	</widget>
 	<widget field="Extend Intake" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="578" y="602"/>
@@ -43,7 +52,7 @@
 		<location x="569" y="496"/>
 	</widget>
 	<widget field="Conveyor2 Toggle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="279" y="68"/>
+		<location x="677" y="52"/>
 	</widget>
 	<widget field="Conveyor1 Reverse" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="279" y="34"/>
@@ -58,7 +67,7 @@
 		<location x="600" y="136"/>
 	</widget>
 	<widget field="Flywheel Off" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="139" y="21"/>
+		<location x="718" y="261"/>
 	</widget>
 	<widget field="Intake Reverse" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="0" y="624"/>
@@ -73,7 +82,7 @@
 		<location x="0" y="522"/>
 	</widget>
 	<widget field="Flywheel On" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="488"/>
+		<location x="716" y="302"/>
 	</widget>
 	<widget field="Toggle extend" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="0" y="454"/>
@@ -143,124 +152,39 @@
 	</widget>
 </dashboard>
 <live-window>
-	<widget field="Conveyor" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<location x="0" y="424"/>
-	</widget>
 	<widget field="Flywheel" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<location x="0" y="401"/>
+		<location x="0" y="281"/>
 	</widget>
 	<widget field="Climber" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<location x="0" y="399"/>
+	</widget>
+	<widget field="Conveyor" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
 		<location x="0" y="378"/>
 	</widget>
-	<widget field="Ungrouped" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<widget field="PIDController[1]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="PIDController[1]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="DigitalInput[9]" type="Digital Input" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalInputDisplay">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="DigitalInput[9]" type="Digital Input" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalInputDisplay">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="DigitalInput[8]" type="Digital Input" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalInputDisplay">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="DigitalInput[8]" type="Digital Input" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalInputDisplay">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="PIDController[2]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="PIDController[2]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="PIDController[3]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="PIDController[3]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="PIDController[4]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="PIDController[4]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="PIDController[5]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="PIDController[5]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<location x="15" y="14"/>
-		<width>155</width>
-		<height>837</height>
-	</widget>
 	<widget field="DriveTrain" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<widget field="Leftt Encoder" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.EncoderDisplay">
+		<widget field="Right Encoder" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.EncoderDisplay">
 			<location x="0" y="0"/>
 			<height>0</height>
 			<width>0</width>
 		</widget>
-		<widget field="Leftt Encoder" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.EncoderDisplay">
+		<widget field="Right Encoder" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.EncoderDisplay">
 			<location x="0" y="0"/>
 			<height>0</height>
 			<width>0</width>
 		</widget>
-		<widget field="Gyro" type="Table" class="edu.wpi.first.smartdashboard.gui.elements.Compass">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
+		<widget field="Leftt Encoder" type="Quadrature Encoder" class="edu.wpi.first.smartdashboard.livewindow.elements.EncoderDisplay">
+			<location x="6" y="16"/>
+			<height>97</height>
+			<width>250</width>
 		</widget>
-		<widget field="Gyro" type="Table" class="edu.wpi.first.smartdashboard.gui.elements.Compass">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="Right Encoder" type="Quadrature Encoder" class="edu.wpi.first.smartdashboard.livewindow.elements.EncoderDisplay">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
-		</widget>
-		<widget field="Right Encoder" type="Quadrature Encoder" class="edu.wpi.first.smartdashboard.livewindow.elements.EncoderDisplay">
-			<location x="0" y="0"/>
-			<height>0</height>
-			<width>0</width>
+		<widget field="Gyro" type="Gyro" class="edu.wpi.first.smartdashboard.gui.elements.Compass">
+			<location x="6" y="113"/>
+			<height>150</height>
+			<width>250</width>
 		</widget>
 		<location x="4" y="11"/>
 		<width>262</width>
-		<height>366</height>
+		<height>269</height>
 	</widget>
 	<widget field="FirstIntake" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
 		<widget field="Intake" type="Table" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
@@ -276,6 +200,51 @@
 		<location x="8" y="21"/>
 		<width>139</width>
 		<height>42</height>
+	</widget>
+	<widget field="Ungrouped" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<widget field="PIDController[5]" type="Table" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
+			<location x="0" y="0"/>
+			<height>0</height>
+			<width>0</width>
+		</widget>
+		<widget field="PIDController[5]" type="Table" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
+			<location x="0" y="0"/>
+			<height>0</height>
+			<width>0</width>
+		</widget>
+		<widget field="PIDController[3]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
+			<location x="6" y="16"/>
+			<height>151</height>
+			<width>143</width>
+		</widget>
+		<widget field="PIDController[2]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
+			<location x="6" y="167"/>
+			<height>151</height>
+			<width>143</width>
+		</widget>
+		<widget field="DigitalInput[9]" type="Digital Input" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalInputDisplay">
+			<location x="6" y="318"/>
+			<height>28</height>
+			<width>143</width>
+		</widget>
+		<widget field="PIDController[4]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
+			<location x="6" y="346"/>
+			<height>151</height>
+			<width>143</width>
+		</widget>
+		<widget field="PIDController[1]" type="PIDController" class="edu.wpi.first.smartdashboard.gui.elements.PIDEditor">
+			<location x="6" y="497"/>
+			<height>151</height>
+			<width>143</width>
+		</widget>
+		<widget field="DigitalInput[8]" type="Digital Input" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalInputDisplay">
+			<location x="6" y="648"/>
+			<height>28</height>
+			<width>143</width>
+		</widget>
+		<location x="15" y="14"/>
+		<width>155</width>
+		<height>682</height>
 	</widget>
 </live-window>
 </xml>
