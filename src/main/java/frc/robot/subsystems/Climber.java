@@ -1,7 +1,7 @@
 
 package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.RelativeEncoder;
+//import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;   
 
 import edu.wpi.first.wpilibj.DriverStation;
@@ -9,16 +9,16 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Climber extends SubsystemBase {
-  CANSparkMax climberMotor1;
-  RelativeEncoder m_encoder1; 
-  boolean isclimberMotor1on = false;
-  boolean isclimberMotor1reversed = false;
+  CANSparkMax climberMotorup;
+  CANSparkMax m_encoderup; 
+  boolean isclimberMotorupon = false;
+  boolean isclimberMotorupreversed = false;
 
   public Climber() {
     try {
-      climberMotor1 = new CANSparkMax(Constants.CANBusID.climberMotor1, MotorType.kBrushless);
-      climberMotor1.restoreFactoryDefaults();
-      m_encoder1 = climberMotor1.getEncoder();
+      climberMotorup = new CANSparkMax(Constants.CANBusID.climberMotorup, MotorType.kBrushless);
+      climberMotorup.restoreFactoryDefaults();
+      //m_encoderup = climberMotorup=getClimberState();
     } catch (RuntimeException ex) {
       DriverStation.reportError("error loading failed" + ex.getMessage(), true);
     }
@@ -34,26 +34,26 @@ public class Climber extends SubsystemBase {
   }
 */
   public void reverse_Motor1(){
-    if (isclimberMotor1reversed){ 
-      isclimberMotor1reversed = false;
+    if (isclimberMotorupreversed){ 
+      isclimberMotorupreversed = false;
     } else{
-      isclimberMotor1reversed = true;
+      isclimberMotorupreversed = true;
     }
     climberMoter1on();
   }
 
   public void climberMoter1on() {
-    if (isclimberMotor1reversed){
-        climberMotor1.set(-Constants.ClimberC.climberSpeed);
+    if (isclimberMotorupreversed){
+        climberMotorup.set(-Constants.ClimberC.climberSpeed);
     } else {
-        climberMotor1.set(Constants.ClimberC.climberSpeed);
+        climberMotorup.set(Constants.ClimberC.climberSpeed);
     }
-    isclimberMotor1on = true;
+    isclimberMotorupon = true;
   }
 
   public void climberMoter1off() {
-    climberMotor1.set(0);
-    isclimberMotor1on = false;
+    climberMotorup.set(0);
+    isclimberMotorupon = false;
   }
 
   public boolean readyToClimb() {
@@ -62,14 +62,14 @@ public class Climber extends SubsystemBase {
   }
 
     public boolean getClimberState() {
-        return isclimberMotor1on;
+        return isclimberMotorupon;
     }
 
   public void toggleMotor1(){
-    if(isclimberMotor1on) {
-        isclimberMotor1on = false;
+    if(isclimberMotorupon) {
+        isclimberMotorupon = false;
     } else {
-        isclimberMotor1on = true;
+        isclimberMotorupon = true;
     }
   }
 }

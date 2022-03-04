@@ -79,8 +79,8 @@ public class RobotContainer {
     SmartDashboard.putData("Turn Left Command", new Turn(-90.0, m_drivetrain));
     
     SmartDashboard.putData("Test Flywheel", new Flywheel_test(m_flywheel));
-    SmartDashboard.putData("Climber1 On", new InstantCommand(m_climber::climberMoter1on));
-    SmartDashboard.putData("Reverse Climber1", new InstantCommand(m_climber::reverse_Motor1));
+    SmartDashboard.putData("Climber Up", new InstantCommand(m_climber::climberMoter1on));
+    SmartDashboard.putData("Climber Down", new InstantCommand(m_climber::reverse_Motor1));
     SmartDashboard.putData("Flywheel On",new InstantCommand(m_flywheel::shooteron));
     SmartDashboard.putData("Flywheel Off", new InstantCommand(m_flywheel::shooteroff));  
     SmartDashboard.putData("Extend Intake",new InstantCommand(m_intake::extendIntake)); 
