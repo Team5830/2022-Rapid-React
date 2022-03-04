@@ -95,6 +95,8 @@ public class RobotContainer {
     SmartDashboard.putData("Intake Reverse", new InstantCommand(m_intake::reverseFirstIntake)); 
     SmartDashboard.putData("Conveyor1 OnTill", new Conv1(m_conveyor));
     SmartDashboard.putData("Conveyor2 OnTill", new Conv2(m_conveyor));
+    SmartDashboard.putData("Climber Up", new InstantCommand(m_climber::climber_up));
+    SmartDashboard.putData("Climber Down", new InstantCommand(m_climber::climber_down));
     SmartDashboard.putData("Conveyor1 Reverse", new InstantCommand(m_conveyor::conveyor1Reversed));
     SmartDashboard.putData("Conveyor2 Reverse", new InstantCommand(m_conveyor::conveyor2Reversed));
     SmartDashboard.putData("Conveyor1 Toggle", new InstantCommand(m_conveyor::toggleconveyor1));

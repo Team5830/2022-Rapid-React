@@ -28,11 +28,15 @@ public class Climber extends SubsystemBase {
   public void periodic() {
     
   }
-/*
-  public boolean getClimberState1() {
-    return isclimberon;
+  
+  public void climber_up(){
+    climberMotorup.set(Constants.ClimberC.climberSpeed);
   }
-*/
+  
+  public void climber_down(){
+    climberMotorup.set(-Constants.ClimberC.climberSpeed);
+  }
+
   public void reverse_Motor1(){
     if (isclimberMotorupreversed){ 
       isclimberMotorupreversed = false;
@@ -50,6 +54,7 @@ public class Climber extends SubsystemBase {
     }
     isclimberMotorupon = true;
   }
+
 
   public void climberMoter1off() {
     climberMotorup.set(0);
