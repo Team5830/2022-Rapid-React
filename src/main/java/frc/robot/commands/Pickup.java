@@ -15,16 +15,14 @@ public class Pickup extends SequentialCommandGroup {
   public Pickup(FirstIntake m_intake, Conveyor m_conveyor) {
     addRequirements(m_intake, m_conveyor);
     addCommands(
-      new ParallelCommandGroup(
-        new InstantCommand(m_intake::extendIntake),
-        new InstantCommand(m_intake::startFirstIntake),
-        new InstantCommand(m_conveyor::conveyor1ON),
-        new InstantCommand(m_conveyor::conveyor2ON)
-      ),
-      new WaitUntilCommand(() -> m_conveyor.ballsensed2),
-      new InstantCommand(m_conveyor::conveyor2OFF),
-      new WaitUntilCommand(() -> m_conveyor.ballsensed1),
-      new InstantCommand(m_conveyor::conveyor1OFF)
-    );
+        new ParallelCommandGroup(
+            // new InstantCommand(m_intake::extendIntake),
+            new InstantCommand(m_intake::startFirstIntake),
+            new InstantCommand(m_conveyor::conveyor1ON),
+            new InstantCommand(m_conveyor::conveyor2ON)),
+        new WaitUntilCommand(() -> m_conveyor.ballsensed2),
+        new InstantCommand(m_conveyor::conveyor2OFF),
+        new WaitUntilCommand(() -> m_conveyor.ballsensed1),
+        new InstantCommand(m_conveyor::conveyor1OFF));
   }
 }
