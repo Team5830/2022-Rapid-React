@@ -31,7 +31,7 @@ public class RobotContainer {
   private final Climber m_climber = new Climber();
   private final Conveyor m_conveyor = new Conveyor();
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  /*  The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     
     // Configure the button bindings
