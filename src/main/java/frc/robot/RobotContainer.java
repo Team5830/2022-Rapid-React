@@ -150,10 +150,12 @@ public class RobotContainer {
     return new SequentialCommandGroup(
         new InstantCommand(m_flywheel::shooterGo),
         new Pause(),
+        new InstantCommand(m_conveyor::conveyor2ON),
+        // new Shoot(m_flywheel, m_conveyor),
         new InstantCommand(m_drivetrain::toggleMaxSpeed),
-        new Shoot(m_flywheel, m_conveyor),
         new Pause(),
-        new Move(-60, m_drivetrain));
+        new Move(-60, m_drivetrain),
+        new InstantCommand(m_drivetrain::toggleMaxSpeed));
   }
 
 }
