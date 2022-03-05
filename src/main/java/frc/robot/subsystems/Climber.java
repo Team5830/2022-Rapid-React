@@ -28,7 +28,7 @@ public class Climber extends SubsystemBase {
       climberMotorup.setSoftLimit(CANSparkMax.SoftLimitDirection.kReverse,
           (float) Constants.ClimberC.climberreverselimit);
       SmartDashboard.putNumber("Reverse Soft Limit", Constants.ClimberC.climberreverselimit);
-
+      m_encoderup.setPosition(0.0);
       // m_encoderup = climberMotorup=getClimberState();
     } catch (RuntimeException ex) {
       DriverStation.reportError("error loading failed" + ex.getMessage(), true);
@@ -37,6 +37,9 @@ public class Climber extends SubsystemBase {
 
   @Override
   public void periodic() {
+    climberMotorup.setInverted(true);
+    climberMotorup.enableSoftLimit(CANSparkMax.SoftLimitDirection.kForward, true);
+    climberMotorup.enableSoftLimit(CANSparkMax.SoftLimitDirection.kReverse, true);
     climberMotorup.setSoftLimit(CANSparkMax.SoftLimitDirection.kForward,
         (float) SmartDashboard.getNumber("Forward Soft Limit", Constants.ClimberC.climberforwardlimit));
     climberMotorup.setSoftLimit(CANSparkMax.SoftLimitDirection.kReverse,

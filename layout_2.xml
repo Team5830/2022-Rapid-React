@@ -1,0 +1,139 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="Climber Off" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="743" y="300"/>
+	</widget>
+	<widget field="Pickup Off" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="196" y="291"/>
+	</widget>
+	<widget field="Climber Down" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="729" y="339"/>
+	</widget>
+	<widget field="Climber Up" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="743" y="383"/>
+	</widget>
+	<widget field="Toggle extend" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="577"/>
+	</widget>
+	<widget field="Auto Selector" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="189"/>
+	</widget>
+	<widget field="Climber Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="707" y="440"/>
+		<height>32</height>
+	</widget>
+	<widget field="Reverse Soft Limit" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="658"/>
+	</widget>
+	<widget field="Intake Reverse Soft Limit" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="556"/>
+	</widget>
+	<widget field="Intake Forward Soft Limit" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="7" y="495"/>
+	</widget>
+	<widget field="Easy Shooter" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="518" y="94"/>
+	</widget>
+	<widget field="Intake Up" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="289" y="138"/>
+	</widget>
+	<widget field="Intake Down" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="283" y="77"/>
+	</widget>
+	<widget field="Intake Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="560" y="573"/>
+	</widget>
+	<widget field="IntakeRetractOFf" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="272" y="194"/>
+	</widget>
+	<widget field="Intake On" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="302" y="422"/>
+	</widget>
+	<widget field="Reset DT Encoders" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="370" y="634"/>
+	</widget>
+	<widget field="Intake Off" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="297" y="373"/>
+	</widget>
+	<widget field="Conveyor1 Toggle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="521" y="203"/>
+	</widget>
+	<widget field="Intake Toggle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="278" y="257"/>
+	</widget>
+	<widget field="Conveyor2 Toggle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="520" y="261"/>
+	</widget>
+	<widget field="Reset Gyro" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="400" y="590"/>
+	</widget>
+	<widget field="Flywheel Off" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="525" y="46"/>
+	</widget>
+	<widget field="Intake Reverse" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="624"/>
+	</widget>
+	<widget field="Pickup" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="522"/>
+	</widget>
+	<widget field="Flywheel MinOutput" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="399"/>
+	</widget>
+	<widget field="navX Stream Responses" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="378"/>
+	</widget>
+	<widget field="Flywheel motorspeed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="357"/>
+	</widget>
+	<widget field="Flywheel Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="336"/>
+	</widget>
+	<widget field="Encoder Distance" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="315"/>
+	</widget>
+	<widget field="Conveyor On" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="294"/>
+	</widget>
+	<widget field="FirstIntakeReversed" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="273"/>
+	</widget>
+	<widget field="Left Encoder Distance" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="16" y="436"/>
+	</widget>
+	<widget field="Gyro" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="231"/>
+	</widget>
+	<widget field="navX Updates Per Sec" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="210"/>
+	</widget>
+	<widget field="navX Port Resets" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="168"/>
+	</widget>
+	<widget field="Flywheel MaxOutput" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="147"/>
+	</widget>
+	<widget field="Right Encoder Distance" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="126"/>
+	</widget>
+	<widget field="Flywheel P" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="105"/>
+	</widget>
+	<widget field="Flywheel kIz" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="84"/>
+	</widget>
+	<widget field="Flywheel I" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="63"/>
+	</widget>
+	<widget field="Flywheel F" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="42"/>
+	</widget>
+	<widget field="Flywheel D" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="21"/>
+	</widget>
+	<widget field="FirstIntakeOn" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="0"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>

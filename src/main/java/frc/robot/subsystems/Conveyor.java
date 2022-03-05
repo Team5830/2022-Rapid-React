@@ -95,6 +95,7 @@ public class Conveyor extends SubsystemBase {
   }
 
   public void DigiConvey1() {
+
     Debouncer m_debouncer = new Debouncer(0.1, Debouncer.DebounceType.kBoth);
     if (!m_debouncer.calculate(ballsensor1.get())) {
       conveyor1OFF();
@@ -106,6 +107,7 @@ public class Conveyor extends SubsystemBase {
       ballaway1 = true;
       ballsensed1 = false;
     }
+
   }
 
   public void DigiConvey2() {

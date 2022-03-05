@@ -41,11 +41,11 @@ public class FirstIntake extends SubsystemBase {
       SmartDashboard.putNumber("Intake Reverse Soft Limit", firstIntake.ExtendminDistance);
       SmartDashboard.putNumber("Intake Forward Soft Limit", firstIntake.ExtendDistance);
       m_exotor.restoreFactoryDefaults();
-      m_exotor.setInverted(true);
+      // m_exotor.setInverted(true);
       m_intakemotor.restoreFactoryDefaults();
       m_pidController = m_exotor.getPIDController();
       m_encoder = m_exotor.getEncoder();
-
+      m_encoder.setPosition(0.0);
     } catch (RuntimeException ex) {
       DriverStation.reportError("error loading failed" + ex.getMessage(), true);
     }
@@ -77,11 +77,11 @@ public class FirstIntake extends SubsystemBase {
   }
 
   public void intakeUp() {
-    m_exotor.set(0.3);
+    m_exotor.set(-firstIntake.ExtendSpeed);
   }
 
   public void intakeDown() {
-    m_exotor.set(-0.3);
+    m_exotor.set(firstIntake.ExtendSpeed);
   }
 
   public void stopIntake() {
@@ -124,12 +124,17 @@ public class FirstIntake extends SubsystemBase {
 
   @Override
   public void periodic() {
-    SmartDashboard.getNumber("Intake Reverse Soft Limit", firstIntake.ExtendminDistance);
-    SmartDashboard.getNumber("Intake Forward Soft Limit", firstIntake.ExtendDistance);
-
     // This method will be called once per scheduler run
     SmartDashboard.putBoolean("FirstIntakeOn", firstIntakeON);
     SmartDashboard.putBoolean("FirstIntakeReversed", firstIntakeReversed);
     SmartDashboard.putNumber("Intake Encoder", m_encoder.getPosition());
+    m_exotor.enableSoftLimit(CANSparkMax.SoftLimitDirection.kReverse, true);
+    m_exotor.enableSoftLimit(CANSparkMax.SoftLimitDirection.kForward, true);
+    m_exotor.setSoftLimit(CANSparkMax.SoftLimitDirection.kForward,
+        (float) SmartDashboard.getNumber("Intake Forward Soft Limit",
+            firstIntake.ExtendDistance));
+    m_exotor.setSoftLimit(CANSparkMax.SoftLimitDirection.kReverse,
+        (float) SmartDashboard.getNumber("Intake Reverse Soft Limit",
+            firstIntake.ExtendminDistance));
   }
 }

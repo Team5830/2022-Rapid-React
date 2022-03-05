@@ -28,13 +28,13 @@ public class Shoot extends CommandBase {
   @Override
   public void execute() {
 
-      if (m_flywheel.readyToShoot() & m_conveyor.ballsensor2.get()){
-        m_conveyor.conveyor2ON();
-        turnedON = true;
-      }
-      if (turnedON & m_conveyor.ballsensor2.get()){
-        m_conveyor.conveyor2OFF();
-      }
+    if (m_flywheel.readyToShoot()) {
+      m_conveyor.conveyor2ON();
+      turnedON = true;
+    }
+    // if (turnedON & m_conveyor.ballsensor2.get()) {
+    // m_conveyor.conveyor2OFF();
+    // }
   }
 
   // Called once the command ends or is interrupted.
@@ -47,10 +47,10 @@ public class Shoot extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (turnedON & m_conveyor.ballsensor2.get()){
-        return true;
-    } else{
-        return false;
+    if (turnedON & m_conveyor.ballsensor2.get()) {
+      return true;
+    } else {
+      return false;
     }
-    }
+  }
 }
