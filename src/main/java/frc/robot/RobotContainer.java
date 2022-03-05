@@ -148,9 +148,11 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     return new SequentialCommandGroup(
-        // new InstantCommand(m_flywheel::shooterGo),
+        new InstantCommand(m_flywheel::shooterGo),
+        new Pause(),
         new InstantCommand(m_drivetrain::toggleMaxSpeed),
-        // new Shoot(m_flywheel, m_conveyor),
+        new Shoot(m_flywheel, m_conveyor),
+        new Pause(),
         new Move(-60, m_drivetrain));
   }
 
