@@ -12,10 +12,6 @@ public class Pause extends InstantCommand {
 
     @Override
     public void initialize() {
-        new Thread() {
-            public void run() {
-                Timer.delay(1);
-            }
-        }.start();
+        Timer.delay(2);
     }
 }

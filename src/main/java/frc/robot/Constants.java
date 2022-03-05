@@ -89,14 +89,14 @@ public final class Constants {
     }
 
     public static final class ClimberC {
-        public static final double climberSpeed = 0.3;
+        public static final double climberSpeed = 0.45;
         public static final double climberforwardlimit = 475;
         public static final double climberreverselimit = 0;
     }
 
     public static final class firstIntake {
-        public static final double firstIntakespeed = 0.5;
-        public static final double ExtendSpeed = 0.2;
+        public static final double firstIntakespeed = 0.4;
+        public static final double ExtendSpeed = 0.3;
         public static final double ExtendDistance = 118;// how far to turn motor to extend arm
         public static final double ExtendminDistance = 5;// how far to turn motor to extend arm
         public static final double P = 0.1;
@@ -128,7 +128,7 @@ public final class Constants {
     }
 
     public static final class Conveyspeed {
-        public static final double conveyorspeed1 = 0.5;
+        public static final double conveyorspeed1 = 0.3;
         public static final double conveyorspeed2 = 0.5;
     }
 }
