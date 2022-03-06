@@ -134,6 +134,7 @@ public class RobotContainer {
     // InstantCommand(m_conveyor::conveyor1Reversed));
     // SmartDashboard.putData("Conveyor2 Reverse", new
     // InstantCommand(m_conveyor::conveyor2Reversed));
+    SmartDashboard.putData("Conveyor2 Reverse", new InstantCommand(m_conveyor::conveyor2Reversed));
     SmartDashboard.putData("Conveyor1 Toggle", new InstantCommand(m_conveyor::toggleconveyor1));
     SmartDashboard.putData("Conveyor2 Toggle", new InstantCommand(m_conveyor::toggleconveyor2));
     SmartDashboard.putData("Pickup", new Pickup(m_intake, m_conveyor));
