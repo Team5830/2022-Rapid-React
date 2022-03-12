@@ -64,13 +64,14 @@ public final class Constants {
     }
 
     public static final class DriveC {
-        public static final double reducedMaxSpeed = 0.5;
+        public static final double reducedMaxSpeed = 0.7;
         public static final double MaxSpeed = 1.0;
         public static final boolean SquareInputs = true;
-        public static final int kEncoderCPR = 20;
-        public static final double kWheelCircInches = 18.5;
-        public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR / 10.71;// Gear Ratio =
-                                                                                                        // 1:10.71
+        public static final int kEncoderCPR = 205;
+        public static final double kWheelCircInches = 19.5;
+        public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR / 10.71;// Gear
+        // Ratio =
+        // 1:10.71
     }
 
     public static final class FlywheelC {
@@ -88,13 +89,16 @@ public final class Constants {
     }
 
     public static final class ClimberC {
-        public static final double climberSpeed = -0.3;
+        public static final double climberSpeed = 1.0;
+        public static final double climberforwardlimit = 475;
+        public static final double climberreverselimit = 0;
     }
 
     public static final class firstIntake {
-        public static final double firstIntakespeed = 0.5;
-        public static final double ExtendSpeed = -0.3;
-        public static final double ExtendDistance = 125;// how far to turn motor to extend arm
+        public static final double firstIntakespeed = 0.4;
+        public static final double ExtendSpeed = 0.3;
+        public static final double ExtendDistance = 118;// how far to turn motor to extend arm
+        public static final double ExtendminDistance = 5;// how far to turn motor to extend arm
         public static final double P = 0.1;
         public static final double I = 0.0;
         public static final double D = 0.0;
@@ -117,14 +121,14 @@ public final class Constants {
         public static final int halfspeedButton = 5;
         public static final int pickupButton = 3;
         public static final int shootButton = 1;
-
+        public static final int pickupOffButton = 4;
         public static final int moveButton = 1;
         public static final int turnleftButton = 3;
         public static final int turnrightButton = 4;
     }
 
     public static final class Conveyspeed {
-        public static final double conveyorspeed1 = 0.5;
+        public static final double conveyorspeed1 = 0.3;
         public static final double conveyorspeed2 = 0.5;
     }
 }

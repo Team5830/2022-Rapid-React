@@ -11,12 +11,12 @@ import edu.wpi.first.wpilibj2.command.WaitUntilCommand;
 import frc.robot.subsystems.Conveyor;
 import frc.robot.subsystems.FirstIntake;
 
-public class Pickup extends SequentialCommandGroup {
-  public Pickup(FirstIntake m_intake, Conveyor m_conveyor) {
-    addRequirements(m_intake, m_conveyor);
-    addCommands(
-        new ParallelCommandGroup(
-            new InstantCommand(m_intake::startFirstIntake),
-            new InstantCommand(m_conveyor::conveyor1ON)));
-  }
+public class PickupOff extends SequentialCommandGroup {
+    public PickupOff(FirstIntake m_intake, Conveyor m_conveyor) {
+        addRequirements(m_intake, m_conveyor);
+        addCommands(
+                new ParallelCommandGroup(
+                        new InstantCommand(m_intake::stopFirstIntake),
+                        new InstantCommand(m_conveyor::conveyor1OFF)));
+    }
 }

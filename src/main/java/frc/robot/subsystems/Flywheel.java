@@ -72,6 +72,7 @@ public class Flywheel extends SubsystemBase {
    public void periodic() {
       try {
          SmartDashboard.putNumber("Flywheel Speed", m_encoder.getVelocity());
+         SmartDashboard.putBoolean("Flywheel On", isshooteron);
       } catch (RuntimeException ex) {
          DriverStation.reportError("Shooter: Not able to get velocity " + ex.getMessage(), true);
       }
@@ -105,7 +106,7 @@ public class Flywheel extends SubsystemBase {
    }
 
    public void shooterGo() {
-      m_leftlead.set(0.1);
+      m_leftlead.set(0.3);// may be lowered or raised again
       isshooteron = true;
    }
 
