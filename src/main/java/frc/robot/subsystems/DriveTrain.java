@@ -38,7 +38,7 @@ public class DriveTrain extends SubsystemBase {
 
     // m_rightfollow.follow(m_rightlead);
     // m_leftfollow.follow(m_leftlead);
-    m_right.setInverted(true);
+    m_left.setInverted(true);
     // m_rightfollow.setInverted(true);
     m_drive = new DifferentialDrive(m_left, m_right);
 
@@ -74,7 +74,7 @@ public class DriveTrain extends SubsystemBase {
     return (-m_rightencoder.getDistance());
   }
 
-  public void resetEncoders(){
+  public void resetEncoders() {
     m_leftencoder.reset();
     m_rightencoder.reset();
   }
@@ -126,8 +126,8 @@ public class DriveTrain extends SubsystemBase {
     if (rotationspeed < -maxspeed) {
       rotationspeed = -maxspeed;
     }
-    System.out.println("Drive: " + forwardspeed + ", " + rotationspeed);
-    m_drive.arcadeDrive(forwardspeed, rotationspeed, DriveC.SquareInputs);
+    // System.out.println("Drive: " + forwardspeed + ", " + rotationspeed);
+    m_drive.arcadeDrive(-forwardspeed, rotationspeed, DriveC.SquareInputs);
   }
 
   /** Zeroes the heading of the robot. */
@@ -166,9 +166,9 @@ public class DriveTrain extends SubsystemBase {
   @Override
   public void periodic() {
     SmartDashboard.putNumber("Encoder Distance", getAverageDistance());
-    SmartDashboard.putNumber("Right Encoder Distance",getRightDistance());
-    SmartDashboard.putNumber("Left Encoder Distance",getLeftDistance());
-    SmartDashboard.putNumber("Gyro",getHeading());
+    SmartDashboard.putNumber("Right Encoder Distance", getRightDistance());
+    SmartDashboard.putNumber("Left Encoder Distance", getLeftDistance());
+    SmartDashboard.putNumber("Gyro", getHeading());
     // This method will be called once per scheduler run
   }
 }
