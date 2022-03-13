@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
 
 public class Conveyor extends SubsystemBase {
   public boolean conveyor1ON = false;
@@ -26,11 +27,17 @@ public class Conveyor extends SubsystemBase {
   public boolean ballaway2 = false;
   public boolean ballsensed1 = false;
   public boolean ballsensed2 = false;
+  RelativeEncoder conv2Encoder;
 
   public Conveyor() {
+
     try {
       m_conv1motor = new CANSparkMax(CANBusID.conveyor1, MotorType.kBrushless);
-      m_conv2motor = new CANSparkMax(CANBusID.conveyor2, MotorType.kBrushed);
+      m_conv1motor.restoreFactoryDefaults();
+      m_conv2motor = new CANSparkMax(CANBusID.conveyor2, MotorType.kBrushless);
+      m_conv2motor.restoreFactoryDefaults();
+      m_conv2motor.setInverted(true);
+      conv2Encoder = m_conv2motor.getEncoder();
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error instantiating conveyor motors " + ex.getMessage(), true);
     }
@@ -93,6 +100,8 @@ public class Conveyor extends SubsystemBase {
     // This method will be called once per scheduler run
     SmartDashboard.putBoolean("Conveyor 1On", conveyor1ON);
     SmartDashboard.putBoolean("Conveyor 2On", conveyor2ON);
+    SmartDashboard.putNumber("Conveyor 2 current", m_conv2motor.getOutputCurrent());
+    SmartDashboard.putNumber("Conveyor 2 Motor", conv2Encoder.getPosition());
   }
 
   public void DigiConvey1() {
