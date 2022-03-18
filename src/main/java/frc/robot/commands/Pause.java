@@ -6,12 +6,15 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj.Timer;
 
 public class Pause extends InstantCommand {
-    public Pause() {
+    public double dtime;
+
+    public Pause(double delaytime) {
         super();
+        dtime = delaytime;
     }
 
     @Override
     public void initialize() {
-        Timer.delay(2);
+        Timer.delay(dtime);
     }
 }

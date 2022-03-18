@@ -9,7 +9,6 @@ public class Shoot extends CommandBase {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   private final Flywheel m_flywheel;
   private final Conveyor m_conveyor;
-  private boolean turnedON = false;
 
   public Shoot(Flywheel subsystemFLY, Conveyor subsystemCO) {
     m_flywheel = subsystemFLY;
@@ -21,7 +20,11 @@ public class Shoot extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_flywheel.shooteron();
+    if (m_flywheel.isshooteron) {
+      m_flywheel.shooteroff();
+    } else {
+      m_flywheel.shooteron();
+    }
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -29,12 +32,9 @@ public class Shoot extends CommandBase {
   public void execute() {
 
     if (m_flywheel.readyToShoot()) {
-      m_conveyor.conveyor2ON();
-      turnedON = true;
+      // m_conveyor.conveyor2ON();
+      m_conveyor.conv2up();
     }
-    // if (turnedON & m_conveyor.ballsensor2.get()) {
-    // m_conveyor.conveyor2OFF();
-    // }
   }
 
   // Called once the command ends or is interrupted.
@@ -47,10 +47,6 @@ public class Shoot extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (turnedON & m_conveyor.ballsensor2.get()) {
-      return true;
-    } else {
-      return false;
-    }
+    return (m_conveyor.atTarget());
   }
 }

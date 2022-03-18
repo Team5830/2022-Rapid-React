@@ -24,7 +24,7 @@ public class Flywheel extends SubsystemBase {
    CANSparkMax m_rightfollow;
    public SparkMaxPIDController m_pidController;
    RelativeEncoder m_encoder;
-   boolean isshooteron = false;
+   public boolean isshooteron = false;
 
    public double maxRPM, maxVel, minVel, maxAcc, allowedErr;
    public double motorspeed;
@@ -61,16 +61,16 @@ public class Flywheel extends SubsystemBase {
          DriverStation.reportError("error loading failed" + ex.getMessage(), true);
       }
       // Put PID coefficients on Dashboard
-      /*
-       * SmartDashboard.putNumber("Flywheel P", pidVals.kP);
-       * SmartDashboard.putNumber("Flywheel I", pidVals.kI);
-       * SmartDashboard.putNumber("Flywheel D", pidVals.kD);
-       * SmartDashboard.putNumber("Flywheel kIz", pidVals.kIz);
-       * SmartDashboard.putNumber("Flywheel F", pidVals.kFF);
-       * SmartDashboard.putNumber("Flywheel MaxOutput", pidVals.kMaxOutput);
-       * SmartDashboard.putNumber("Flywheel MinOutput", pidVals.kMinOutput);
-       * SmartDashboard.putNumber("Flywheel motorspeed", pidVals.motorspeed);
-       */
+
+      SmartDashboard.putNumber("Flywheel P", pidVals.kP);
+      SmartDashboard.putNumber("Flywheel I", pidVals.kI);
+      SmartDashboard.putNumber("Flywheel D", pidVals.kD);
+      SmartDashboard.putNumber("Flywheel kIz", pidVals.kIz);
+      SmartDashboard.putNumber("Flywheel F", pidVals.kFF);
+      SmartDashboard.putNumber("Flywheel MaxOutput", pidVals.kMaxOutput);
+      SmartDashboard.putNumber("Flywheel MinOutput", pidVals.kMinOutput);
+      SmartDashboard.putNumber("Flywheel motorspeed", pidVals.motorspeed);
+
       // FlywheelControl.add("Flywheel Control", m_pidController);
       // FlywheelControl.add("Flywheel", m_flywheel);
       // FlywheelControl.add("Flywheel", new Flywheel_test(m_flywheel));
@@ -93,7 +93,6 @@ public class Flywheel extends SubsystemBase {
    public void periodic() {
       /*
        * try {
-       * // SmartDashboard.putNumber("Flywheel Speed ", m_encoder.getVelocity());
        * // SmartDashboard.putBoolean("Flywheel On", isshooteron);
        * 
        * } catch (RuntimeException ex) {
@@ -101,23 +100,28 @@ public class Flywheel extends SubsystemBase {
        * ex.getMessage(), true);
        * }
        */
+      SmartDashboard.putNumber("Flywheel Speed ", m_encoder.getVelocity());
+      // SmartDashboard.putNumber("Flywheel Current ",
+      // m_rightfollow.getOutputCurrent());
+      // SmartDashboard.putNumber("Flywheel Current ",
+      // m_rightfollow.getVoltageCompensationNominalVoltage());
+
    }
 
    // Load PID coefficients from Dashboard
    public void updatePIDValues() {
-      /*
-       * pidVals.kP = SmartDashboard.getNumber("Flywheel P", FlywheelC.kP);
-       * pidVals.kI = SmartDashboard.getNumber("Flywheel I", FlywheelC.kI);
-       * pidVals.kD = SmartDashboard.getNumber("Flywheel D", FlywheelC.kD);
-       * pidVals.kIz = SmartDashboard.getNumber("Flywheel kIz", FlywheelC.kIz);
-       * pidVals.kFF = SmartDashboard.getNumber("Flywheel F", FlywheelC.kFF);
-       * pidVals.kMaxOutput = SmartDashboard.getNumber("Flywheel MaxOutput",
-       * FlywheelC.kMaxOutput);
-       * pidVals.kMinOutput = SmartDashboard.getNumber("Flywheel MinOutput",
-       * FlywheelC.kMinOutput);
-       * motorspeed = SmartDashboard.getNumber("Flywheel motorspeed",
-       * pidVals.motorspeed);
-       */
+
+      pidVals.kP = SmartDashboard.getNumber("Flywheel P", FlywheelC.kP);
+      pidVals.kI = SmartDashboard.getNumber("Flywheel I", FlywheelC.kI);
+      pidVals.kD = SmartDashboard.getNumber("Flywheel D", FlywheelC.kD);
+      pidVals.kIz = SmartDashboard.getNumber("Flywheel kIz", FlywheelC.kIz);
+      pidVals.kFF = SmartDashboard.getNumber("Flywheel F", FlywheelC.kFF);
+      pidVals.kMaxOutput = SmartDashboard.getNumber("Flywheel MaxOutput",
+            FlywheelC.kMaxOutput);
+      pidVals.kMinOutput = SmartDashboard.getNumber("Flywheel MinOutput",
+            FlywheelC.kMinOutput);
+      motorspeed = SmartDashboard.getNumber("Flywheel motorspeed", pidVals.motorspeed);
+
       m_pidController.setP(pidVals.kP);
       m_pidController.setI(pidVals.kI);
       m_pidController.setD(pidVals.kD);

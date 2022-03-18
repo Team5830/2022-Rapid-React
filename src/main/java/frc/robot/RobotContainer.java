@@ -79,9 +79,10 @@ public class RobotContainer {
     // -> m_drivetrain.toggleMaxSpeed());
     // new JoystickButton(m_leftJoy, buttonsRightJoy.intakeoffButton).whenPressed(()
     // -> m_intake.);
-    new JoystickButton(m_leftJoy, buttonsRightjoy.pickupButton).whenPressed(new Pickup(m_intake, m_conveyor));
-    new JoystickButton(m_leftJoy, buttonsRightjoy.shootButton).whenPressed(new Shoot(m_flywheel, m_conveyor));
-    new JoystickButton(m_leftJoy, buttonsRightjoy.pickupOffButton).whenPressed(new PickupOff(m_intake, m_conveyor));
+    new JoystickButton(m_rightJoy, buttonsRightjoy.pickupButton)
+        .whenPressed(new Pickup(m_intake, m_conveyor, m_flywheel));
+    new JoystickButton(m_rightJoy, buttonsRightjoy.shootButton).whenPressed(new Shoot(m_flywheel, m_conveyor));
+    new JoystickButton(m_rightJoy, buttonsRightjoy.pickupOffButton).whenPressed(new PickupOff(m_intake, m_conveyor));
     /*
      * new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()->
      * m_intake.toggleFirstIntake());
@@ -136,9 +137,10 @@ public class RobotContainer {
     SmartDashboard.putData("Conveyor2 Reverse", new InstantCommand(m_conveyor::conveyor2Reversed));
     SmartDashboard.putData("Conveyor1 Toggle", new InstantCommand(m_conveyor::toggleconveyor1));
     SmartDashboard.putData("Conveyor2 Toggle", new InstantCommand(m_conveyor::toggleconveyor2));
-    SmartDashboard.putData("Pickup", new Pickup(m_intake, m_conveyor));
+    SmartDashboard.putData("Pickup", new Pickup(m_intake, m_conveyor, m_flywheel));
     SmartDashboard.putData("Pickup Off", new PickupOff(m_intake, m_conveyor));
-
+    SmartDashboard.putData("Conv2down", new InstantCommand(m_conveyor::conv2down));
+    SmartDashboard.putData("Conv2up", new InstantCommand(m_conveyor::conv2up));
   }
 
   /**
@@ -149,11 +151,11 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     return new SequentialCommandGroup(
         new InstantCommand(m_flywheel::shooterGo),
-        new Pause(),
+        new Pause(2.0),
         new InstantCommand(m_conveyor::conveyor2ON),
         // new Shoot(m_flywheel, m_conveyor),
         new InstantCommand(m_drivetrain::toggleMaxSpeed),
-        new Pause(),
+        new Pause(2.0),
         new Move(-60, m_drivetrain),
         new InstantCommand(m_drivetrain::toggleMaxSpeed),
         new InstantCommand(m_flywheel::shooteroff),
