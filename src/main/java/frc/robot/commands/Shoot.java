@@ -30,7 +30,6 @@ public class Shoot extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
     if (m_flywheel.readyToShoot()) {
       // m_conveyor.conveyor2ON();
       m_conveyor.conv2up();

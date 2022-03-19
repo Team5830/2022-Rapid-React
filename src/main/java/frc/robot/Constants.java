@@ -80,8 +80,6 @@ public final class Constants {
         public static final int kEncoderCPR = 2048;
         public static final double kWheelCircInches = 19.0;
         public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR;// Gear
-        // Ratio =
-        // 1:10.71
     }
 
     public static final class FlywheelC {
