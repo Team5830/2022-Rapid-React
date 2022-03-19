@@ -67,11 +67,15 @@ public final class Constants {
         public static final double reducedMaxSpeed = 0.7;
         public static final double MaxSpeed = 1.0;
         public static final boolean SquareInputs = true;
+        /* was this, now assuming encoder is on motor shaft so ratio is 1:1
         public static final int kEncoderCPR = 205;
         public static final double kWheelCircInches = 19.5;
         public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR / 10.71;// Gear
-        // Ratio =
-        // 1:10.71
+        */
+        public static final int kEncoderCPR = 2048;
+        public static final double kWheelCircInches = 19.5;
+        public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR;
+        // was 0.00888160142106
     }
 
     public static final class FlywheelC {

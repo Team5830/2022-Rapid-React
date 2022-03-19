@@ -51,6 +51,8 @@ public class DriveTrain extends SubsystemBase {
     initMotor();
     m_leftencoder.setDistancePerPulse(DriveC.distancePerPulse);
     m_rightencoder.setDistancePerPulse(DriveC.distancePerPulse);
+    m_rightencoder.setReverseDirection(true);
+
     addChild("Right Encoder", m_rightencoder);
     addChild("Leftt Encoder", m_leftencoder);
     try {
@@ -63,7 +65,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public double getAverageDistance() {
-    return (m_leftencoder.getDistance() - m_rightencoder.getDistance()) / 2;
+    return (m_leftencoder.getDistance() + m_rightencoder.getDistance()) / 2;
   }
 
   public double getLeftDistance() {
@@ -71,7 +73,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public double getRightDistance() {
-    return (-m_rightencoder.getDistance());
+    return (m_rightencoder.getDistance());
   }
 
   public void resetEncoders() {

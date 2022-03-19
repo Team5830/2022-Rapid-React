@@ -8,6 +8,8 @@ import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj2.command.button.Button;
@@ -102,43 +104,50 @@ public class RobotContainer {
      * m_conveyor.toggleconveyor2());
      */
 
-    // SmartDashboard.putData("Climber Up", new
+    // driveBaseTab.add("Climber Up", new
     // InstantCommand(m_climber::climberMoter1on));
-    // SmartDashboard.putData("Climber Off", new
+    // driveBaseTab.add("Climber Off", new
     // InstantCommand(m_climber::climberMoter1off));
-    // SmartDashboard.putData("Climber Down", new
+    // driveBaseTab.add("Climber Down", new
     // InstantCommand(m_climber::reverse_Motor1));
-    // SmartDashboard.putData("Flywheel On", new
+    // driveBaseTab.add("Flywheel On", new
     // InstantCommand(m_flywheel::shooteron));
-    SmartDashboard.putData("Easy Shooter", new InstantCommand(m_flywheel::shooterGo));
-    SmartDashboard.putData("Flywheel Off", new InstantCommand(m_flywheel::shooteroff));
-    SmartDashboard.putData("IntakeRetractOFf", new InstantCommand(m_intake::stopRetract));
-    SmartDashboard.putData("Intake Down", new InstantCommand(m_intake::intakeDown));
-    SmartDashboard.putData("Intake Up", new InstantCommand(m_intake::intakeUp));
-    SmartDashboard.putData("Toggle extend", new InstantCommand(m_intake::toggleExtension));
-    SmartDashboard.putData("Intake On", new InstantCommand(m_intake::startFirstIntake));
-    SmartDashboard.putData("Intake Off", new InstantCommand(m_intake::stopFirstIntake));
-    SmartDashboard.putData("Intake Toggle", new InstantCommand(m_intake::toggleFirstIntake));
-    // SmartDashboard.putData("Intake Reverse", new
-    // InstantCommand(m_intake::reverseFirstIntake));
-    SmartDashboard.putData("Reset Gyro", new InstantCommand(m_drivetrain::resetHeading));
-    SmartDashboard.putData("Reset DT Encoders", new InstantCommand(m_drivetrain::resetEncoders));
-    SmartDashboard.putData("Intake Reverse", new InstantCommand(m_intake::reverseFirstIntake));
-    // SmartDashboard.putData("Conveyor1 OnTill", new Conv1(m_conveyor));
-    // SmartDashboard.putData("Conveyor2 OnTill", new Conv2(m_conveyor));
-    SmartDashboard.putData("Climber Up", new InstantCommand(m_climber::climber_up));
-    SmartDashboard.putData("Climber Down", new InstantCommand(m_climber::climber_down));
-    SmartDashboard.putData("Climber Off", new InstantCommand(m_climber::climberMoter1off));
+    ShuffleboardTab driveBaseTab = Shuffleboard.getTab("DriveTrain");
+    driveBaseTab.add("Tank Drive", m_drivetrain);
+    driveBaseTab.add("Reset Gyro", new InstantCommand(m_drivetrain::resetHeading));
+    driveBaseTab.add("Reset DT Encoders", new InstantCommand(m_drivetrain::resetEncoders));
 
-    // SmartDashboard.putData("Conveyor1 Reverse", new
+    ShuffleboardTab IntakeTab = Shuffleboard.getTab("Intake");
+    IntakeTab.add("IntakeRetractOFf", new InstantCommand(m_intake::stopRetract));
+    IntakeTab.add("Intake Down", new InstantCommand(m_intake::intakeDown));
+    IntakeTab.add("Intake Up", new InstantCommand(m_intake::intakeUp));
+    IntakeTab.add("Toggle extend", new InstantCommand(m_intake::toggleExtension));
+    IntakeTab.add("Intake On", new InstantCommand(m_intake::startFirstIntake));
+    IntakeTab.add("Intake Off", new InstantCommand(m_intake::stopFirstIntake));
+    IntakeTab.add("Intake Toggle", new InstantCommand(m_intake::toggleFirstIntake));
+    ShuffleboardTab ShooterTab = Shuffleboard.getTab("Shooter");
+    ShooterTab.add("Easy Shooter", new InstantCommand(m_flywheel::shooterGo));
+    ShooterTab.add("Flywheel Off", new InstantCommand(m_flywheel::shooteroff));
+
+    // driveBaseTab.add("Intake Reverse", new
+    // InstantCommand(m_intake::reverseFirstIntake));
+    
+    driveBaseTab.add("Intake Reverse", new InstantCommand(m_intake::reverseFirstIntake));
+    // driveBaseTab.add("Conveyor1 OnTill", new Conv1(m_conveyor));
+    // driveBaseTab.add("Conveyor2 OnTill", new Conv2(m_conveyor));
+    driveBaseTab.add("Climber Up", new InstantCommand(m_climber::climber_up));
+    driveBaseTab.add("Climber Down", new InstantCommand(m_climber::climber_down));
+    driveBaseTab.add("Climber Off", new InstantCommand(m_climber::climberMoter1off));
+
+    // driveBaseTab.add("Conveyor1 Reverse", new
     // InstantCommand(m_conveyor::conveyor1Reversed));
-    // SmartDashboard.putData("Conveyor2 Reverse", new
+    // driveBaseTab.add("Conveyor2 Reverse", new
     // InstantCommand(m_conveyor::conveyor2Reversed));
-    SmartDashboard.putData("Conveyor2 Reverse", new InstantCommand(m_conveyor::conveyor2Reversed));
-    SmartDashboard.putData("Conveyor1 Toggle", new InstantCommand(m_conveyor::toggleconveyor1));
-    SmartDashboard.putData("Conveyor2 Toggle", new InstantCommand(m_conveyor::toggleconveyor2));
-    SmartDashboard.putData("Pickup", new Pickup(m_intake, m_conveyor));
-    SmartDashboard.putData("Pickup Off", new PickupOff(m_intake, m_conveyor));
+    driveBaseTab.add("Conveyor2 Reverse", new InstantCommand(m_conveyor::conveyor2Reversed));
+    driveBaseTab.add("Conveyor1 Toggle", new InstantCommand(m_conveyor::toggleconveyor1));
+    driveBaseTab.add("Conveyor2 Toggle", new InstantCommand(m_conveyor::toggleconveyor2));
+    driveBaseTab.add("Pickup", new Pickup(m_intake, m_conveyor));
+    driveBaseTab.add("Pickup Off", new PickupOff(m_intake, m_conveyor));
 
   }
 
@@ -150,11 +159,11 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     return new SequentialCommandGroup(
         new InstantCommand(m_flywheel::shooterGo),
-        new Pause(),
+        new Pause(2.0),
         new InstantCommand(m_conveyor::conveyor2ON),
         // new Shoot(m_flywheel, m_conveyor),
         new InstantCommand(m_drivetrain::toggleMaxSpeed),
-        new Pause(),
+        new Pause(2.0),
         new Move(-60, m_drivetrain),
         new InstantCommand(m_drivetrain::toggleMaxSpeed),
         new InstantCommand(m_flywheel::shooteroff),
