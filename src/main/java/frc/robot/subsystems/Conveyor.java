@@ -12,6 +12,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.CANSparkMax.ControlType;
 
 public class Conveyor extends SubsystemBase {
   public boolean conveyor1ON = false;
@@ -26,11 +29,27 @@ public class Conveyor extends SubsystemBase {
   public boolean ballaway2 = false;
   public boolean ballsensed1 = false;
   public boolean ballsensed2 = false;
+  public boolean jammed = false;
+  public double targetPosition;
+  RelativeEncoder conv2Encoder;
+  public SparkMaxPIDController m_pidController;
 
   public Conveyor() {
+
     try {
       m_conv1motor = new CANSparkMax(CANBusID.conveyor1, MotorType.kBrushless);
-      m_conv2motor = new CANSparkMax(CANBusID.conveyor2, MotorType.kBrushed);
+      m_conv1motor.restoreFactoryDefaults();
+      m_conv2motor = new CANSparkMax(CANBusID.conveyor2, MotorType.kBrushless);
+      m_conv2motor.restoreFactoryDefaults();
+      m_conv2motor.setInverted(true);
+      m_pidController = m_conv2motor.getPIDController();
+      conv2Encoder = m_conv2motor.getEncoder();
+      m_pidController.setP(ConveyorC.kP);
+      m_pidController.setI(ConveyorC.kI);
+      m_pidController.setD(ConveyorC.kD);
+      m_pidController.setIZone(ConveyorC.kIz);
+      m_pidController.setFF(ConveyorC.kFF);
+      m_pidController.setOutputRange(ConveyorC.kMinOutput, ConveyorC.kMaxOutput);
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error instantiating conveyor motors " + ex.getMessage(), true);
     }
@@ -60,6 +79,7 @@ public class Conveyor extends SubsystemBase {
   public void conveyor2ON() {
     m_conv2motor.set(ConveyorC.speed);
     conveyor2ON = true;
+    jammed = false;
   }
 
   public void conveyor2Reversed() {
@@ -88,11 +108,49 @@ public class Conveyor extends SubsystemBase {
     }
   }
 
+  public void conv2down() {
+    targetPosition = conv2Encoder.getPosition() - ConveyorC.DownforShot;
+    System.out.println("Target: " + targetPosition + ", Current" + conv2Encoder.getPosition());
+    m_pidController.setReference(targetPosition, ControlType.kPosition);
+
+  }
+
+  public void conv2up() {
+    targetPosition = conv2Encoder.getPosition() + ConveyorC.UpforShot;
+    System.out.println("Target: " + targetPosition + ", Current" + conv2Encoder.getPosition());
+    m_pidController.setReference(targetPosition, ControlType.kPosition);
+  }
+
+  public boolean atTarget() {
+    if (Math.abs(targetPosition - conv2Encoder.getPosition()) < 0.1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public void ballJammed() {
+    if (conveyor2ON) {
+      if (m_conv2motor.getOutputCurrent() >= ConveyorC.currentLimit) {
+        jammed = true;
+      } else {
+        jammed = false;
+      }
+    } else {
+      jammed = false;
+    }
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    ballJammed();
     SmartDashboard.putBoolean("Conveyor 1On", conveyor1ON);
     SmartDashboard.putBoolean("Conveyor 2On", conveyor2ON);
+    SmartDashboard.putNumber("Conveyor 2 current", m_conv2motor.getOutputCurrent());
+    SmartDashboard.putNumber("Conveyor 2 Voltage", m_conv2motor.getVoltageCompensationNominalVoltage());
+    SmartDashboard.putNumber("Conveyor 2 Motor", conv2Encoder.getPosition());
+    SmartDashboard.putBoolean("Ball Jammed", jammed);
   }
 
   public void DigiConvey1() {

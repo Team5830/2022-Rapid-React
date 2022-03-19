@@ -42,6 +42,16 @@ public final class Constants {
 
     public static final class ConveyorC {
         public static final double speed = 0.5;
+        public static final double DownforShot = 4.0;
+        public static final double UpforShot = 10.5;
+        public static final double currentLimit = 30.0;
+        public static final double kP = 0.3;
+        public static final double kI = 0.0;
+        public static final double kD = 0.0;
+        public static final double kIz = 0;
+        public static final double kFF = 0;
+        public static final double kMaxOutput = 0.7;
+        public static final double kMinOutput = -0.7;
     }
 
     public static final class MovePID {
@@ -67,25 +77,23 @@ public final class Constants {
         public static final double reducedMaxSpeed = 0.7;
         public static final double MaxSpeed = 1.0;
         public static final boolean SquareInputs = true;
-        public static final int kEncoderCPR = 205;
-        public static final double kWheelCircInches = 19.5;
-        public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR / 10.71;// Gear
-        // Ratio =
-        // 1:10.71
+        public static final int kEncoderCPR = 2048;
+        public static final double kWheelCircInches = 19.0;
+        public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR;// Gear
     }
 
     public static final class FlywheelC {
         public static final int waitforshootersecs = 10;
         public static final double feedmotorspeed = 0.5;
-        public static final double shootermotorspeed = 500;
+        public static final double shootermotorspeed = 1600;
         public static final double kP = 0.0012;
-        public static final double kI = 0.000006;
-        public static final double kD = 0.001;
+        public static final double kI = 0.000000;
+        public static final double kD = 0.04;
         public static final double kIz = 0;
         public static final double kFF = 0;
         public static final double kMaxOutput = 0.7;
         public static final double kMinOutput = -0.7;
-        public static final double speedTolerance = 200.0;
+        public static final double speedTolerance = 50.0;
     }
 
     public static final class ClimberC {
