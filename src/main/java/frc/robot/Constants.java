@@ -109,6 +109,7 @@ public final class Constants {
         public static final double kMaxOutput = 0.7;
         public static final double kMinOutput = -0.7;
         public static final double speedTolerance = 50.0;
+        public static final double g_ratio = 3.0;
     }
 
     public static final class ClimberC {

@@ -53,12 +53,7 @@ public class Conveyor extends SubsystemBase {
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error instantiating conveyor motors " + ex.getMessage(), true);
     }
-    try {
-      ballsensor1 = new DigitalInput(Ports.Conveyor1ballsensor);
-      ballsensor2 = new DigitalInput(Ports.Conveyor2ballsensor);
-    } catch (RuntimeException ex) {
-      DriverStation.reportError("Error instantiating ballsensors " + ex.getMessage(), true);
-    }
+    
   }
 
   public void conveyor1ON() {
@@ -110,14 +105,14 @@ public class Conveyor extends SubsystemBase {
 
   public void conv2down() {
     targetPosition = conv2Encoder.getPosition() - ConveyorC.DownforShot;
-    System.out.println("Target: " + targetPosition + ", Current" + conv2Encoder.getPosition());
+    //System.out.println("Target: " + targetPosition + ", Current" + conv2Encoder.getPosition());
     m_pidController.setReference(targetPosition, ControlType.kPosition);
 
   }
 
   public void conv2up() {
     targetPosition = conv2Encoder.getPosition() + ConveyorC.UpforShot;
-    System.out.println("Target: " + targetPosition + ", Current" + conv2Encoder.getPosition());
+    //System.out.println("Target: " + targetPosition + ", Current" + conv2Encoder.getPosition());
     m_pidController.setReference(targetPosition, ControlType.kPosition);
   }
 
@@ -153,33 +148,5 @@ public class Conveyor extends SubsystemBase {
     SmartDashboard.putBoolean("Ball Jammed", jammed);
   }
 
-  public void DigiConvey1() {
-
-    Debouncer m_debouncer = new Debouncer(0.1, Debouncer.DebounceType.kBoth);
-    if (!m_debouncer.calculate(ballsensor1.get())) {
-      conveyor1OFF();
-      ballsensed1 = true;
-    } else {
-      conveyor1ON();
-    }
-    if (ballsensed1 && m_debouncer.calculate(ballsensor1.get())) {
-      ballaway1 = true;
-      ballsensed1 = false;
-    }
-
-  }
-
-  public void DigiConvey2() {
-    Debouncer m_debouncer = new Debouncer(0.1, Debouncer.DebounceType.kBoth);
-    if (!m_debouncer.calculate(ballsensor2.get())) {
-      conveyor2OFF();
-      ballsensed2 = true;
-    } else {
-      conveyor2ON();
-    }
-    if (ballsensed2 && m_debouncer.calculate(ballsensor2.get())) {
-      ballaway2 = true;
-      ballsensed2 = false;
-    }
-  }
+  
 }

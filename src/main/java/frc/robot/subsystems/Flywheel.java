@@ -56,6 +56,7 @@ public class Flywheel extends SubsystemBase {
 
          m_pidController = m_leftlead.getPIDController();
          m_encoder = m_leftlead.getEncoder();
+         m_encoder.setVelocityConversionFactor(FlywheelC.g_ratio);
       } catch (RuntimeException ex) {
          DriverStation.reportError("error loading failed" + ex.getMessage(), true);
       }
@@ -70,10 +71,6 @@ public class Flywheel extends SubsystemBase {
       SmartDashboard.putNumber("Flywheel MinOutput", pidVals.kMinOutput);
       SmartDashboard.putNumber("Flywheel motorspeed", pidVals.motorspeed);
 
-      // FlywheelControl.add("Flywheel Control", m_pidController);
-      // FlywheelControl.add("Flywheel", m_flywheel);
-      // FlywheelControl.add("Flywheel", new Flywheel_test(m_flywheel));
-
       FlywheelControl.add("Flywheel P", pidVals.kP);
       FlywheelControl.add("Flywheel I", pidVals.kI);
       FlywheelControl.add("Flywheel D", pidVals.kD);
@@ -84,7 +81,6 @@ public class Flywheel extends SubsystemBase {
       FlywheelControl.add("Flywheel motorspeed", pidVals.motorspeed);
       FlywheelControl.add("Flywheel Speed Test", m_encoder.getVelocity());
       FlywheelControl.add("Flywheel On", isshooteron);
-
       updatePIDValues();
    }
 
@@ -99,12 +95,9 @@ public class Flywheel extends SubsystemBase {
        * ex.getMessage(), true);
        * }
        */
+      //FlywheelControl.add("Flywheel %", m_leftlead.get());
+      SmartDashboard.putNumber("Flywheel %", m_leftlead.get());
       SmartDashboard.putNumber("Flywheel Speed ", m_encoder.getVelocity());
-      // SmartDashboard.putNumber("Flywheel Current ",
-      // m_rightfollow.getOutputCurrent());
-      // SmartDashboard.putNumber("Flywheel Current ",
-      // m_rightfollow.getVoltageCompensationNominalVoltage());
-
    }
 
    // Load PID coefficients from Dashboard
@@ -139,12 +132,13 @@ public class Flywheel extends SubsystemBase {
    }
 
    public void shooterGo() {
-      m_leftlead.set(0.1);// may be lowered or raised again
+      m_leftlead.set(0.3);// may be lowered or raised again
       isshooteron = true;
    }
 
    public void shooteroff() {
       m_leftlead.set(0);
+      m_pidController.setReference(0, ControlType.kDutyCycle);
       isshooteron = false;
    }
 

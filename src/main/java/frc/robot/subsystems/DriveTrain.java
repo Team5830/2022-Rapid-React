@@ -67,8 +67,10 @@ public class DriveTrain extends SubsystemBase {
     catch (RuntimeException ex) {
       DriverStation.reportError("Error Configuring Drivetrain" + ex.getMessage(), true);
     }
-      addChild("Right Encoder", m_rightencoder);
-    addChild("Leftt Encoder", m_leftencoder);
+    addChild("Right Encoder", m_rightencoder);
+    addChild("Left Encoder", m_leftencoder);
+    addChild("Right PID", m_rightPIDController);
+    addChild("Left PID", m_leftPIDController);
     try {
       ahrs = new AHRS(SerialPort.Port.kUSB1);
       ahrs.enableLogging(true);
@@ -77,6 +79,8 @@ public class DriveTrain extends SubsystemBase {
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error instantiating navX MXP: " + ex.getMessage(), true);
     }
+    addChild("DriveTrain",m_drive);
+
   }
 
     public double getAverageDistance() {

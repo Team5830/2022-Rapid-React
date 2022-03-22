@@ -44,20 +44,20 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     SendableRegistry.setName(m_drivetrain, "DriveTrain", "DriveTrain");
-    SendableRegistry.setName(new Turn(90, m_drivetrain), "Turn Right command");
-    SendableRegistry.setName(new Turn(-90, m_drivetrain), "Turn Left command");
+    //SendableRegistry.setName(new Turn(90, m_drivetrain), "Turn Right command");
+    //SendableRegistry.setName(new Turn(-90, m_drivetrain), "Turn Left command");
 
     // SendableRegistry.setName(new InstantCommand(m_climber::climberMoter1on),
     // "Turn Climber1 on");
     // SendableRegistry.setName(new InstantCommand(m_climber::reverse_Motor1),
     // "Reverse Climber1");
-    SendableRegistry.setName(new Conv1(m_conveyor), "Conveyor1On");
-    SendableRegistry.setName(new Conv2(m_conveyor), "Conveyor2On");
+    SendableRegistry.setName(new InstantCommand(m_conveyor::conveyor1ON), "Conveyor1On");
+    SendableRegistry.setName(new InstantCommand(m_conveyor::conveyor2ON), "Conveyor2On");
     SendableRegistry.setName(new InstantCommand(m_conveyor::conveyor1Reversed), "Reverse Conveyor1");
     SendableRegistry.setName(new InstantCommand(m_conveyor::conveyor2Reversed), "Reverse Conveyor2");
-    SendableRegistry.setName(m_flywheel, "Flywheel");
-    SendableRegistry.setName(m_conveyor, "Conveyor");
-    SendableRegistry.setName(m_intake, "Intake");
+    SendableRegistry.setName(m_flywheel, "Flywheel","Flywheel");
+    SendableRegistry.setName(m_conveyor, "Conveyor","Conveyor");
+    SendableRegistry.setName(m_intake, "Intake","Intake");
     // SendableRegistry.setName(m_climber, "Climber");
 
     m_drivetrain.setDefaultCommand(new Drive(m_drivetrain, () -> m_leftJoy.getY(), () -> m_rightJoy.getY()));
@@ -72,37 +72,10 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    // Lower max speed
-    // new JoystickButton(m_leftJoy, buttonsLeftjoy.halfspeedButton).whenPressed(()
-    // -> m_drivetrain.toggleMaxSpeed());
-    // new JoystickButton(m_leftJoy, buttonsRightJoy.intakeoffButton).whenPressed(()
-    // -> m_intake.);
     new JoystickButton(m_rightJoy, buttonsRightjoy.pickupButton)
         .whenPressed(new Pickup(m_intake, m_conveyor, m_flywheel));
     new JoystickButton(m_rightJoy, buttonsRightjoy.shootButton).whenPressed(new Shoot(m_flywheel, m_conveyor));
     new JoystickButton(m_rightJoy, buttonsRightjoy.pickupOffButton).whenPressed(new PickupOff(m_intake, m_conveyor));
-
-    /*
-     * new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()->
-     * m_intake.toggleFirstIntake());
-     * new JoystickButton(m_rightJoy, buttonsRightjoy.moveButton).whenPressed( new
-     * Move(100.0,m_drivetrain).withTimeout(5));
-     * new JoystickButton(m_rightJoy,
-     * buttonsRightjoy.turnrightButton).whenPressed(new Turn(90,
-     * m_drivetrain).withTimeout(5));
-     * new JoystickButton(m_rightJoy,
-     * buttonsRightjoy.turnleftButton).whenPressed(new Turn(-90,
-     * m_drivetrain).withTimeout(5));
-     * new JoystickButton(m_leftJoy,
-     * buttonsLeftjoy.toggleIntakeExtend).whenPressed(()->
-     * m_intake.toggleExtension());
-     * new JoystickButton(m_leftJoy,
-     * buttonsLeftjoy.toggleconveyor1).whenPressed(()->
-     * m_conveyor.toggleconveyor1());
-     * new JoystickButton(m_leftJoy,
-     * buttonsLeftjoy.toggleconveyor2).whenPressed(()->
-     * m_conveyor.toggleconveyor2());
-     */
 
     // SmartDashboard.putData("Climber Up", new
     // InstantCommand(m_climber::climberMoter1on));
@@ -110,12 +83,15 @@ public class RobotContainer {
     // InstantCommand(m_climber::climberMoter1off));
     // SmartDashboard.putData("Climber Down", new
     // InstantCommand(m_climber::reverse_Motor1));
-    // ShuffleboardTab FlywheelControl = Shuffleboard.getTab("Flywheel");
+    ShuffleboardTab FlywheelControl = Shuffleboard.getTab("Flywheel");
     ShuffleboardTab DriveTrainControl = Shuffleboard.getTab("Drivetrain");
     DriveTrainControl.add("Drivetrain", m_drivetrain);
     ShuffleboardTab ClimberControl = Shuffleboard.getTab("Climber");
     ShuffleboardTab IntakeControl = Shuffleboard.getTab("Intake");
-    SmartDashboard.putData("Flywheel On", new Flywheel_test(m_flywheel));
+    FlywheelControl.add(new InstantCommand(m_flywheel::shooterGo));
+    //FlywheelControl.add(new InstantCommand(m_flywheel::shooteroff));
+
+    SmartDashboard.putData("Flywheel On", new Flywheel_ON(m_flywheel));
     SmartDashboard.putData("Easy Shooter", new InstantCommand(m_flywheel::shooterGo));
     SmartDashboard.putData("Flywheel Off", new InstantCommand(m_flywheel::shooteroff));
     SmartDashboard.putData("IntakeRetractOFf", new InstantCommand(m_intake::stopRetract));
