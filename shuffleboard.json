@@ -581,6 +581,305 @@
               "_source0": "network_table:///SmartDashboard/Forward Soft Limit",
               "_title": "Forward Soft Limit"
             }
+          },
+          "12,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan10",
+              "_title": "PDP/Chan10"
+            }
+          },
+          "0,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan11",
+              "_title": "PDP/Chan11"
+            }
+          },
+          "1,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan12",
+              "_title": "PDP/Chan12"
+            }
+          },
+          "2,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan13",
+              "_title": "PDP/Chan13"
+            }
+          },
+          "3,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan14",
+              "_title": "PDP/Chan14"
+            }
+          },
+          "4,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan15",
+              "_title": "PDP/Chan15"
+            }
+          },
+          "5,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan16",
+              "_title": "PDP/Chan16"
+            }
+          },
+          "6,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan17",
+              "_title": "PDP/Chan17"
+            }
+          },
+          "7,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan18",
+              "_title": "PDP/Chan18"
+            }
+          },
+          "8,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan19",
+              "_title": "PDP/Chan19"
+            }
+          },
+          "9,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan20",
+              "_title": "PDP/Chan20"
+            }
+          },
+          "10,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan21",
+              "_title": "PDP/Chan21"
+            }
+          },
+          "11,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan22",
+              "_title": "PDP/Chan22"
+            }
+          },
+          "12,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan23",
+              "_title": "PDP/Chan23"
+            }
+          },
+          "0,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan0",
+              "_title": "PDP/Chan0"
+            }
+          },
+          "1,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan1",
+              "_title": "PDP/Chan1"
+            }
+          },
+          "2,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan2",
+              "_title": "PDP/Chan2"
+            }
+          },
+          "3,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan3",
+              "_title": "PDP/Chan3"
+            }
+          },
+          "4,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan4",
+              "_title": "PDP/Chan4"
+            }
+          },
+          "5,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan5",
+              "_title": "PDP/Chan5"
+            }
+          },
+          "6,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan6",
+              "_title": "PDP/Chan6"
+            }
+          },
+          "7,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan7",
+              "_title": "PDP/Chan7"
+            }
+          },
+          "8,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan8",
+              "_title": "PDP/Chan8"
+            }
+          },
+          "9,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Chan9",
+              "_title": "PDP/Chan9"
+            }
+          },
+          "10,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/PDP/SwitchableChannel",
+              "_title": "PDP/SwitchableChannel",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "11,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/TotalCurrent",
+              "_title": "PDP/TotalCurrent"
+            }
+          },
+          "12,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/PDP/Voltage",
+              "_title": "PDP/Voltage"
+            }
           }
         }
       }
@@ -790,6 +1089,20 @@
           },
           "10,0": {
             "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "Field",
+              "_source0": "network_table:///SmartDashboard/Field",
+              "_title": "SmartDashboard/Field",
+              "Game/Game": "A2022_Rapid_React",
+              "Visuals/Robot Icon Size": 50.0,
+              "Visuals/Show Outside Circles": false
+            }
+          },
+          "10,2": {
+            "size": [
               2,
               4
             ],
@@ -799,6 +1112,637 @@
               "_title": "Climber",
               "Layout/Label position": "BOTTOM",
               "_children": []
+            }
+          },
+          "12,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/SwitchableChannel",
+              "_title": "Ungrouped/PowerDistribution[1]/SwitchableChannel",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "12,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/TotalCurrent",
+              "_title": "Ungrouped/PowerDistribution[1]/TotalCurrent"
+            }
+          },
+          "12,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Voltage",
+              "_title": "Ungrouped/PowerDistribution[1]/Voltage"
+            }
+          },
+          "4,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan10",
+              "_title": "Ungrouped/PowerDistribution[1]/Chan10"
+            }
+          },
+          "5,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan11",
+              "_title": "Ungrouped/PowerDistribution[1]/Chan11"
+            }
+          },
+          "6,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan13",
+              "_title": "Ungrouped/PowerDistribution[1]/Chan13"
+            }
+          },
+          "7,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan12",
+              "_title": "Ungrouped/PowerDistribution[1]/Chan12"
+            }
+          },
+          "8,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan14",
+              "_title": "Ungrouped/PowerDistribution[1]/Chan14"
+            }
+          },
+          "9,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan15",
+              "_title": "Ungrouped/PowerDistribution[1]/Chan15"
+            }
+          },
+          "12,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan16",
+              "_title": "Ungrouped/PowerDistribution[1]/Chan16"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "PowerDistribution[1]",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/SwitchableChannel",
+              "_title": "SwitchableChannel",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "1,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/TotalCurrent",
+              "_title": "TotalCurrent"
+            }
+          },
+          "2,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Voltage",
+              "_title": "Voltage"
+            }
+          },
+          "3,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan10",
+              "_title": "Chan10"
+            }
+          },
+          "4,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan11",
+              "_title": "Chan11"
+            }
+          },
+          "5,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan13",
+              "_title": "Chan13"
+            }
+          },
+          "6,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan14",
+              "_title": "Chan14"
+            }
+          },
+          "7,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan12",
+              "_title": "Chan12"
+            }
+          },
+          "8,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan16",
+              "_title": "Chan16"
+            }
+          },
+          "9,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan18",
+              "_title": "Chan18"
+            }
+          },
+          "10,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan1",
+              "_title": "Chan1"
+            }
+          },
+          "11,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan0",
+              "_title": "Chan0"
+            }
+          },
+          "12,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan3",
+              "_title": "Chan3"
+            }
+          },
+          "0,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan5",
+              "_title": "Chan5"
+            }
+          },
+          "1,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan4",
+              "_title": "Chan4"
+            }
+          },
+          "2,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan8",
+              "_title": "Chan8"
+            }
+          },
+          "3,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan9",
+              "_title": "Chan9"
+            }
+          },
+          "4,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan2",
+              "_title": "Chan2"
+            }
+          },
+          "5,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan15",
+              "_title": "Chan15"
+            }
+          },
+          "6,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan20",
+              "_title": "Chan20"
+            }
+          },
+          "7,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan17",
+              "_title": "Chan17"
+            }
+          },
+          "8,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan22",
+              "_title": "Chan22"
+            }
+          },
+          "9,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan21",
+              "_title": "Chan21"
+            }
+          },
+          "10,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan7",
+              "_title": "Chan7"
+            }
+          },
+          "11,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan23",
+              "_title": "Chan23"
+            }
+          },
+          "12,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan6",
+              "_title": "Chan6"
+            }
+          },
+          "0,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan19",
+              "_title": "Chan19"
+            }
+          },
+          "1,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Network Table Tree",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]",
+              "_title": "LiveWindow/Ungrouped/PowerDistribution[1]"
+            }
+          },
+          "3,2": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "Network Table Tree",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]",
+              "_title": "LiveWindow/Ungrouped/PowerDistribution[1]"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Settings",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "3,0": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Climber",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Climber/Encoder",
+                  "_title": "Shuffleboard/Climber/Encoder"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Climber/Forward Soft Limit",
+                  "_title": "Shuffleboard/Climber/Forward Soft Limit"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Climber/Reverse Soft Limit",
+                  "_title": "Shuffleboard/Climber/Reverse Soft Limit"
+                },
+                {
+                  "_type": "Toggle Switch",
+                  "_source0": "network_table:///Shuffleboard/Climber/Reverse dir",
+                  "_title": "Shuffleboard/Climber/Reverse dir"
+                }
+              ]
+            }
+          },
+          "6,0": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Flywheel",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Flywheel/Flywheel P",
+                  "_title": "P"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Flywheel/Flywheel I",
+                  "_title": "I"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Flywheel/Flywheel D",
+                  "_title": "D"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///Shuffleboard/Flywheel/InstantCommand",
+                  "_title": "Start"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Flywheel/Flywheel F",
+                  "_title": "Fd. F"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Flywheel/Flywheel motorspeed",
+                  "_title": "Target speed"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Flywheel/Flywheel Speed Test",
+                  "_title": "Speed"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Flywheel/Flywheel kIz",
+                  "_title": "kIz"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Flywheel/Flywheel MinOutput",
+                  "_title": "MinOutput"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Flywheel/Flywheel MaxOutput",
+                  "_title": "MaxOutput"
+                }
+              ]
+            }
+          },
+          "9,0": {
+            "size": [
+              4,
+              3
+            ],
+            "content": {
+              "_type": "Graph",
+              "_source0": "network_table:///Shuffleboard/Flywheel/Flywheel Speed Test",
+              "_title": "Shuffleboard/Flywheel/Flywheel Speed Test",
+              "Graph/Visible time": 30.0,
+              "Graph/X-axis auto scrolling": true,
+              "Y-axis/Automatic bounds": true,
+              "Y-axis/Upper bound": 1.0,
+              "Y-axis/Lower bound": -1.0,
+              "Y-axis/Unit": "ul",
+              "Visible data/Shuffleboard/Flywheel/Flywheel Speed Test": true
+            }
+          },
+          "6,3": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_title": "Subsystem Layout",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Gyro",
+                  "_title": "Gyro"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Right Encoder Distance",
+                  "_title": "Right Encoder"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Left Encoder Distance",
+                  "_title": "Left Encoder"
+                }
+              ]
+            }
+          },
+          "4,3": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Intake",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Intake Forward Soft Limit",
+                  "_title": " Forward Soft Limit"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Intake Reverse Soft Limit",
+                  "_title": "Reverse Soft Limit"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Intake Encoder",
+                  "_title": "Encoder"
+                }
+              ]
             }
           }
         }

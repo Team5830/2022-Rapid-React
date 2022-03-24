@@ -16,7 +16,9 @@ import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
 import edu.wpi.first.math.kinematics.DifferentialDriveWheelSpeeds;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.first.wpilibj.PowerDistribution.ModuleType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
@@ -39,6 +41,7 @@ public class DriveTrain extends SubsystemBase {
   MotorControllerGroup m_right;
   MotorControllerGroup m_left;
   private Field2d m_field = new Field2d();
+  public PowerDistribution m_powerdist;
 
   public DriveTrain() {
     try {
@@ -50,7 +53,7 @@ public class DriveTrain extends SubsystemBase {
       WPI_VictorSPX m_leftlead = new WPI_VictorSPX(CANBusID.kLeftMotor1);
       WPI_VictorSPX m_leftfollow = new WPI_VictorSPX(CANBusID.kLeftMotor2);
       MotorControllerGroup m_left = new MotorControllerGroup(m_leftlead, m_leftfollow);
-      m_left.setInverted(true);
+      m_right.setInverted(true);
       m_drive = new DifferentialDrive(m_left, m_right);
       // Left,Right PID controllers
       m_leftPIDController = new PIDController(DriveC.leftP, DriveC.leftI, DriveC.leftD);
@@ -59,12 +62,19 @@ public class DriveTrain extends SubsystemBase {
       m_leftencoder = new Encoder(Ports.LeftDriveEncoder1, Ports.LeftDriveEncoder2, DriveC.leftEncoderReversed);
       m_rightencoder = new Encoder(Ports.RightDriveEncoder1, Ports.RightDriveEncoder2, DriveC.rightEncoderReversed);
       m_kinematics = new DifferentialDriveKinematics(DriveC.kTrackWidth_m);
+    } catch (RuntimeException ex) {
+      DriverStation.reportError("Error Configuring Drivetrain" + ex.getMessage(), true);
+    }
+    try {
       // Need to set drive characterization constants from SysID in Metric units
       m_feedforward = new SimpleMotorFeedforward(DriveC.ksVolts, DriveC.kvVoltSecondsPerMeter,
           DriveC.kaVoltSecondsSquaredPerMeter);
       m_leftencoder.setDistancePerPulse(DriveC.distancePerPulse_m);
       m_rightencoder.setDistancePerPulse(DriveC.distancePerPulse_m);
+      m_rightencoder.setReverseDirection(true);
       SmartDashboard.putData("Field", m_field);
+      m_powerdist = new PowerDistribution(1, ModuleType.kRev);
+      SmartDashboard.putData("PDP", m_powerdist);
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error Configuring Drivetrain" + ex.getMessage(), true);
     }

@@ -104,9 +104,6 @@ public class RobotContainer {
     SmartDashboard.putData("Reset Gyro", new InstantCommand(m_drivetrain::resetHeading));
     SmartDashboard.putData("Reset DT Encoders", new InstantCommand(m_drivetrain::resetEncoders));
     SmartDashboard.putData("Intake Reverse", new InstantCommand(m_intake::reverseFirstIntake));
-    SmartDashboard.putData("Climber Up", new InstantCommand(m_climber::climber_up));
-    SmartDashboard.putData("Climber Down", new InstantCommand(m_climber::climber_down));
-    SmartDashboard.putData("Climber Off", new InstantCommand(m_climber::climberMoter1off));
     SmartDashboard.putData("Conveyor2 Reverse", new InstantCommand(m_conveyor::conveyor2Reversed));
     SmartDashboard.putData("Conveyor1 Toggle", new InstantCommand(m_conveyor::toggleconveyor1));
     SmartDashboard.putData("Conveyor2 Toggle", new InstantCommand(m_conveyor::toggleconveyor2));
@@ -114,7 +111,14 @@ public class RobotContainer {
     SmartDashboard.putData("Pickup Off", new PickupOff(m_intake, m_conveyor));
     SmartDashboard.putData("Conv2down", new InstantCommand(m_conveyor::conv2down));
     SmartDashboard.putData("Conv2up", new InstantCommand(m_conveyor::conv2up));
-
+    //ClimberControl.add( new InstantCommand(m_climber::reverse_Motor1)); 
+    //ClimberControl.add( new InstantCommand(m_climber::climber_up)); 
+    //ClimberControl.add( new InstantCommand(m_climber::climber_down)); 
+    
+    SmartDashboard.putData("Climber Up", new InstantCommand(m_climber::climber_up));
+    SmartDashboard.putData("Climber Down", new InstantCommand(m_climber::climber_down));
+    SmartDashboard.putData("Climber Off", new InstantCommand(m_climber::climberMoter1off));
+    SmartDashboard.putData("Climber reverse dir", new InstantCommand(m_climber::reverse_Motor1));
   }
 
   /**

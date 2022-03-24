@@ -18,12 +18,13 @@ package frc.robot;
  */
 public final class Constants {
     public static final class CANBusID {
+        // The PDP has a default address of 1 
         public static final int kLeftMotor1 = 10;
         public static final int kRightMotor1 = 12;
         public static final int kLeftMotor2 = 13;
         public static final int kRightMotor2 = 11;
         public static final int kLeftFlywheel = 6;// left flywheel motor
-        public static final int kRightFlywheel = 1;// right flywheel motor
+        public static final int kRightFlywheel = 5; // right flywheel motor Id must be set on motorcontroller
         public static final int dintakemotor = 21;// intake
         public static final int conveyor1 = 20;// conveyor 1
         public static final int conveyor2 = 2;// shooter conveyor
