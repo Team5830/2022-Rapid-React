@@ -18,7 +18,7 @@ public class Climber extends SubsystemBase {
   double fsoftlimit = Constants.ClimberC.climberforwardlimit;
   double rsoftlimit = Constants.ClimberC.climberreverselimit;
   boolean isclimberMotorupon = false;
-  boolean isclimberMotorupreversed = false;
+  public boolean isclimberMotorupreversed = false;
 
   public Climber() {
     try {
@@ -34,6 +34,7 @@ public class Climber extends SubsystemBase {
       SmartDashboard.putNumber("Forward Soft Limit", fsoftlimit);
       SmartDashboard.putNumber("Reverse Soft Limit", rsoftlimit);
       m_encoderup.setPosition(0.0);
+      //climberMotorup.setInverted(isInverted);
       // m_encoderup = climberMotorup=getClimberState();
     } catch (RuntimeException ex) {
       DriverStation.reportError("error loading failed" + ex.getMessage(), true);
@@ -42,6 +43,7 @@ public class Climber extends SubsystemBase {
     ClimberControl.add("Encoder", m_encoderup.getPosition());
     ClimberControl.add("Forward Soft Limit", fsoftlimit);
     ClimberControl.add("Reverse Soft Limit", rsoftlimit);
+    ClimberControl.add("Reverse dir", isclimberMotorupreversed);
   }
 
   @Override
@@ -54,15 +56,23 @@ public class Climber extends SubsystemBase {
     climberMotorup.setSoftLimit(CANSparkMax.SoftLimitDirection.kForward, (float) fsoftlimit);
     climberMotorup.setSoftLimit(CANSparkMax.SoftLimitDirection.kReverse, (float) rsoftlimit);
     SmartDashboard.putNumber("Climber Encoder", m_encoderup.getPosition());
-
   }
 
   public void climber_up() {
-    climberMotorup.set(Constants.ClimberC.climberSpeed);
+    if (isclimberMotorupreversed) {
+      climberMotorup.set(-Constants.ClimberC.climberSpeed);
+    }else{
+      climberMotorup.set(Constants.ClimberC.climberSpeed);
+    }
   }
 
   public void climber_down() {
-    climberMotorup.set(-Constants.ClimberC.climberSpeed);
+    if (isclimberMotorupreversed) {
+      climberMotorup.set(Constants.ClimberC.climberSpeed);
+    }
+    else{
+      climberMotorup.set(-Constants.ClimberC.climberSpeed);
+    }
   }
 
   public void reverse_Motor1() {
@@ -71,7 +81,6 @@ public class Climber extends SubsystemBase {
     } else {
       isclimberMotorupreversed = true;
     }
-    climberMoter1on();
   }
 
   public void climberMoter1on() {

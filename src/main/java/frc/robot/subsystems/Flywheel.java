@@ -47,7 +47,7 @@ public class Flywheel extends SubsystemBase {
    public Flywheel() {
       try {
          // m_rightfollow = new CANSparkMax(CANBusID.kRightFlywheel,
-         // MotorType.kBrushless);
+         // MotorType.kBrushless); //Must set new ID if being used
          m_leftlead = new CANSparkMax(CANBusID.kLeftFlywheel, MotorType.kBrushless);
          m_leftlead.restoreFactoryDefaults();
          // m_rightfollow.restoreFactoryDefaults();
