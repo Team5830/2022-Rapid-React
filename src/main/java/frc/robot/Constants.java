@@ -80,13 +80,13 @@ public final class Constants {
         public static final int kEncoderCPR = 2048;
         public static final double kWheelCircInches = 19.0;
         public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR;// Gear
-        public static final double distancePerPulse_m = (kWheelCircInches*0.0254) / (double) kEncoderCPR;
+        public static final double distancePerPulse_m = (kWheelCircInches * 0.0254) / (double) kEncoderCPR;
         public static final double ksVolts = 0.22;
         public static final double kvVoltSecondsPerMeter = 1.98;
         public static final double kaVoltSecondsSquaredPerMeter = 0.2;
         // Example value only - as above, this must be tuned for your drive!
         public static final double kPDriveVel = 8.5;
-        public static final double kTrackWidth_m = 30*2.54/100;//width in meters
+        public static final double kTrackWidth_m = 30 * 2.54 / 100;// width in meters
         public static final double rightP = 0.01;
         public static final double rightI = 0.00;
         public static final double rightD = 0.00;
@@ -114,7 +114,7 @@ public final class Constants {
 
     public static final class ClimberC {
         public static final double climberSpeed = 1.0;
-        public static final double climberforwardlimit = 475;
+        public static final double climberforwardlimit = 520;
         public static final double climberreverselimit = 0;
     }
 

@@ -25,22 +25,23 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
 
 public class DriveTrain extends SubsystemBase {
-  
+
   double maxspeed = DriveC.MaxSpeed;
   DifferentialDrive m_drive;
   private DifferentialDriveOdometry m_odometry;
   private DifferentialDriveKinematics m_kinematics;
   private SimpleMotorFeedforward m_feedforward;
   AHRS ahrs;
-  private PIDController m_leftPIDController; 
+  private PIDController m_leftPIDController;
   private PIDController m_rightPIDController;
   public Encoder m_leftencoder;
   public Encoder m_rightencoder;
   MotorControllerGroup m_right;
   MotorControllerGroup m_left;
   private Field2d m_field = new Field2d();
+
   public DriveTrain() {
-    try{
+    try {
       // Right Side Motor Controllers
       WPI_VictorSPX m_rightlead = new WPI_VictorSPX(CANBusID.kRightMotor1);
       WPI_VictorSPX m_rightfollow = new WPI_VictorSPX(CANBusID.kRightMotor2);
@@ -51,20 +52,20 @@ public class DriveTrain extends SubsystemBase {
       MotorControllerGroup m_left = new MotorControllerGroup(m_leftlead, m_leftfollow);
       m_left.setInverted(true);
       m_drive = new DifferentialDrive(m_left, m_right);
-      //Left,Right PID controllers
-      m_leftPIDController = new PIDController(DriveC.leftP, DriveC.leftI,DriveC.leftD);
-      m_rightPIDController = new PIDController(DriveC.rightP, DriveC.rightI,DriveC.rightD);
-      //Left, Right Encoders
-      m_leftencoder = new Encoder(Ports.LeftDriveEncoder1, Ports.LeftDriveEncoder2,DriveC.leftEncoderReversed);
-      m_rightencoder = new Encoder(Ports.RightDriveEncoder1, Ports.RightDriveEncoder2,DriveC.rightEncoderReversed);
+      // Left,Right PID controllers
+      m_leftPIDController = new PIDController(DriveC.leftP, DriveC.leftI, DriveC.leftD);
+      m_rightPIDController = new PIDController(DriveC.rightP, DriveC.rightI, DriveC.rightD);
+      // Left, Right Encoders
+      m_leftencoder = new Encoder(Ports.LeftDriveEncoder1, Ports.LeftDriveEncoder2, DriveC.leftEncoderReversed);
+      m_rightencoder = new Encoder(Ports.RightDriveEncoder1, Ports.RightDriveEncoder2, DriveC.rightEncoderReversed);
       m_kinematics = new DifferentialDriveKinematics(DriveC.kTrackWidth_m);
       // Need to set drive characterization constants from SysID in Metric units
-      m_feedforward = new SimpleMotorFeedforward(DriveC.ksVolts,DriveC.kvVoltSecondsPerMeter,DriveC.kaVoltSecondsSquaredPerMeter);
+      m_feedforward = new SimpleMotorFeedforward(DriveC.ksVolts, DriveC.kvVoltSecondsPerMeter,
+          DriveC.kaVoltSecondsSquaredPerMeter);
       m_leftencoder.setDistancePerPulse(DriveC.distancePerPulse_m);
       m_rightencoder.setDistancePerPulse(DriveC.distancePerPulse_m);
       SmartDashboard.putData("Field", m_field);
-    } 
-    catch (RuntimeException ex) {
+    } catch (RuntimeException ex) {
       DriverStation.reportError("Error Configuring Drivetrain" + ex.getMessage(), true);
     }
     addChild("Right Encoder", m_rightencoder);
@@ -79,59 +80,59 @@ public class DriveTrain extends SubsystemBase {
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error instantiating navX MXP: " + ex.getMessage(), true);
     }
-    addChild("DriveTrain",m_drive);
+    addChild("DriveTrain", m_drive);
 
   }
 
-    public double getAverageDistance() {
-      return (m_leftencoder.getDistance() + m_rightencoder.getDistance()) / 2;
-    }
+  public double getAverageDistance() {
+    return (m_leftencoder.getDistance() + m_rightencoder.getDistance()) / 2;
+  }
 
-    public double getLeftDistance() {
-      return (m_leftencoder.getDistance());
-    }
+  public double getLeftDistance() {
+    return (m_leftencoder.getDistance());
+  }
 
-    public double getRightDistance() {
-      return (m_rightencoder.getDistance());
-    }
+  public double getRightDistance() {
+    return (m_rightencoder.getDistance());
+  }
 
-    public void resetEncoders() {
-      m_leftencoder.reset();
-      m_rightencoder.reset();
-    }
+  public void resetEncoders() {
+    m_leftencoder.reset();
+    m_rightencoder.reset();
+  }
 
-    public void setMaxOutput(double newMax) {
-      m_drive.setMaxOutput(newMax);
-      maxspeed = newMax;
-    }
+  public void setMaxOutput(double newMax) {
+    m_drive.setMaxOutput(newMax);
+    maxspeed = newMax;
+  }
 
-    public void toggleMaxSpeed() {
-      if (maxspeed == DriveC.MaxSpeed) {
-        setMaxOutput(DriveC.reducedMaxSpeed);
-      } else {
-        setMaxOutput(DriveC.MaxSpeed);
-      }
+  public void toggleMaxSpeed() {
+    if (maxspeed == DriveC.MaxSpeed) {
+      setMaxOutput(DriveC.reducedMaxSpeed);
+    } else {
+      setMaxOutput(DriveC.MaxSpeed);
     }
+  }
 
-    @Override
-    public void simulationPeriodic() {
-      // This method will be called once per scheduler run during simulation
-    }
+  @Override
+  public void simulationPeriodic() {
+    // This method will be called once per scheduler run during simulation
+  }
 
-    public void setSpeeds(DifferentialDriveWheelSpeeds speeds) {
-      final double leftFeedforward = m_feedforward.calculate(speeds.leftMetersPerSecond);
-      final double rightFeedforward = m_feedforward.calculate(speeds.rightMetersPerSecond);
-      final double leftOutput  = m_leftPIDController.calculate(m_leftencoder.getRate(), speeds.leftMetersPerSecond);
-      final double rightOutput = m_rightPIDController.calculate(m_rightencoder.getRate(), speeds.rightMetersPerSecond);
-      m_left.setVoltage(leftOutput + leftFeedforward);
-      m_right.setVoltage(rightOutput + rightFeedforward);
-    }
+  public void setSpeeds(DifferentialDriveWheelSpeeds speeds) {
+    final double leftFeedforward = m_feedforward.calculate(speeds.leftMetersPerSecond);
+    final double rightFeedforward = m_feedforward.calculate(speeds.rightMetersPerSecond);
+    final double leftOutput = m_leftPIDController.calculate(m_leftencoder.getRate(), speeds.leftMetersPerSecond);
+    final double rightOutput = m_rightPIDController.calculate(m_rightencoder.getRate(), speeds.rightMetersPerSecond);
+    m_left.setVoltage(leftOutput + leftFeedforward);
+    m_right.setVoltage(rightOutput + rightFeedforward);
+  }
 
-    @SuppressWarnings("ParameterName")
-    public void drive(double xSpeed, double rot) {
-      var wheelSpeeds = m_kinematics.toWheelSpeeds(new ChassisSpeeds(xSpeed, 0.0, rot));
-      setSpeeds(wheelSpeeds);
-    }
+  @SuppressWarnings("ParameterName")
+  public void drive(double xSpeed, double rot) {
+    var wheelSpeeds = m_kinematics.toWheelSpeeds(new ChassisSpeeds(xSpeed, 0.0, rot));
+    setSpeeds(wheelSpeeds);
+  }
 
   /** Updates the field-relative position. */
   public void updateOdometry() {
@@ -142,11 +143,11 @@ public class DriveTrain extends SubsystemBase {
   public void TankDrive(double leftspeed, double rightspeed) {
     final double leftFeedforward = m_feedforward.calculate(leftspeed);
     final double rightFeedforward = m_feedforward.calculate(rightspeed);
-    final double leftOutput  = m_leftPIDController.calculate(m_leftencoder.getRate(), leftspeed);
+    final double leftOutput = m_leftPIDController.calculate(m_leftencoder.getRate(), leftspeed);
     final double rightOutput = m_rightPIDController.calculate(m_rightencoder.getRate(), rightspeed);
     m_left.setVoltage(leftOutput + leftFeedforward);
     m_right.setVoltage(rightOutput + rightFeedforward);
-    //m_drive.tankDrive(leftspeed, rightspeed);
+    // m_drive.tankDrive(leftspeed, rightspeed);
   }
 
   public void ArcadeDrive(double forwardspeed, double rotationspeed) {
@@ -162,10 +163,11 @@ public class DriveTrain extends SubsystemBase {
   public void resetDisplacement() {
     ahrs.resetDisplacement();
   }
-  
+
   public Pose2d getPose() {
     return m_odometry.getPoseMeters();
   }
+
   /**
    * Returns the heading of the robot.
    *
@@ -197,5 +199,5 @@ public class DriveTrain extends SubsystemBase {
     SmartDashboard.putNumber("Left Encoder Distance", getLeftDistance());
     SmartDashboard.putNumber("Gyro", getHeading());
     m_field.setRobotPose(m_odometry.getPoseMeters());
-   }
+  }
 }
