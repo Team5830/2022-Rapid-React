@@ -18,7 +18,7 @@ package frc.robot;
  */
 public final class Constants {
     public static final class CANBusID {
-        // The PDP has a default address of 1 
+        // The PDP has a default address of 1
         public static final int kLeftMotor1 = 10;
         public static final int kRightMotor1 = 12;
         public static final int kLeftMotor2 = 13;
@@ -129,8 +129,8 @@ public final class Constants {
         public static final double D = 0.0;
         public static final double F = 0.0;
         public static final double zI = 0;
-        public static final double kMaxOutput = 0.4;
-        public static final double kMinOutput = 0.1;
+        public static final double kMaxOutput = 0.7;
+        public static final double kMinOutput = -0.7;
     }
 
     public static final class buttonsLeftjoy {
@@ -150,6 +150,14 @@ public final class Constants {
         public static final int moveButton = 1;
         public static final int turnleftButton = 3;
         public static final int turnrightButton = 4;
+    }
+
+    public static final class buttonsGamepad {
+        public static final int IntakeToggleButton = 3;
+        public static final int ClimberUpButton = 4;
+        public static final int ClimberDownButton = 2;
+        public static final int IntakeOnOffButton = 8;
+        public static final int ShooterButton = 5;
     }
 
     public static final class Conveyspeed {

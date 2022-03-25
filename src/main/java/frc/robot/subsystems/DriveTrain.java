@@ -73,8 +73,8 @@ public class DriveTrain extends SubsystemBase {
       m_rightencoder.setDistancePerPulse(DriveC.distancePerPulse_m);
       m_rightencoder.setReverseDirection(true);
       SmartDashboard.putData("Field", m_field);
-      m_powerdist = new PowerDistribution(1, ModuleType.kRev);
-      SmartDashboard.putData("PDP", m_powerdist);
+      // m_powerdist = new PowerDistribution(0, ModuleType.kCTRE);
+      // SmartDashboard.putData("PDP", m_powerdist);
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error Configuring Drivetrain" + ex.getMessage(), true);
     }
@@ -151,13 +151,16 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void TankDrive(double leftspeed, double rightspeed) {
-    final double leftFeedforward = m_feedforward.calculate(leftspeed);
-    final double rightFeedforward = m_feedforward.calculate(rightspeed);
-    final double leftOutput = m_leftPIDController.calculate(m_leftencoder.getRate(), leftspeed);
-    final double rightOutput = m_rightPIDController.calculate(m_rightencoder.getRate(), rightspeed);
-    m_left.setVoltage(leftOutput + leftFeedforward);
-    m_right.setVoltage(rightOutput + rightFeedforward);
-    // m_drive.tankDrive(leftspeed, rightspeed);
+    // double leftFeedforward = m_feedforward.calculate(leftspeed);
+    // double rightFeedforward = m_feedforward.calculate(rightspeed);
+    // double leftOutput = m_leftPIDController.calculate(m_leftencoder.getRate(),
+    // leftspeed);
+    // double rightOutput = m_rightPIDController.calculate(m_rightencoder.getRate(),
+    // rightspeed);
+    // m_left.setVoltage(leftOutput + leftFeedforward);
+    // m_right.setVoltage(rightOutput + rightFeedforward);
+
+    m_drive.tankDrive(-leftspeed, -rightspeed, DriveC.SquareInputs);
   }
 
   public void ArcadeDrive(double forwardspeed, double rotationspeed) {

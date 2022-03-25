@@ -24,7 +24,7 @@ public class FirstIntake extends SubsystemBase {
   CANSparkMax m_exotor;
   SparkMaxPIDController m_pidController;
   RelativeEncoder m_encoder;
-  boolean isExtended = false;
+  boolean extended = false;
 
   public FirstIntake() {
     try {
@@ -59,16 +59,16 @@ public class FirstIntake extends SubsystemBase {
   }
 
   public void extendIntake() {
-    if (!isExtended) {
-      m_pidController.setReference(0.0, ControlType.kPosition);
-      isExtended = true;
+    if (!extended) {
+      m_pidController.setReference(firstIntake.ExtendDistance, ControlType.kPosition);
+      extended = true;
     }
   }
 
   public void retractIntake() {
-    if (isExtended) {
-      m_pidController.setReference(firstIntake.ExtendDistance, ControlType.kPosition);
-      isExtended = false;
+    if (extended) {
+      m_pidController.setReference(0.0, ControlType.kPosition);
+      extended = false;
     }
   }
 
@@ -89,7 +89,7 @@ public class FirstIntake extends SubsystemBase {
   }
 
   public void toggleExtension() {
-    if (isExtended) {
+    if (extended) {
       retractIntake();
     } else {
       extendIntake();
