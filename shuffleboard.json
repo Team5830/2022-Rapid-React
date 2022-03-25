@@ -952,6 +952,11 @@
                   "_type": "PID Controller",
                   "_source0": "network_table:///LiveWindow/DriveTrain/Right PID",
                   "_title": "Right PID"
+                },
+                {
+                  "_type": "Encoder",
+                  "_source0": "network_table:///LiveWindow/DriveTrain/Leftt Encoder",
+                  "_title": "Leftt Encoder"
                 }
               ]
             }
@@ -1058,62 +1063,6 @@
               "_title": "Basic FMS Info"
             }
           },
-          "7,1": {
-            "size": [
-              3,
-              2
-            ],
-            "content": {
-              "_type": "Camera Stream",
-              "_title": "Camera Stream",
-              "Crosshair/Show crosshair": true,
-              "Crosshair/Crosshair color": "#FFFFFFFF",
-              "Controls/Show controls": true,
-              "Controls/Rotation": "NONE",
-              "compression": -1.0,
-              "fps": -1,
-              "imageWidth": -1,
-              "imageHeight": -1
-            }
-          },
-          "7,3": {
-            "size": [
-              3,
-              2
-            ],
-            "content": {
-              "_type": "PDP",
-              "_title": "PDP",
-              "Visuals/Show voltage and current values": true
-            }
-          },
-          "10,0": {
-            "size": [
-              3,
-              2
-            ],
-            "content": {
-              "_type": "Field",
-              "_source0": "network_table:///SmartDashboard/Field",
-              "_title": "SmartDashboard/Field",
-              "Game/Game": "A2022_Rapid_React",
-              "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": false
-            }
-          },
-          "10,2": {
-            "size": [
-              2,
-              4
-            ],
-            "content": {
-              "_type": "Subsystem Layout",
-              "_source0": "network_table:///LiveWindow/Climber",
-              "_title": "Climber",
-              "Layout/Label position": "BOTTOM",
-              "_children": []
-            }
-          },
           "12,2": {
             "size": [
               1,
@@ -1147,72 +1096,6 @@
               "_type": "Text View",
               "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Voltage",
               "_title": "Ungrouped/PowerDistribution[1]/Voltage"
-            }
-          },
-          "4,5": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan10",
-              "_title": "Ungrouped/PowerDistribution[1]/Chan10"
-            }
-          },
-          "5,5": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan11",
-              "_title": "Ungrouped/PowerDistribution[1]/Chan11"
-            }
-          },
-          "6,5": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan13",
-              "_title": "Ungrouped/PowerDistribution[1]/Chan13"
-            }
-          },
-          "7,5": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan12",
-              "_title": "Ungrouped/PowerDistribution[1]/Chan12"
-            }
-          },
-          "8,5": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan14",
-              "_title": "Ungrouped/PowerDistribution[1]/Chan14"
-            }
-          },
-          "9,5": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan15",
-              "_title": "Ungrouped/PowerDistribution[1]/Chan15"
             }
           },
           "12,5": {
@@ -1587,11 +1470,6 @@
               "_children": [
                 {
                   "_type": "Text View",
-                  "_source0": "network_table:///Shuffleboard/Climber/Encoder",
-                  "_title": "Shuffleboard/Climber/Encoder"
-                },
-                {
-                  "_type": "Text View",
                   "_source0": "network_table:///Shuffleboard/Climber/Forward Soft Limit",
                   "_title": "Shuffleboard/Climber/Forward Soft Limit"
                 },
@@ -1604,6 +1482,26 @@
                   "_type": "Toggle Switch",
                   "_source0": "network_table:///Shuffleboard/Climber/Reverse dir",
                   "_title": "Shuffleboard/Climber/Reverse dir"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Climber Down",
+                  "_title": "SmartDashboard/Climber Down"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Climber Up",
+                  "_title": "SmartDashboard/Climber Up"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Climber Off",
+                  "_title": "SmartDashboard/Climber Off"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Climber Encoder",
+                  "_title": "/SmartDashboard/Climber Encoder"
                 }
               ]
             }
@@ -1685,13 +1583,12 @@
               "Y-axis/Automatic bounds": true,
               "Y-axis/Upper bound": 1.0,
               "Y-axis/Lower bound": -1.0,
-              "Y-axis/Unit": "ul",
-              "Visible data/Shuffleboard/Flywheel/Flywheel Speed Test": true
+              "Y-axis/Unit": "ul"
             }
           },
           "6,3": {
             "size": [
-              2,
+              3,
               2
             ],
             "content": {
@@ -1741,18 +1638,74 @@
                   "_type": "Text View",
                   "_source0": "network_table:///SmartDashboard/Intake Encoder",
                   "_title": "Encoder"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Down",
+                  "_title": "/SmartDashboard/Intake Down"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Off",
+                  "_title": "/SmartDashboard/Intake Off"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake On",
+                  "_title": "/SmartDashboard/Intake On"
                 }
               ]
             }
           }
         }
       }
+    },
+    {
+      "title": "Field",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              7,
+              4
+            ],
+            "content": {
+              "_type": "Field",
+              "_source0": "network_table:///SmartDashboard/Field",
+              "_title": "/SmartDashboard/Field",
+              "Game/Game": "A2022_Rapid_React",
+              "Visuals/Robot Icon Size": 50.0,
+              "Visuals/Show Outside Circles": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Drive",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {}
+      }
     }
   ],
   "windowGeometry": {
-    "x": -8.0,
-    "y": -8.0,
-    "width": 1936.0,
-    "height": 1056.0
+    "x": -6.666666507720947,
+    "y": 1.3333333730697632,
+    "width": 1718.6666259765625,
+    "height": 925.3333129882812
   }
 }
