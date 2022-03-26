@@ -45,7 +45,7 @@ public class FirstIntake extends SubsystemBase {
       m_intakemotor.restoreFactoryDefaults();
       m_pidController = m_exotor.getPIDController();
       m_encoder = m_exotor.getEncoder();
-      m_encoder.setPosition(0.0);
+      m_encoder.setPosition(5.0);
     } catch (RuntimeException ex) {
       DriverStation.reportError("error loading failed" + ex.getMessage(), true);
     }
@@ -65,9 +65,17 @@ public class FirstIntake extends SubsystemBase {
     }
   }
 
+  public boolean extended() {
+    if (m_encoder.getPosition() < (firstIntake.ExtendDistance / 2)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   public void retractIntake() {
     if (extended) {
-      m_pidController.setReference(0.0, ControlType.kPosition);
+      m_pidController.setReference(firstIntake.ExtendminDistance, ControlType.kPosition);
       extended = false;
     }
   }
@@ -77,11 +85,11 @@ public class FirstIntake extends SubsystemBase {
   }
 
   public void intakeUp() {
-    m_exotor.set(-firstIntake.ExtendSpeed);
+    m_exotor.set(firstIntake.ExtendSpeed);
   }
 
   public void intakeDown() {
-    m_exotor.set(firstIntake.ExtendSpeed);
+    m_exotor.set(-firstIntake.ExtendSpeed);
   }
 
   public void stopIntake() {
@@ -89,20 +97,20 @@ public class FirstIntake extends SubsystemBase {
   }
 
   public void toggleExtension() {
-    if (extended) {
-      retractIntake();
+    if (!extended()) {
+      intakeDown();
     } else {
-      extendIntake();
+      intakeUp();
     }
   }
 
   public void startFirstIntake() {
-    m_intakemotor.set(-firstIntake.firstIntakespeed);
+    m_intakemotor.set(firstIntake.firstIntakespeed);
     firstIntakeON = true;
   }
 
   public void reverseFirstIntake() {
-    m_intakemotor.set(firstIntake.firstIntakespeed);
+    m_intakemotor.set(-firstIntake.firstIntakespeed);
     firstIntakeON = true;
     firstIntakeReversed = true;
   }

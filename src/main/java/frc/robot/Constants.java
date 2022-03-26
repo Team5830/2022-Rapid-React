@@ -24,7 +24,7 @@ public final class Constants {
         public static final int kLeftMotor2 = 13;
         public static final int kRightMotor2 = 11;
         public static final int kLeftFlywheel = 6;// left flywheel motor
-        public static final int kRightFlywheel = 5; // right flywheel motor Id must be set on motorcontroller
+        public static final int kRightFlywheel = 1; // right flywheel motor Id must be set on motorcontroller
         public static final int dintakemotor = 21;// intake
         public static final int conveyor1 = 20;// conveyor 1
         public static final int conveyor2 = 2;// shooter conveyor
@@ -42,10 +42,10 @@ public final class Constants {
     }
 
     public static final class ConveyorC {
-        public static final double speed = 0.5;
-        public static final double DownforShot = 4.0;
-        public static final double UpforShot = 10.5;
-        public static final double currentLimit = 30.0;
+        public static final double speed = 0.6;
+        public static final double DownforShot = 6.0; // 4.0
+        public static final double UpforShot = 10.5; // 10.5
+        public static final double currentLimit = 21.0;
         public static final double kP = 0.3;
         public static final double kI = 0.0;
         public static final double kD = 0.0;
@@ -60,8 +60,8 @@ public final class Constants {
         public static final double I = 0.0;
         public static final double D = 0.0;
         public static final double f = 0.0;
-        public static final double MaxAlignSpeed = 24; // Inches per second
-        public static final double AlignTolerance = 12; // Inches
+        public static final double MaxAlignSpeed = 2; // Inches per second
+        public static final double AlignTolerance = 0.2; // Inches
     }
 
     public static final class TurnPID {
@@ -102,9 +102,9 @@ public final class Constants {
         public static final int waitforshootersecs = 10;
         public static final double feedmotorspeed = 0.5;
         public static final double shootermotorspeed = 1600;
-        public static final double kP = 0.0012;
+        public static final double kP = 0.0006;// 0.00012
         public static final double kI = 0.000000;
-        public static final double kD = 0.04;
+        public static final double kD = 0.000;
         public static final double kIz = 0;
         public static final double kFF = 0;
         public static final double kMaxOutput = 0.7;
@@ -115,15 +115,15 @@ public final class Constants {
 
     public static final class ClimberC {
         public static final double climberSpeed = 1.0;
-        public static final double climberforwardlimit = 520;
+        public static final double climberforwardlimit = 530;
         public static final double climberreverselimit = 0;
     }
 
     public static final class firstIntake {
         public static final double firstIntakespeed = 0.4;
         public static final double ExtendSpeed = 0.3;
-        public static final double ExtendDistance = 118;// how far to turn motor to extend arm
-        public static final double ExtendminDistance = 5;// how far to turn motor to extend arm
+        public static final double ExtendDistance = 0;// how far to turn motor to extend arm
+        public static final double ExtendminDistance = -40;// how far to turn motor to extend arm
         public static final double P = 0.1;
         public static final double I = 0.0;
         public static final double D = 0.0;

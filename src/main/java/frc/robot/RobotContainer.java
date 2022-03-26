@@ -93,11 +93,12 @@ public class RobotContainer {
     // InstantCommand(m_climber::climberMoter1off));
     // SmartDashboard.putData("Climber Down", new
     // InstantCommand(m_climber::reverse_Motor1));
+    SmartDashboard.putData("Shoot", new Shoot(m_flywheel, m_conveyor));
 
     SmartDashboard.putData("Flywheel On", new Flywheel_ON(m_flywheel));
     SmartDashboard.putData("Easy Shooter", new InstantCommand(m_flywheel::shooterGo));
     SmartDashboard.putData("Flywheel Off", new InstantCommand(m_flywheel::shooteroff));
-    SmartDashboard.putData("IntakeRetractOFf", new InstantCommand(m_intake::stopRetract));
+    SmartDashboard.putData("IntakeRetractOff", new InstantCommand(m_intake::stopRetract));
     SmartDashboard.putData("Intake Down", new InstantCommand(m_intake::intakeDown));
     SmartDashboard.putData("Intake Up", new InstantCommand(m_intake::intakeUp));
     SmartDashboard.putData("Toggle extend", new InstantCommand(m_intake::toggleExtension));
@@ -139,11 +140,11 @@ public class RobotContainer {
         // new Shoot(m_flywheel, m_conveyor),
         new InstantCommand(m_drivetrain::toggleMaxSpeed),
         new Pause(2.0),
-        new Move(-60, m_drivetrain),
+        new Move(-2, m_drivetrain),
         new InstantCommand(m_drivetrain::toggleMaxSpeed),
         new InstantCommand(m_flywheel::shooteroff),
-        new InstantCommand(m_conveyor::conveyor2OFF),
-        new InstantCommand(m_intake::intakeDown));
+        new InstantCommand(m_conveyor::conveyor2OFF));
+    // new InstantCommand(m_intake::intakeDown));
   }
 
 }
