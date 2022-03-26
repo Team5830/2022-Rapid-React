@@ -1108,6 +1108,32 @@
               "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan16",
               "_title": "Ungrouped/PowerDistribution[1]/Chan16"
             }
+          },
+          "7,1": {
+            "size": [
+              2,
+              4
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_source0": "network_table:///LiveWindow/Ungrouped",
+              "_title": "Ungrouped",
+              "Layout/Label position": "BOTTOM",
+              "_children": []
+            }
+          },
+          "9,1": {
+            "size": [
+              2,
+              4
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_source0": "network_table:///LiveWindow/Intake",
+              "_title": "Intake",
+              "Layout/Label position": "BOTTOM",
+              "_children": []
+            }
           }
         }
       }
@@ -1461,7 +1487,7 @@
           "3,0": {
             "size": [
               3,
-              3
+              2
             ],
             "content": {
               "_type": "List Layout",
@@ -1583,7 +1609,8 @@
               "Y-axis/Automatic bounds": true,
               "Y-axis/Upper bound": 1.0,
               "Y-axis/Lower bound": -1.0,
-              "Y-axis/Unit": "ul"
+              "Y-axis/Unit": "ul",
+              "Visible data/Shuffleboard/Flywheel/Flywheel Speed Test": true
             }
           },
           "6,3": {
@@ -1614,10 +1641,10 @@
               ]
             }
           },
-          "4,3": {
+          "3,2": {
             "size": [
-              2,
-              2
+              3,
+              3
             ],
             "content": {
               "_type": "List Layout",
@@ -1646,13 +1673,51 @@
                 },
                 {
                   "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Intake Off",
-                  "_title": "/SmartDashboard/Intake Off"
+                  "_source0": "network_table:///SmartDashboard/Intake Down",
+                  "_title": "SmartDashboard/Intake Down"
                 },
                 {
                   "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Intake On",
-                  "_title": "/SmartDashboard/Intake On"
+                  "_source0": "network_table:///SmartDashboard/Intake Up",
+                  "_title": "SmartDashboard/Intake Up"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Toggle",
+                  "_title": "SmartDashboard/Intake Toggle"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Toggle extend",
+                  "_title": "SmartDashboard/Toggle extend"
+                }
+              ]
+            }
+          },
+          "9,3": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "List Layout",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Conveyor 2 Voltage",
+                  "_title": "/SmartDashboard/Conveyor 2 Voltage"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Conveyor 2 Motor",
+                  "_title": "/SmartDashboard/Conveyor 2 Motor"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Conveyor 2 current",
+                  "_title": "/SmartDashboard/Conveyor 2 current"
                 }
               ]
             }
@@ -1698,7 +1763,252 @@
         "hgap": 16.0,
         "vgap": 16.0,
         "titleType": 0,
-        "tiles": {}
+        "tiles": {
+          "3,0": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Motor Status",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/FirstIntakeOn",
+                  "_title": "Intake",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/Conveyor 1On",
+                  "_title": "Conveyor 1",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/Conveyor 2On",
+                  "_title": "Conveyor 2",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/Ball Jammed",
+                  "_title": "Ball Jammed",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/Flywheel Off/running",
+                  "_title": "Flywheel",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                }
+              ]
+            }
+          },
+          "3,3": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Intake",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Toggle extend",
+                  "_title": "Toggle extend"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Up",
+                  "_title": "Intake Up"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Down",
+                  "_title": "Intake Down"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Intake Encoder",
+                  "_title": "Intake Encoder"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Intake Forward Soft Limit",
+                  "_title": "Intake Forward Soft Limit"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Intake Reverse Soft Limit",
+                  "_title": "Intake Reverse Soft Limit"
+                }
+              ]
+            }
+          },
+          "6,0": {
+            "size": [
+              3,
+              5
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Intake/Shoot",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Flywheel On",
+                  "_title": "Flywheel On"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Toggle",
+                  "_title": "SmartDashboard/Intake Toggle"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Conveyor1 Toggle",
+                  "_title": "Conveyor1"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Conveyor2 Toggle",
+                  "_title": "Conveyor2"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Flywheel Speed ",
+                  "_title": "Flywheel Speed "
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Flywheel motorspeed",
+                  "_title": "Flywheel motorspeed"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Easy Shooter",
+                  "_title": "Easy Shooter"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Pickup",
+                  "_title": "SmartDashboard/Pickup"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Shoot",
+                  "_title": "SmartDashboard/Shoot"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Flywheel Off",
+                  "_title": "SmartDashboard/Flywheel Off"
+                }
+              ]
+            }
+          },
+          "0,0": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "Camera Stream",
+              "_source0": "camera_server://camera1",
+              "_title": "camera1",
+              "Crosshair/Show crosshair": true,
+              "Crosshair/Crosshair color": "#FFFFFFFF",
+              "Controls/Show controls": true,
+              "Controls/Rotation": "NONE",
+              "compression": 37.182929178563704,
+              "fps": -1,
+              "imageWidth": -1,
+              "imageHeight": -1
+            }
+          },
+          "0,2": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Climber",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Climber Off",
+                  "_title": "SmartDashboard/Climber Off"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Climber Encoder",
+                  "_title": "SmartDashboard/Climber Encoder"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Climber Up",
+                  "_title": "SmartDashboard/Climber Up"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Climber Down",
+                  "_title": "SmartDashboard/Climber Down"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Climber/Forward Soft Limit",
+                  "_title": "Shuffleboard/Climber/Forward Soft Limit"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///Shuffleboard/Climber/Reverse Soft Limit",
+                  "_title": "Shuffleboard/Climber/Reverse Soft Limit"
+                }
+              ]
+            }
+          },
+          "9,2": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Shooter Adjust",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Conv2up",
+                  "_title": "SmartDashboard/Conv2up"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Conv2down",
+                  "_title": "SmartDashboard/Conv2down"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Conveyor 2 Motor",
+                  "_title": "SmartDashboard/Conveyor 2 Motor"
+                }
+              ]
+            }
+          }
+        }
       }
     }
   ],
