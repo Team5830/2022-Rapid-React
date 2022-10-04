@@ -17,7 +17,7 @@ import frc.robot.Constants.*;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 
-/**
+/**>
  * This class is where the bulk of the robot should be declared. Since
  * Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in
@@ -80,7 +80,7 @@ public class RobotContainer {
     new JoystickButton(m_rightJoy, buttonsRightjoy.pickupButton)
         .whenPressed(new Pickup(m_intake, m_conveyor, m_flywheel));
     new JoystickButton(m_rightJoy, buttonsRightjoy.shootButton).whenPressed(new Shoot(m_flywheel, m_conveyor));
-    new JoystickButton(m_rightJoy, buttonsRightjoy.pickupOffButton).whenPressed(new PickupOff(m_intake, m_conveyor));
+    // new JoystickButton(m_rightJoy, buttonsRightjoy.pickupOffButton).whenPressed(new PickupOff(m_intake, m_conveyor));
 
     /*
      * new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()->
@@ -135,7 +135,7 @@ public class RobotContainer {
     SmartDashboard.putData("Conveyor1 Toggle", new InstantCommand(m_conveyor::toggleconveyor1));
     SmartDashboard.putData("Conveyor2 Toggle", new InstantCommand(m_conveyor::toggleconveyor2));
     SmartDashboard.putData("Pickup", new Pickup(m_intake, m_conveyor, m_flywheel));
-    SmartDashboard.putData("Pickup Off", new PickupOff(m_intake, m_conveyor));
+    // SmartDashboard.putData("Pickup Off", new PickupOff(m_intake, m_conveyor));
     SmartDashboard.putData("Conv2down", new InstantCommand(m_conveyor::conv2down));
     SmartDashboard.putData("Conv2up", new InstantCommand(m_conveyor::conv2up));
 
