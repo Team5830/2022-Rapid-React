@@ -141,9 +141,10 @@ public class RobotContainer {
         new InstantCommand(m_drivetrain::toggleMaxSpeed),
         // new Pause(2.0),
         new Move(-2, m_drivetrain),
-        new InstantCommand(m_drivetrain::toggleMaxSpeed),
-        new InstantCommand(m_flywheel::shooteroff),
-        new InstantCommand(m_conveyor::conveyor2OFF));
+        new InstantCommand(m_drivetrain::toggleMaxSpeed)
+    // new InstantCommand(m_flywheel::shooteroff),
+    // new InstantCommand(m_conveyor::conveyor2OFF
+    );
     // new InstantCommand(m_intake::intakeDown));
   }
 
