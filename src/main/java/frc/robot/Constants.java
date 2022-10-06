@@ -18,12 +18,13 @@ package frc.robot;
  */
 public final class Constants {
     public static final class CANBusID {
+        // The PDP has a default address of 1
         public static final int kLeftMotor1 = 10;
         public static final int kRightMotor1 = 12;
         public static final int kLeftMotor2 = 13;
         public static final int kRightMotor2 = 11;
         public static final int kLeftFlywheel = 6;// left flywheel motor
-        public static final int kRightFlywheel = 1;// right flywheel motor
+        public static final int kRightFlywheel = 1; // right flywheel motor Id must be set on motorcontroller
         public static final int dintakemotor = 21;// intake
         public static final int conveyor1 = 20;// conveyor 1
         public static final int conveyor2 = 2;// shooter conveyor
@@ -41,10 +42,10 @@ public final class Constants {
     }
 
     public static final class ConveyorC {
-        public static final double speed = 0.5;
-        public static final double DownforShot = 4.0;
-        public static final double UpforShot = 10.5;
-        public static final double currentLimit = 30.0;
+        public static final double speed = 0.6;
+        public static final double DownforShot = 6.0; // 4.0
+        public static final double UpforShot = 10.5; // 10.5
+        public static final double currentLimit = 21.0;
         public static final double kP = 0.3;
         public static final double kI = 0.0;
         public static final double kD = 0.0;
@@ -55,12 +56,12 @@ public final class Constants {
     }
 
     public static final class MovePID {
-        public static final double P = 0.1;
+        public static final double P = 1.0;
         public static final double I = 0.0;
         public static final double D = 0.0;
         public static final double f = 0.0;
-        public static final double MaxAlignSpeed = 24; // Inches per second
-        public static final double AlignTolerance = 12; // Inches
+        public static final double MaxAlignSpeed = 2; // Inches per second
+        public static final double AlignTolerance = 0.01; // Meters
     }
 
     public static final class TurnPID {
@@ -80,13 +81,13 @@ public final class Constants {
         public static final int kEncoderCPR = 2048;
         public static final double kWheelCircInches = 19.0;
         public static final double distancePerPulse = (kWheelCircInches) / (double) kEncoderCPR;// Gear
-        public static final double distancePerPulse_m = (kWheelCircInches*0.0254) / (double) kEncoderCPR;
+        public static final double distancePerPulse_m = (kWheelCircInches * 0.0254) / (double) kEncoderCPR;
         public static final double ksVolts = 0.22;
         public static final double kvVoltSecondsPerMeter = 1.98;
         public static final double kaVoltSecondsSquaredPerMeter = 0.2;
         // Example value only - as above, this must be tuned for your drive!
         public static final double kPDriveVel = 8.5;
-        public static final double kTrackWidth_m = 30*2.54/100;//width in meters
+        public static final double kTrackWidth_m = 30 * 2.54 / 100;// width in meters
         public static final double rightP = 0.01;
         public static final double rightI = 0.00;
         public static final double rightD = 0.00;
@@ -101,34 +102,35 @@ public final class Constants {
         public static final int waitforshootersecs = 10;
         public static final double feedmotorspeed = 0.5;
         public static final double shootermotorspeed = 1600;
-        public static final double kP = 0.0012;
+        public static final double kP = 0.0006;// 0.00012
         public static final double kI = 0.000000;
-        public static final double kD = 0.04;
+        public static final double kD = 0.000;
         public static final double kIz = 0;
         public static final double kFF = 0;
         public static final double kMaxOutput = 0.7;
         public static final double kMinOutput = -0.7;
         public static final double speedTolerance = 50.0;
+        public static final double g_ratio = 3.0;
     }
 
     public static final class ClimberC {
         public static final double climberSpeed = 1.0;
-        public static final double climberforwardlimit = 475;
+        public static final double climberforwardlimit = 530;
         public static final double climberreverselimit = 0;
     }
 
     public static final class firstIntake {
         public static final double firstIntakespeed = 0.4;
         public static final double ExtendSpeed = 0.3;
-        public static final double ExtendDistance = 118;// how far to turn motor to extend arm
-        public static final double ExtendminDistance = 5;// how far to turn motor to extend arm
+        public static final double ExtendDistance = 0;// how far to turn motor to extend arm
+        public static final double ExtendminDistance = -40;// how far to turn motor to extend arm
         public static final double P = 0.1;
         public static final double I = 0.0;
         public static final double D = 0.0;
         public static final double F = 0.0;
         public static final double zI = 0;
-        public static final double kMaxOutput = 0.4;
-        public static final double kMinOutput = 0.1;
+        public static final double kMaxOutput = 0.7;
+        public static final double kMinOutput = -0.7;
     }
 
     public static final class buttonsLeftjoy {
@@ -148,6 +150,14 @@ public final class Constants {
         public static final int moveButton = 1;
         public static final int turnleftButton = 3;
         public static final int turnrightButton = 4;
+    }
+
+    public static final class buttonsGamepad {
+        public static final int IntakeToggleButton = 3;
+        public static final int ClimberUpButton = 4;
+        public static final int ClimberDownButton = 2;
+        public static final int IntakeOnOffButton = 8;
+        public static final int ShooterButton = 5;
     }
 
     public static final class Conveyspeed {

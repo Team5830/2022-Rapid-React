@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
 
 public class Flywheel extends SubsystemBase {
-   CANSparkMax m_leftlead;
+   // CANSparkMax m_leftlead;
    CANSparkMax m_rightfollow;
    public SparkMaxPIDController m_pidController;
    RelativeEncoder m_encoder;
@@ -46,16 +46,18 @@ public class Flywheel extends SubsystemBase {
 
    public Flywheel() {
       try {
-         // m_rightfollow = new CANSparkMax(CANBusID.kRightFlywheel,
-         // MotorType.kBrushless);
-         m_leftlead = new CANSparkMax(CANBusID.kLeftFlywheel, MotorType.kBrushless);
-         m_leftlead.restoreFactoryDefaults();
-         // m_rightfollow.restoreFactoryDefaults();
-         m_leftlead.follow(ExternalFollower.kFollowerDisabled, 0);
-         // m_rightfollow.follow(m_leftlead, true);
+         m_rightfollow = new CANSparkMax(CANBusID.kRightFlywheel, MotorType.kBrushless); // Must set new ID if being
+                                                                                         // used
+         // m_leftlead = new CANSparkMax(CANBusID.kLeftFlywheel, MotorType.kBrushless);
+         // m_leftlead.restoreFactoryDefaults();
+         m_rightfollow.restoreFactoryDefaults();
+         // m_leftlead.follow(ExternalFollower.kFollowerDisabled, 0);
+         m_rightfollow.follow(ExternalFollower.kFollowerDisabled, 0);
+         m_rightfollow.setInverted(true);
 
-         m_pidController = m_leftlead.getPIDController();
-         m_encoder = m_leftlead.getEncoder();
+         m_pidController = m_rightfollow.getPIDController();
+         m_encoder = m_rightfollow.getEncoder();
+         // m_encoder.setVelocityConversionFactor(FlywheelC.g_ratio);
       } catch (RuntimeException ex) {
          DriverStation.reportError("error loading failed" + ex.getMessage(), true);
       }
@@ -70,10 +72,6 @@ public class Flywheel extends SubsystemBase {
       SmartDashboard.putNumber("Flywheel MinOutput", pidVals.kMinOutput);
       SmartDashboard.putNumber("Flywheel motorspeed", pidVals.motorspeed);
 
-      // FlywheelControl.add("Flywheel Control", m_pidController);
-      // FlywheelControl.add("Flywheel", m_flywheel);
-      // FlywheelControl.add("Flywheel", new Flywheel_test(m_flywheel));
-
       FlywheelControl.add("Flywheel P", pidVals.kP);
       FlywheelControl.add("Flywheel I", pidVals.kI);
       FlywheelControl.add("Flywheel D", pidVals.kD);
@@ -84,7 +82,6 @@ public class Flywheel extends SubsystemBase {
       FlywheelControl.add("Flywheel motorspeed", pidVals.motorspeed);
       FlywheelControl.add("Flywheel Speed Test", m_encoder.getVelocity());
       FlywheelControl.add("Flywheel On", isshooteron);
-
       updatePIDValues();
    }
 
@@ -99,12 +96,9 @@ public class Flywheel extends SubsystemBase {
        * ex.getMessage(), true);
        * }
        */
+      // FlywheelControl.add("Flywheel %", m_leftlead.get());
+      SmartDashboard.putNumber("Flywheel %", m_rightfollow.get());
       SmartDashboard.putNumber("Flywheel Speed ", m_encoder.getVelocity());
-      // SmartDashboard.putNumber("Flywheel Current ",
-      // m_rightfollow.getOutputCurrent());
-      // SmartDashboard.putNumber("Flywheel Current ",
-      // m_rightfollow.getVoltageCompensationNominalVoltage());
-
    }
 
    // Load PID coefficients from Dashboard
@@ -139,12 +133,14 @@ public class Flywheel extends SubsystemBase {
    }
 
    public void shooterGo() {
-      m_leftlead.set(0.1);// may be lowered or raised again
+      // m_leftlead.set(0.3);// may be lowered or raised again
+      m_rightfollow.set(0.3);
       isshooteron = true;
    }
 
    public void shooteroff() {
-      m_leftlead.set(0);
+      m_rightfollow.set(0);
+      m_pidController.setReference(0, ControlType.kDutyCycle);
       isshooteron = false;
    }
 

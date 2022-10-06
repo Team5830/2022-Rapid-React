@@ -17,7 +17,8 @@ public class Pickup extends SequentialCommandGroup {
     addRequirements(m_intake, m_conveyor, m_flywheel);
     addCommands(
         new ParallelCommandGroup(
-            // new InstantCommand(m_intake::startFirstIntake),
+            new InstantCommand(m_intake::intakeDown),
+            new InstantCommand(m_intake::startFirstIntake),
             new InstantCommand(m_conveyor::conveyor1ON),
             new InstantCommand(m_conveyor::conveyor2ON)),
         new Pause(0.5),

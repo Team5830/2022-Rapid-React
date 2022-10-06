@@ -4,10 +4,10 @@ import frc.robot.subsystems.Flywheel;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class Flywheel_test extends CommandBase {
+public class Flywheel_ON extends CommandBase {
   private final Flywheel m_flywheel;
 
-  public Flywheel_test(Flywheel subsystemFLY) {
+  public Flywheel_ON(Flywheel subsystemFLY) {
     m_flywheel = subsystemFLY;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_flywheel);
