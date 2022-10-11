@@ -1625,8 +1625,7 @@
               "Y-axis/Automatic bounds": true,
               "Y-axis/Upper bound": 1.0,
               "Y-axis/Lower bound": -1.0,
-              "Y-axis/Unit": "ul",
-              "Visible data/Shuffleboard/Flywheel/Flywheel Speed Test": true
+              "Y-axis/Unit": "ul"
             }
           },
           "6,3": {

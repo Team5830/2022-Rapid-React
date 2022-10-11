@@ -114,7 +114,7 @@ public final class Constants {
     }
 
     public static final class ClimberC {
-        public static final double climberSpeed = 1.0;
+        public static final double climberSpeed = 0.6;
         public static final double climberforwardlimit = 530;
         public static final double climberreverselimit = 0;
     }

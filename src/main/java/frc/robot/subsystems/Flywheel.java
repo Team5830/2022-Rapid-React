@@ -46,12 +46,8 @@ public class Flywheel extends SubsystemBase {
 
    public Flywheel() {
       try {
-         m_rightfollow = new CANSparkMax(CANBusID.kRightFlywheel, MotorType.kBrushless); // Must set new ID if being
-                                                                                         // used
-         // m_leftlead = new CANSparkMax(CANBusID.kLeftFlywheel, MotorType.kBrushless);
-         // m_leftlead.restoreFactoryDefaults();
+         m_rightfollow = new CANSparkMax(CANBusID.kRightFlywheel, MotorType.kBrushless);
          m_rightfollow.restoreFactoryDefaults();
-         // m_leftlead.follow(ExternalFollower.kFollowerDisabled, 0);
          m_rightfollow.follow(ExternalFollower.kFollowerDisabled, 0);
          m_rightfollow.setInverted(true);
 
