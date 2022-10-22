@@ -48,7 +48,7 @@ public class DriveTrain extends SubsystemBase {
       // Right Side Motor Controllers
       WPI_VictorSPX m_rightlead = new WPI_VictorSPX(CANBusID.kRightMotor1);
       WPI_VictorSPX m_rightfollow = new WPI_VictorSPX(CANBusID.kRightMotor2);
-      MotorControllerGroup m_right = new MotorControllerGroup(m_rightlead, m_rightfollow);
+      MotorControllerGroup m_right = new MotorControllerGroup(m_rightlead, m_rightfollow);// Hihihisussyboy
       // Left Side Motor Controllers
       WPI_VictorSPX m_leftlead = new WPI_VictorSPX(CANBusID.kLeftMotor1);
       WPI_VictorSPX m_leftfollow = new WPI_VictorSPX(CANBusID.kLeftMotor2);

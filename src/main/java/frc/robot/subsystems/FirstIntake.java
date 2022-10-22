@@ -45,7 +45,7 @@ public class FirstIntake extends SubsystemBase {
       m_intakemotor.restoreFactoryDefaults();
       m_pidController = m_exotor.getPIDController();
       m_encoder = m_exotor.getEncoder();
-      m_encoder.setPosition(5.0);
+      m_encoder.setPosition(0.0);
     } catch (RuntimeException ex) {
       DriverStation.reportError("error loading failed" + ex.getMessage(), true);
     }

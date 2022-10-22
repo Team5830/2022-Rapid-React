@@ -5,7 +5,7 @@
       "autoPopulate": true,
       "autoPopulatePrefix": "SmartDashboard/",
       "widgetPane": {
-        "gridSize": 128.0,
+        "gridSize": 100.0,
         "showGrid": true,
         "hgap": 16.0,
         "vgap": 16.0,
@@ -165,9 +165,9 @@
               "_title": "Flywheel Off"
             }
           },
-          "1,1": {
+          "4,6": {
             "size": [
-              1,
+              3,
               1
             ],
             "content": {
@@ -879,6 +879,83 @@
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/PDP/Voltage",
               "_title": "PDP/Voltage"
+            }
+          },
+          "13,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/navX Port Resets",
+              "_title": "navX Port Resets"
+            }
+          },
+          "14,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/navX Stream Responses",
+              "_title": "navX Stream Responses"
+            }
+          },
+          "15,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/navX Updates Per Sec",
+              "_title": "navX Updates Per Sec"
+            }
+          },
+          "1,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Shoot",
+              "_title": "Shoot"
+            }
+          },
+          "13,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/IntakeRetractOff",
+              "_title": "IntakeRetractOff"
+            }
+          },
+          "14,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Stop extend",
+              "_title": "Stop extend"
+            }
+          },
+          "15,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Climber reverse dir",
+              "_title": "Climber reverse dir"
             }
           }
         }
@@ -1625,7 +1702,8 @@
               "Y-axis/Automatic bounds": true,
               "Y-axis/Upper bound": 1.0,
               "Y-axis/Lower bound": -1.0,
-              "Y-axis/Unit": "ul"
+              "Y-axis/Unit": "ul",
+              "Visible data/Shuffleboard/Flywheel/Flywheel Speed Test": true
             }
           },
           "6,3": {
@@ -1781,7 +1859,7 @@
         "tiles": {
           "3,0": {
             "size": [
-              3,
+              2,
               3
             ],
             "content": {
@@ -1827,50 +1905,7 @@
               ]
             }
           },
-          "3,3": {
-            "size": [
-              3,
-              2
-            ],
-            "content": {
-              "_type": "List Layout",
-              "_title": "Intake",
-              "Layout/Label position": "LEFT",
-              "_children": [
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Toggle extend",
-                  "_title": "Toggle extend"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Intake Up",
-                  "_title": "Intake Up"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Intake Down",
-                  "_title": "Intake Down"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/Intake Encoder",
-                  "_title": "Intake Encoder"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/Intake Forward Soft Limit",
-                  "_title": "Intake Forward Soft Limit"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/Intake Reverse Soft Limit",
-                  "_title": "Intake Reverse Soft Limit"
-                }
-              ]
-            }
-          },
-          "6,0": {
+          "5,0": {
             "size": [
               3,
               5
@@ -1884,21 +1919,6 @@
                   "_type": "Command",
                   "_source0": "network_table:///SmartDashboard/Flywheel On",
                   "_title": "Flywheel On"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Intake Toggle",
-                  "_title": "SmartDashboard/Intake Toggle"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Conveyor1 Toggle",
-                  "_title": "Conveyor1"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Conveyor2 Toggle",
-                  "_title": "Conveyor2"
                 },
                 {
                   "_type": "Text View",
@@ -1929,6 +1949,21 @@
                   "_type": "Command",
                   "_source0": "network_table:///SmartDashboard/Flywheel Off",
                   "_title": "SmartDashboard/Flywheel Off"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Conveyor1 Toggle",
+                  "_title": "Conveyor1"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Conveyor2 Toggle",
+                  "_title": "Conveyor2"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Toggle",
+                  "_title": "SmartDashboard/Intake Toggle"
                 }
               ]
             }
@@ -1963,11 +1998,6 @@
               "Layout/Label position": "LEFT",
               "_children": [
                 {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Climber Off",
-                  "_title": "SmartDashboard/Climber Off"
-                },
-                {
                   "_type": "Text View",
                   "_source0": "network_table:///SmartDashboard/Climber Encoder",
                   "_title": "SmartDashboard/Climber Encoder"
@@ -1991,13 +2021,18 @@
                   "_type": "Text View",
                   "_source0": "network_table:///Shuffleboard/Climber/Reverse Soft Limit",
                   "_title": "Shuffleboard/Climber/Reverse Soft Limit"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Climber Off",
+                  "_title": "SmartDashboard/Climber Off"
                 }
               ]
             }
           },
-          "9,2": {
+          "8,0": {
             "size": [
-              2,
+              3,
               2
             ],
             "content": {
@@ -2022,15 +2057,71 @@
                 }
               ]
             }
+          },
+          "8,2": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Intake",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Down",
+                  "_title": "Intake Down"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Intake Encoder",
+                  "_title": "Intake Encoder"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Intake Forward Soft Limit",
+                  "_title": "Intake Forward Soft Limit"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Intake Reverse Soft Limit",
+                  "_title": "Intake Reverse Soft Limit"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Intake Up",
+                  "_title": "Intake Up"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Toggle extend",
+                  "_title": "Toggle extend"
+                }
+              ]
+            }
           }
         }
+      }
+    },
+    {
+      "title": "Intake",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {}
       }
     }
   ],
   "windowGeometry": {
-    "x": -6.666666507720947,
-    "y": 1.3333333730697632,
-    "width": 1718.6666259765625,
-    "height": 925.3333129882812
+    "x": -7.333333492279053,
+    "y": -7.333333492279053,
+    "width": 1721.3333740234375,
+    "height": 934.6666870117188
   }
 }

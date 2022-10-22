@@ -43,7 +43,7 @@ public final class Constants {
 
     public static final class ConveyorC {
         public static final double speed = 0.6;
-        public static final double DownforShot = 6.0; // 4.0
+        public static final double DownforShot = 4.0; // 4.0
         public static final double UpforShot = 10.5; // 10.5
         public static final double currentLimit = 21.0;
         public static final double kP = 0.3;
@@ -101,21 +101,21 @@ public final class Constants {
     public static final class FlywheelC {
         public static final int waitforshootersecs = 10;
         public static final double feedmotorspeed = 0.5;
-        public static final double shootermotorspeed = 1600;
-        public static final double kP = 0.0006;// 0.00012
-        public static final double kI = 0.000000;
+        public static final double shootermotorspeed = 3000;// 3000
+        public static final double kP = 0.0012;// 0.00012
+        public static final double kI = 0.000;
         public static final double kD = 0.000;
         public static final double kIz = 0;
         public static final double kFF = 0;
         public static final double kMaxOutput = 0.7;
         public static final double kMinOutput = -0.7;
-        public static final double speedTolerance = 50.0;
-        public static final double g_ratio = 3.0;
+        public static final double speedTolerance = 300.0;
+        public static final double g_ratio = 2.0;
     }
 
     public static final class ClimberC {
         public static final double climberSpeed = 0.6;
-        public static final double climberforwardlimit = 530;
+        public static final double climberforwardlimit = 510;
         public static final double climberreverselimit = 0;
     }
 
@@ -123,7 +123,7 @@ public final class Constants {
         public static final double firstIntakespeed = 0.4;
         public static final double ExtendSpeed = 0.3;
         public static final double ExtendDistance = 0;// how far to turn motor to extend arm
-        public static final double ExtendminDistance = -40;// how far to turn motor to extend arm
+        public static final double ExtendminDistance = -38;// how far to turn motor to extend arm
         public static final double P = 0.1;
         public static final double I = 0.0;
         public static final double D = 0.0;

@@ -48,7 +48,7 @@ public class Climber extends SubsystemBase {
 
   @Override
   public void periodic() {
-    climberMotorup.setInverted(true);
+    // climberMotorup.setInverted(true);
     climberMotorup.enableSoftLimit(CANSparkMax.SoftLimitDirection.kForward, true);
     climberMotorup.enableSoftLimit(CANSparkMax.SoftLimitDirection.kReverse, true);
     fsoftlimit = SmartDashboard.getNumber("Forward Soft Limit", Constants.ClimberC.climberforwardlimit);

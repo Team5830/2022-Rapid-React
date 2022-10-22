@@ -53,7 +53,7 @@ public class Flywheel extends SubsystemBase {
 
          m_pidController = m_rightfollow.getPIDController();
          m_encoder = m_rightfollow.getEncoder();
-         // m_encoder.setVelocityConversionFactor(FlywheelC.g_ratio);
+         m_encoder.setVelocityConversionFactor(FlywheelC.g_ratio);
       } catch (RuntimeException ex) {
          DriverStation.reportError("error loading failed" + ex.getMessage(), true);
       }
@@ -83,15 +83,15 @@ public class Flywheel extends SubsystemBase {
 
    @Override
    public void periodic() {
-      /*
-       * try {
-       * // SmartDashboard.putBoolean("Flywheel On", isshooteron);
-       * 
-       * } catch (RuntimeException ex) {
-       * DriverStation.reportError("Shooter: Not able to get velocity " +
-       * ex.getMessage(), true);
-       * }
-       */
+
+      try {
+         SmartDashboard.putBoolean("Flywheel On", isshooteron);
+
+      } catch (RuntimeException ex) {
+         DriverStation.reportError("Shooter: Not able to get velocity " +
+               ex.getMessage(), true);
+      }
+
       // FlywheelControl.add("Flywheel %", m_leftlead.get());
       SmartDashboard.putNumber("Flywheel %", m_rightfollow.get());
       SmartDashboard.putNumber("Flywheel Speed ", m_encoder.getVelocity());

@@ -24,8 +24,9 @@ public class Pickup extends SequentialCommandGroup {
         new Pause(0.5),
         new WaitUntilCommand(() -> m_conveyor.jammed),
         new InstantCommand(m_conveyor::conveyor2OFF),
-        new InstantCommand(m_conveyor::conv2down),
-        new InstantCommand(m_flywheel::shooteron));
+        new InstantCommand(m_conveyor::conv2down)
+    // Pnew InstantCommand(m_flywheel::shooteron)
+    );
     /*
      * addCommands(
      * new ParallelCommandGroup(

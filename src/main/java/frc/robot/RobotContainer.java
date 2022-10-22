@@ -102,6 +102,7 @@ public class RobotContainer {
     SmartDashboard.putData("Intake Down", new InstantCommand(m_intake::intakeDown));
     SmartDashboard.putData("Intake Up", new InstantCommand(m_intake::intakeUp));
     SmartDashboard.putData("Toggle extend", new InstantCommand(m_intake::toggleExtension));
+    SmartDashboard.putData("Stop extend", new InstantCommand(m_intake::stopRetract));
     // SmartDashboard.putData("Intake On", new
     // InstantCommand(m_intake::startFirstIntake));
     // SmartDashboard.putData("Intake Off", new
@@ -114,6 +115,7 @@ public class RobotContainer {
     SmartDashboard.putData("Conveyor1 Toggle", new InstantCommand(m_conveyor::toggleconveyor1));
     SmartDashboard.putData("Conveyor2 Toggle", new InstantCommand(m_conveyor::toggleconveyor2));
     SmartDashboard.putData("Pickup", new Pickup(m_intake, m_conveyor, m_flywheel));
+    SmartDashboard.putData("All Off", new Alloff(m_intake, m_conveyor, m_flywheel, m_climber));
     SmartDashboard.putData("Pickup Off", new PickupOff(m_intake, m_conveyor));
     SmartDashboard.putData("Conv2down", new InstantCommand(m_conveyor::conv2down));
     SmartDashboard.putData("Conv2up", new InstantCommand(m_conveyor::conv2up));
@@ -134,17 +136,16 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     return new SequentialCommandGroup(
-        // new InstantCommand(m_flywheel::shooterGo),
-        // new Pause(2.0),
-        // new InstantCommand(m_conveyor::conveyor2ON),
-        // new Shoot(m_flywheel, m_conveyor),
+        new InstantCommand(m_flywheel::shooteron),
+        new Pause(2.0),
+        new InstantCommand(m_conveyor::conveyor2ON),
+        new Shoot(m_flywheel, m_conveyor),
         new InstantCommand(m_drivetrain::toggleMaxSpeed),
-        // new Pause(2.0),
+        new Pause(2.0),
         new Move(-2, m_drivetrain),
-        new InstantCommand(m_drivetrain::toggleMaxSpeed)
-    // new InstantCommand(m_flywheel::shooteroff),
-    // new InstantCommand(m_conveyor::conveyor2OFF
-    );
+        new InstantCommand(m_drivetrain::toggleMaxSpeed),
+        new InstantCommand(m_flywheel::shooteroff),
+        new InstantCommand(m_conveyor::conveyor2OFF));
     // new InstantCommand(m_intake::intakeDown));
   }
 
