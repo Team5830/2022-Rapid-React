@@ -957,6 +957,17 @@
               "_source0": "network_table:///SmartDashboard/Climber reverse dir",
               "_title": "Climber reverse dir"
             }
+          },
+          "13,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/All Off",
+              "_title": "All Off"
+            }
           }
         }
       }
@@ -1917,8 +1928,8 @@
               "_children": [
                 {
                   "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Flywheel On",
-                  "_title": "Flywheel On"
+                  "_source0": "network_table:///SmartDashboard/Conveyor1 Toggle",
+                  "_title": "Conveyor1"
                 },
                 {
                   "_type": "Text View",
@@ -1937,11 +1948,6 @@
                 },
                 {
                   "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Pickup",
-                  "_title": "SmartDashboard/Pickup"
-                },
-                {
-                  "_type": "Command",
                   "_source0": "network_table:///SmartDashboard/Shoot",
                   "_title": "SmartDashboard/Shoot"
                 },
@@ -1952,8 +1958,8 @@
                 },
                 {
                   "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Conveyor1 Toggle",
-                  "_title": "Conveyor1"
+                  "_source0": "network_table:///SmartDashboard/Intake Toggle",
+                  "_title": "SmartDashboard/Intake Toggle"
                 },
                 {
                   "_type": "Command",
@@ -1962,8 +1968,18 @@
                 },
                 {
                   "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Intake Toggle",
-                  "_title": "SmartDashboard/Intake Toggle"
+                  "_source0": "network_table:///SmartDashboard/All Off",
+                  "_title": "SmartDashboard/All Off"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Pickup",
+                  "_title": "SmartDashboard/Pickup"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Flywheel On",
+                  "_title": "Flywheel On"
                 }
               ]
             }

@@ -43,7 +43,7 @@ public final class Constants {
 
     public static final class ConveyorC {
         public static final double speed = 0.6;
-        public static final double DownforShot = 4.0; // 4.0
+        public static final double DownforShot = 6.0; // 4.0
         public static final double UpforShot = 10.5; // 10.5
         public static final double currentLimit = 21.0;
         public static final double kP = 0.3;
@@ -56,12 +56,12 @@ public final class Constants {
     }
 
     public static final class MovePID {
-        public static final double P = 1.0;
+        public static final double P = 1.0;// 1.0
         public static final double I = 0.0;
         public static final double D = 0.0;
         public static final double f = 0.0;
         public static final double MaxAlignSpeed = 2; // Inches per second
-        public static final double AlignTolerance = 0.01; // Meters
+        public static final double AlignTolerance = 0.1; // Meters
     }
 
     public static final class TurnPID {
@@ -114,8 +114,8 @@ public final class Constants {
     }
 
     public static final class ClimberC {
-        public static final double climberSpeed = 0.6;
-        public static final double climberforwardlimit = 510;
+        public static final double climberSpeed = 0.9;
+        public static final double climberforwardlimit = 535;
         public static final double climberreverselimit = 0;
     }
 
