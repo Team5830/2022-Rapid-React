@@ -36,6 +36,7 @@ public class RobotContainer {
   private final XboxController m_gamepad = new XboxController(2);
   private final Climber m_climber = new Climber();
   private final Conveyor m_conveyor = new Conveyor();
+  private final Pneumatics m_pnuematics = new Pneumatics();
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -94,7 +95,8 @@ public class RobotContainer {
     // SmartDashboard.putData("Climber Down", new
     // InstantCommand(m_climber::reverse_Motor1));
     SmartDashboard.putData("Shoot", new Shoot(m_flywheel, m_conveyor));
-
+    SmartDashboard.putData("Single Pneumatic Toggle", new InstantCommand(m_pnuematics::toggleSingle));
+    SmartDashboard.putData("Double Pneumatic Toggle", new InstantCommand(m_pnuematics::toggleDouble));
     SmartDashboard.putData("Flywheel On", new Flywheel_ON(m_flywheel));
     SmartDashboard.putData("Easy Shooter", new InstantCommand(m_flywheel::shooterGo));
     SmartDashboard.putData("Flywheel Off", new InstantCommand(m_flywheel::shooteroff));
