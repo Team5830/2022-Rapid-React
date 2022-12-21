@@ -164,7 +164,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void ArcadeDrive(double forwardspeed, double rotationspeed) {
-    m_drive.arcadeDrive(-forwardspeed, rotationspeed, DriveC.SquareInputs);
+    m_drive.arcadeDrive(forwardspeed, rotationspeed, DriveC.SquareInputs);
   }
 
   /** Zeroes the heading of the robot. */

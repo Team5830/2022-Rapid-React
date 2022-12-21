@@ -23,7 +23,7 @@ public class Move extends PIDCommand {
 
   public Move(double targetDistanceInches, DriveTrain drive) {
     super(new PIDController(MovePID.P, MovePID.I, MovePID.D),
-        drive::getLeftDistance, targetDistanceInches, output -> drive.ArcadeDrive(-output, 0), drive);
+        drive::getLeftDistance, targetDistanceInches, output -> drive.ArcadeDrive(output, 0), drive);
 
     drive.resetEncoders();
 
