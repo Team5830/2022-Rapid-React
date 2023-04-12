@@ -30,7 +30,7 @@ public class Conveyor extends SubsystemBase {
   public Conveyor() {
     try {
       m_conv1motor = new CANSparkMax(CANBusID.conveyor1, MotorType.kBrushless);
-      m_conv2motor = new CANSparkMax(CANBusID.conveyor2, MotorType.kBrushed);
+      m_conv2motor = new CANSparkMax(CANBusID.conveyor2, MotorType.kBrushless);
     } catch (RuntimeException ex) {
       DriverStation.reportError("Error instantiating conveyor motors " + ex.getMessage(), true);
     }

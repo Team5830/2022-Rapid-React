@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Timer;
+//import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.*;
@@ -33,7 +33,7 @@ public class RobotContainer {
   public final Flywheel m_flywheel = new Flywheel();
   private final Joystick m_leftJoy = new Joystick(0);
   private final Joystick m_rightJoy = new Joystick(1);
-  private final Climber m_climber = new Climber();
+  // private final Climber m_climber = new Climber();
   private final Conveyor m_conveyor = new Conveyor();
 
   /**
@@ -78,7 +78,9 @@ public class RobotContainer {
     // new JoystickButton(m_leftJoy, buttonsRightJoy.intakeoffButton).whenPressed(()
     // -> m_intake.);
     new JoystickButton(m_leftJoy, buttonsRightjoy.pickupButton).whenPressed(new Pickup(m_intake, m_conveyor));
-    new JoystickButton(m_leftJoy, buttonsRightjoy.shootButton).whenPressed(new Shoot(m_flywheel, m_conveyor));
+    // new JoystickButton(m_leftJoy, buttonsRightjoy.shootButton).whenPressed(new
+    // Shoot(m_flywheel, m_conveyor));
+    new JoystickButton(m_leftJoy, buttonsRightjoy.shootButton).whenPressed(new InstantCommand(m_flywheel::shooterGo));
     new JoystickButton(m_leftJoy, buttonsRightjoy.pickupOffButton).whenPressed(new PickupOff(m_intake, m_conveyor));
     /*
      * new JoystickButton(m_leftJoy, buttonsLeftjoy.toggleIntake).whenPressed(()->
@@ -108,13 +110,13 @@ public class RobotContainer {
     // InstantCommand(m_climber::climberMoter1off));
     // SmartDashboard.putData("Climber Down", new
     // InstantCommand(m_climber::reverse_Motor1));
-    // SmartDashboard.putData("Flywheel On", new
-    // InstantCommand(m_flywheel::shooteron));
+    SmartDashboard.putData("Flywheel On", new InstantCommand(m_flywheel::shooteron));
     SmartDashboard.putData("Easy Shooter", new InstantCommand(m_flywheel::shooterGo));
     SmartDashboard.putData("Flywheel Off", new InstantCommand(m_flywheel::shooteroff));
     SmartDashboard.putData("IntakeRetractOFf", new InstantCommand(m_intake::stopRetract));
-    SmartDashboard.putData("Intake Down", new InstantCommand(m_intake::intakeDown));
-    SmartDashboard.putData("Intake Up", new InstantCommand(m_intake::intakeUp));
+    // SmartDashboard.putData("Intake Down", new
+    // InstantCommand(m_intake::intakeDown));
+    // SmartDashboard.putData("Intake Up", new InstantCommand(m_intake::intakeUp));
     SmartDashboard.putData("Toggle extend", new InstantCommand(m_intake::toggleExtension));
     SmartDashboard.putData("Intake On", new InstantCommand(m_intake::startFirstIntake));
     SmartDashboard.putData("Intake Off", new InstantCommand(m_intake::stopFirstIntake));
@@ -126,9 +128,12 @@ public class RobotContainer {
     SmartDashboard.putData("Intake Reverse", new InstantCommand(m_intake::reverseFirstIntake));
     // SmartDashboard.putData("Conveyor1 OnTill", new Conv1(m_conveyor));
     // SmartDashboard.putData("Conveyor2 OnTill", new Conv2(m_conveyor));
-    SmartDashboard.putData("Climber Up", new InstantCommand(m_climber::climber_up));
-    SmartDashboard.putData("Climber Down", new InstantCommand(m_climber::climber_down));
-    SmartDashboard.putData("Climber Off", new InstantCommand(m_climber::climberMoter1off));
+    // SmartDashboard.putData("Climber Up", new
+    // InstantCommand(m_climber::climber_up));
+    // SmartDashboard.putData("Climber Down", new
+    // InstantCommand(m_climber::climber_down));
+    // SmartDashboard.putData("Climber Off", new
+    // InstantCommand(m_climber::climberMoter1off));
 
     // SmartDashboard.putData("Conveyor1 Reverse", new
     // InstantCommand(m_conveyor::conveyor1Reversed));

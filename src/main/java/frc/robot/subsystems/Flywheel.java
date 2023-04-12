@@ -45,7 +45,7 @@ public class Flywheel extends SubsystemBase {
       try {
          // m_rightfollow = new CANSparkMax(CANBusID.kRightFlywheel,
          // MotorType.kBrushless);
-         m_leftlead = new CANSparkMax(CANBusID.kLeftFlywheel, MotorType.kBrushless);
+         m_leftlead = new CANSparkMax(CANBusID.kRightFlywheel, MotorType.kBrushless);
          m_leftlead.restoreFactoryDefaults();
          // m_rightfollow.restoreFactoryDefaults();
          m_leftlead.follow(ExternalFollower.kFollowerDisabled, 0);
@@ -106,7 +106,7 @@ public class Flywheel extends SubsystemBase {
    }
 
    public void shooterGo() {
-      m_leftlead.set(0.3);// may be lowered or raised again
+      m_leftlead.set(-0.3);// may be lowered or raised again
       isshooteron = true;
    }
 

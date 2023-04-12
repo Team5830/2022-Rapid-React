@@ -22,7 +22,7 @@ public final class Constants {
         public static final int kRightMotor1 = 12;
         public static final int kLeftMotor2 = 13;
         public static final int kRightMotor2 = 11;
-        public static final int kLeftFlywheel = 6;// left flywheel motor
+        // public static final int kLeftFlywheel = 6;// left flywheel motor
         public static final int kRightFlywheel = 1;// right flywheel motor
         public static final int dintakemotor = 21;// intake
         public static final int conveyor1 = 20;// conveyor 1
@@ -97,7 +97,7 @@ public final class Constants {
     public static final class firstIntake {
         public static final double firstIntakespeed = 0.4;
         public static final double ExtendSpeed = 0.3;
-        public static final double ExtendDistance = 118;// how far to turn motor to extend arm
+        public static final double ExtendDistance = -15;// how far to turn motor to extend arm
         public static final double ExtendminDistance = 5;// how far to turn motor to extend arm
         public static final double P = 0.1;
         public static final double I = 0.0;
