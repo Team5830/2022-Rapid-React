@@ -10,7 +10,7 @@ import frc.robot.subsystems.Flywheel;
 import frc.robot.subsystems.Climber;
 
 public class Alloff extends SequentialCommandGroup {
-    public Alloff(FirstIntake m_intake, Conveyor m_conveyor, Flywheel m_flywheel, Climber m_climber) {
+    public Alloff(FirstIntake m_intake, Conveyor m_conveyor, Flywheel m_flywheel) {
         addRequirements(m_intake, m_conveyor, m_flywheel);
         addCommands(
                 new ParallelCommandGroup(

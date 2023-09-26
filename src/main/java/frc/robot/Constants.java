@@ -43,7 +43,7 @@ public final class Constants {
 
     public static final class ConveyorC {
         public static final double speed = 0.6;
-        public static final double DownforShot = 6.0; // 4.0
+        public static final double DownforShot = 10.0; // 4.0
         public static final double UpforShot = 10.5; // 10.5
         public static final double currentLimit = 21.0;
         public static final double kP = 0.3;

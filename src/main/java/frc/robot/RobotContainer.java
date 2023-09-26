@@ -81,10 +81,10 @@ public class RobotContainer {
         .whenPressed(new InstantCommand(m_intake::toggleExtension));
     new JoystickButton(m_gamepad, buttonsGamepad.IntakeOnOffButton)
         .whenPressed(new InstantCommand(m_intake::toggleFirstIntake));
-    new JoystickButton(m_gamepad, buttonsGamepad.ClimberUpButton)
-        .whenPressed(new InstantCommand(m_climber::climber_up));
-    new JoystickButton(m_gamepad, buttonsGamepad.ClimberDownButton)
-        .whenPressed(new InstantCommand(m_climber::climber_down));
+    // new JoystickButton(m_gamepad, buttonsGamepad.ClimberUpButton)
+    // .whenPressed(new InstantCommand(m_climber::climber_up));
+    // new JoystickButton(m_gamepad, buttonsGamepad.ClimberDownButton)
+    // .whenPressed(new InstantCommand(m_climber::climber_down));
     new JoystickButton(m_gamepad, buttonsGamepad.ShooterButton)
         .whenPressed(new Shoot(m_flywheel, m_conveyor));
     // SmartDashboard.putData("Climber Up", new
@@ -115,7 +115,7 @@ public class RobotContainer {
     SmartDashboard.putData("Conveyor1 Toggle", new InstantCommand(m_conveyor::toggleconveyor1));
     SmartDashboard.putData("Conveyor2 Toggle", new InstantCommand(m_conveyor::toggleconveyor2));
     SmartDashboard.putData("Pickup", new Pickup(m_intake, m_conveyor, m_flywheel));
-    SmartDashboard.putData("All Off", new Alloff(m_intake, m_conveyor, m_flywheel, m_climber));
+    SmartDashboard.putData("All Off", new Alloff(m_intake, m_conveyor, m_flywheel));
     SmartDashboard.putData("Pickup Off", new PickupOff(m_intake, m_conveyor));
     SmartDashboard.putData("Conv2down", new InstantCommand(m_conveyor::conv2down));
     SmartDashboard.putData("Conv2up", new InstantCommand(m_conveyor::conv2up));
@@ -123,10 +123,14 @@ public class RobotContainer {
     // ClimberControl.add( new InstantCommand(m_climber::climber_up));
     // ClimberControl.add( new InstantCommand(m_climber::climber_down));
 
-    SmartDashboard.putData("Climber Up", new InstantCommand(m_climber::climber_up));
-    SmartDashboard.putData("Climber Down", new InstantCommand(m_climber::climber_down));
-    SmartDashboard.putData("Climber Off", new InstantCommand(m_climber::climberMoter1off));
-    SmartDashboard.putData("Climber reverse dir", new InstantCommand(m_climber::reverse_Motor1));
+    // SmartDashboard.putData("Climber Up", new
+    // InstantCommand(m_climber::climber_up));
+    // SmartDashboard.putData("Climber Down", new
+    // InstantCommand(m_climber::climber_down));
+    // SmartDashboard.putData("Climber Off", new
+    // InstantCommand(m_climber::climberMoter1off));
+    // SmartDashboard.putData("Climber reverse dir", new
+    // InstantCommand(m_climber::reverse_Motor1));
   }
 
   /**

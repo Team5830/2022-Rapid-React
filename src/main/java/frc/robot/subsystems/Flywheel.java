@@ -130,7 +130,7 @@ public class Flywheel extends SubsystemBase {
 
    public void shooterGo() {
       // m_leftlead.set(0.3);// may be lowered or raised again
-      m_rightfollow.set(0.3);
+      m_rightfollow.set(3.0);
       isshooteron = true;
    }
 
